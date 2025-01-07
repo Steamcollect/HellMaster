@@ -3,21 +3,8 @@ using UnityEditor.PackageManager;
 using UnityEngine;
 public class PlayerCombat : MonoBehaviour
 {
-    [Header("Settings")]
-    [SerializeField] int damage;
-    [SerializeField] float maxShootDistance;
-
-    [Space(5)]
-    [SerializeField] float attackCooldown;
-    bool canAttack = true;
-
-    [Space(10)]
-    [SerializeField] float reloadTime;
-    [SerializeField] int maxBulletCount;
-    int bulletCount;
-    bool isReloading = false;
-
     [Header("References")]
+    [SerializeField] WeaponTemplate weapon;
     [SerializeField] Transform cam;
 
     //[Space(10)]
@@ -30,58 +17,19 @@ public class PlayerCombat : MonoBehaviour
 
     private void Start()
     {
-        bulletCount = maxBulletCount;
+        weapon.Reload();
     }
 
     private void Update()
     {
-        if (Input.GetKey(KeyCode.Mouse0) && canAttack && !isReloading)
+        if (Input.GetKey(KeyCode.Mouse0) && weapon.isSemiAuto || Input.GetKeyDown(KeyCode.Mouse0))
         {
-            if(bulletCount <= 0)
-            {
-                StartCoroutine(Reload());
-            }
-            else
-            {
-                Attack();
-                StartCoroutine(AttackCooldown());
-            }
+            weapon.OnAttack(cam.position, cam.forward);
         }
 
-        if (Input.GetKey(KeyCode.R) && !isReloading && bulletCount < maxBulletCount)
+        if (Input.GetKey(KeyCode.R))
         {
-            StartCoroutine(Reload());
+            weapon.Reload();
         }
-    }
-
-    void Attack()
-    {
-        RaycastHit hit;
-
-        if (Physics.Raycast(cam.position, cam.forward, out hit, maxShootDistance))
-        {
-            if(hit.transform.TryGetComponent(out IHealth health))
-            {
-                health.TakeDamage(damage);
-            }
-        }
-
-        bulletCount--;
-    }
-
-    IEnumerator AttackCooldown()
-    {
-        canAttack = false;
-        yield return new WaitForSeconds(attackCooldown);
-        canAttack = true;
-    }
-
-    IEnumerator Reload()
-    {
-        isReloading = true;
-        yield return new WaitForSeconds(reloadTime);
-
-        bulletCount = maxBulletCount;
-        isReloading = false;
     }
 }
