@@ -5,15 +5,15 @@ using UnityEngine;
 public class CameraController : MonoBehaviour
 {
     [Header("Camera Settings")]
-    [SerializeField] private Transform playerBody;
-    [SerializeField] private float mouseSensitivity = 100f;
-    [SerializeField] private float maxTiltAngle = 10f;
-    [SerializeField] private float tiltSpeed = 5f;
+    [SerializeField] Transform playerBody;
+    [SerializeField] float mouseSensitivity = 100f;
+    [SerializeField] float maxTiltAngle = 10f;
+    [SerializeField] float tiltSpeed = 5f;
 
-    private float xRotation = 0f;
-    private float currentTilt = 0f;
+    float xRotation = 0f;
+    float currentTilt = 0f;
 
-    private void Start()
+    void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
     }
@@ -24,7 +24,7 @@ public class CameraController : MonoBehaviour
         TiltCameraBasedOnMovement();
     }
 
-    private void RotateCamera()
+    void RotateCamera()
     {
         float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity * Time.deltaTime;
         float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity * Time.deltaTime;
@@ -36,7 +36,7 @@ public class CameraController : MonoBehaviour
         playerBody.Rotate(Vector3.up * mouseX);
     }
 
-    private void TiltCameraBasedOnMovement()
+    void TiltCameraBasedOnMovement()
     {
         float horizontalInput = Input.GetAxis("Horizontal");
         float targetTilt = -horizontalInput * maxTiltAngle;

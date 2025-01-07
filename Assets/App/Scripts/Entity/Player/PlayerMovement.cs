@@ -104,7 +104,6 @@ public class PlayerMovement : MonoBehaviour
 
     void UpdateCameraFOV()
     {
-        // Calcul de la vitesse actuelle du joueur (magnitude du vecteur de vitesse)
         float currentSpeed = rb.velocity.magnitude;
 
         // Interpolation du FOV entre le FOV par défaut et le FOV maximum
