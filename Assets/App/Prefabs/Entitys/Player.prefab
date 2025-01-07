@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 5895177216945678}
   - component: {fileID: 7334091514902704166}
   - component: {fileID: 2325282933072371097}
+  - component: {fileID: 1418595597308619600}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -106,15 +107,16 @@ MonoBehaviour:
   jumpForce: 5
   coyoteTime: 0.2
   jumpBufferTime: 0.1
+  jumpImpulsionMult: 1.2
   groundLayer:
     serializedVersion: 2
     m_Bits: 8
   groundCheck: {fileID: 6522753992655188634}
   groundCheckRadius: 0.2
-  playerCamera: {fileID: 1943746074359606207}
   defaultFOV: 60
   maxFOV: 75
   fovSpeed: 5
+  cam: {fileID: 1943746074359606207}
   rb: {fileID: 5895177216945678}
 --- !u!114 &2325282933072371097
 MonoBehaviour:
@@ -129,6 +131,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 100
+--- !u!114 &1418595597308619600
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1696774176140330330}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81e09011eb27e33439b04aaa82d3593e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 10
+  maxShootDistance: 100
+  attackCooldown: 0.2
+  reloadTime: 1
+  maxBulletCount: 5
+  cam: {fileID: 8221105608950911600}
 --- !u!1 &2772180619573001532
 GameObject:
   m_ObjectHideFlags: 0

@@ -14,6 +14,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] float jumpForce = 5f;
     [SerializeField] float coyoteTime = 0.2f;
     [SerializeField] float jumpBufferTime = 0.2f;
+    [SerializeField] float jumpImpulsionMult = 1.2f;
 
     [Header("Physics")]
     [SerializeField] LayerMask groundLayer;
@@ -97,7 +98,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (jumpBufferCounter > 0 && (isGrounded || Time.time - lastGroundedTime <= coyoteTime))
         {
-            rb.velocity = new Vector3(rb.velocity.x, jumpForce, rb.velocity.z);
+            rb.velocity = new Vector3(rb.velocity.x * jumpImpulsionMult, jumpForce, rb.velocity.z * jumpImpulsionMult);
             jumpBufferCounter = 0;
         }
     }

@@ -1,12 +1,11 @@
-﻿using System.Collections;
 using UnityEngine;
 
-public class PlayerHealth : MonoBehaviour, IHealth
+public class EnemyHealth : MonoBehaviour, IHealth
 {
     [Header("Settings")]
     [SerializeField] int maxHealth;
     int currentHealth;
-    
+
     //[Header("References")]
 
     //[Space(10)]
@@ -34,6 +33,6 @@ public class PlayerHealth : MonoBehaviour, IHealth
 
     void Die()
     {
-        print("Player is dead");
+        print("Enemy dead");
     }
 }
