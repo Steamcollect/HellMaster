@@ -38,7 +38,7 @@ public class PlayerCombat : MonoBehaviour
 
         if (Input.GetKey(KeyCode.Mouse0) && weapons[currentWeaponIndex].isSemiAuto || Input.GetKeyDown(KeyCode.Mouse0))
         {
-            weapons[0].OnAttack(cam.position, cam.forward);
+            weapons[currentWeaponIndex].OnAttack(cam.position, cam.forward);
         }
 
         if (Input.GetKey(KeyCode.R))
