@@ -6,6 +6,7 @@ public class Weapon_Sword : WeaponTemplate
 {
     [Header("Settings")]
     [SerializeField] float attackDistance = 2;
+    [SerializeField] Animator animator;
 
     //[Header("References")]
 
@@ -21,6 +22,8 @@ public class Weapon_Sword : WeaponTemplate
         transform.forward = attackDirection;
 
         RaycastHit[] hits = Physics.RaycastAll(attackPosition, attackDirection, attackDistance);
+
+        animator.SetTrigger("Attack");
 
         if (hits.Length > 0)
         {
