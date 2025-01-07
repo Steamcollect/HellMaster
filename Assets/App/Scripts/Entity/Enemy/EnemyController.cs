@@ -7,7 +7,7 @@ public class EnemyController : MonoBehaviour
 
     [Header("References")]
     [SerializeField] NavMeshAgent agent;
-    [SerializeField] Transform target;
+    [SerializeField] RSO_PlayerTransform rsoTarget;
     [SerializeField] WeaponTemplate weapon;
 
     Transform lookAtRot;
@@ -28,12 +28,12 @@ public class EnemyController : MonoBehaviour
 
     private void Update()
     {
-        agent.destination = target.position;
+        agent.destination = rsoTarget.Value.position;
 
         if(agent.remainingDistance <= agent.stoppingDistance)
         {
             lookAtRot.position = transform.position;
-            lookAtRot.LookAt(target);
+            lookAtRot.LookAt(rsoTarget.Value);
             weapon.OnAttack(transform.position, lookAtRot.forward);
         }
     }

@@ -30,10 +30,18 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] Camera cam;
     [SerializeField] Rigidbody rb;
 
+    [Space(10)]
+    [SerializeField] RSO_PlayerTransform rsoPlayerTransform;
+
     Vector3 moveDirection;
     bool isGrounded;
     float lastGroundedTime;
     float jumpBufferCounter;
+
+    private void OnEnable()
+    {
+        rsoPlayerTransform.Value = transform;
+    }
 
     void Update()
     {

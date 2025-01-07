@@ -146,7 +146,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   agent: {fileID: 1857455776393661648}
-  target: {fileID: 0}
+  rsoTarget: {fileID: 11400000, guid: 2d8d81c0e5fe70c40b604958f0a9b082, type: 2}
   weapon: {fileID: 5780002939148615414}
 --- !u!114 &7254633286562719040
 MonoBehaviour:

@@ -118,6 +118,7 @@ MonoBehaviour:
   fovSpeed: 5
   cam: {fileID: 1943746074359606207}
   rb: {fileID: 5895177216945678}
+  rsoPlayerTransform: {fileID: 11400000, guid: 2d8d81c0e5fe70c40b604958f0a9b082, type: 2}
 --- !u!114 &2325282933072371097
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -143,11 +144,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81e09011eb27e33439b04aaa82d3593e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 10
-  maxShootDistance: 100
-  attackCooldown: 0.2
-  reloadTime: 1
-  maxBulletCount: 5
+  weapon: {fileID: 0}
   cam: {fileID: 8221105608950911600}
 --- !u!1 &2772180619573001532
 GameObject:
