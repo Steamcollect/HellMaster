@@ -5,29 +5,43 @@ using UnityEngine;
 public class CameraController : MonoBehaviour
 {
     [Header("Camera Settings")]
-    public Transform cameraHolder;
-    public float mouseSensitivity = 100f;
+    [SerializeField] private Transform playerBody;
+    [SerializeField] private float mouseSensitivity = 100f;
+    [SerializeField] private float maxTiltAngle = 10f;
+    [SerializeField] private float tiltSpeed = 5f;
 
     private float xRotation = 0f;
+    private float currentTilt = 0f;
 
-    void Start()
+    private void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
     }
+
     private void Update()
     {
-        HandleCameraRotation();
+        RotateCamera();
+        TiltCameraBasedOnMovement();
     }
 
-    private void HandleCameraRotation()
+    private void RotateCamera()
     {
         float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity * Time.deltaTime;
         float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity * Time.deltaTime;
 
         xRotation -= mouseY;
-        xRotation = Mathf.Clamp(xRotation, -60f, 60f);
+        xRotation = Mathf.Clamp(xRotation, -90f, 90f);
 
-        cameraHolder.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
-        transform.Rotate(Vector3.up * mouseX);
+        transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
+        playerBody.Rotate(Vector3.up * mouseX);
+    }
+
+    private void TiltCameraBasedOnMovement()
+    {
+        float horizontalInput = Input.GetAxis("Horizontal");
+        float targetTilt = -horizontalInput * maxTiltAngle;
+
+        currentTilt = Mathf.Lerp(currentTilt, targetTilt, Time.deltaTime * tiltSpeed);
+        transform.localEulerAngles = new Vector3(transform.localEulerAngles.x, transform.localEulerAngles.y, currentTilt);
     }
 }

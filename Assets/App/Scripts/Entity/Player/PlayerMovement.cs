@@ -4,106 +4,116 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    [Header("Movement Settings")]
-    [SerializeField] float moveSpeed = 5f;
-    [SerializeField] float acceleration = 10f;
-    [SerializeField] float deceleration = 15f;
+    [Header("Movement")]
+    [SerializeField] float groundAcceleration = 20f;
+    [SerializeField] float airAcceleration = 10f;
+    [SerializeField] float maxSpeed = 10f;
+    [SerializeField] float friction = 8f;
 
-    [Header("Jump Settings")]
+    [Header("Jump")]
     [SerializeField] float jumpForce = 5f;
-    [SerializeField] float gravity = 20f;
     [SerializeField] float coyoteTime = 0.2f;
-    [SerializeField] float jumpBufferTime = 0.1f;
+    [SerializeField] float jumpBufferTime = 0.2f;
+
+    [Header("Physics")]
     [SerializeField] LayerMask groundLayer;
     [SerializeField] Transform groundCheck;
     [SerializeField] float groundCheckRadius = 0.2f;
 
+    [Header("Camera FOV Settings")]
+    [SerializeField] float defaultFOV = 60f;
+    [SerializeField] float maxFOV = 75f;
+    [SerializeField] float fovSpeed = 5f;
+
     [Header("References")]
+    [SerializeField] Camera cam;
     [SerializeField] Rigidbody rb;
-    Vector3 movementInput;
+
+    Vector3 moveDirection;
     bool isGrounded;
-    float coyoteTimeCounter;
-    float jumpBufferCounter = 0f;
-    float verticalVelocity;
+    float lastGroundedTime;
+    float jumpBufferCounter;
 
     void Update()
     {
-        HandleMovementInput();
-        HandleJump();
-    }
-    void FixedUpdate()
-    {
-        ApplyMovement();
-        ApplyGravity();
+        HandleInput();
+        CheckGroundStatus();
+        UpdateCameraFOV();
     }
 
-    void HandleMovementInput()
+    void FixedUpdate()
+    {
+        MovePlayer();
+        ApplyFriction();
+        HandleJump();
+    }
+
+    void HandleInput()
     {
         float moveX = Input.GetAxis("Horizontal");
         float moveZ = Input.GetAxis("Vertical");
-
-        Vector3 targetDirection = transform.right * moveX + transform.forward * moveZ;
-
-        if (targetDirection.magnitude > 0.1f)
-        {
-            movementInput = Vector3.Lerp(movementInput, targetDirection * moveSpeed, Time.fixedDeltaTime * acceleration);
-        }
-        else
-        {
-            movementInput = Vector3.Lerp(movementInput, Vector3.zero, Time.fixedDeltaTime * deceleration);
-        }
-    }
-    void ApplyMovement()
-    {
-        Vector3 horizontalVelocity = new Vector3(movementInput.x, 0f, movementInput.z);
-        rb.velocity = horizontalVelocity + new Vector3(0f, verticalVelocity, 0f);
-    }
-
-    void HandleJump()
-    {
-        isGrounded = Physics.CheckSphere(groundCheck.position, groundCheckRadius, groundLayer);
-
-        if (isGrounded)
-        {
-            coyoteTimeCounter = coyoteTime;
-            jumpBufferCounter = 0f;
-
-            if (verticalVelocity < 0f)
-            {
-                verticalVelocity = 0f;
-            }
-        }
-        else
-        {
-            coyoteTimeCounter -= Time.deltaTime;
-            jumpBufferCounter -= Time.deltaTime;
-        }
+        moveDirection = (transform.right * moveX + transform.forward * moveZ).normalized;
 
         if (Input.GetButtonDown("Jump"))
         {
             jumpBufferCounter = jumpBufferTime;
         }
-
-        if (coyoteTimeCounter > 0f && jumpBufferCounter > 0f && verticalVelocity <= 0f)
+        else
         {
-            verticalVelocity = jumpForce;
-            coyoteTimeCounter = 0f;
-            jumpBufferCounter = 0f;
+            jumpBufferCounter -= Time.deltaTime;
         }
     }
 
-    void ApplyGravity()
+    void CheckGroundStatus()
     {
-        if (!isGrounded)
+        isGrounded = Physics.CheckSphere(groundCheck.position, groundCheckRadius, groundLayer);
+
+        if (isGrounded)
         {
-            verticalVelocity -= gravity * Time.fixedDeltaTime;
+            lastGroundedTime = Time.time;
         }
+    }
+
+    void MovePlayer()
+    {
+        float acceleration = isGrounded ? groundAcceleration : airAcceleration;
+        Vector3 targetVelocity = moveDirection * maxSpeed;
+        Vector3 velocity = rb.velocity;
+        Vector3 velocityChange = Vector3.ClampMagnitude(targetVelocity - new Vector3(velocity.x, 0, velocity.z), acceleration * Time.fixedDeltaTime);
+        rb.AddForce(velocityChange, ForceMode.VelocityChange);
+    }
+
+    void ApplyFriction()
+    {
+        if (isGrounded && moveDirection.magnitude < 0.1f)
+        {
+            Vector3 velocity = rb.velocity;
+            Vector3 frictionForce = -friction * new Vector3(velocity.x, 0, velocity.z);
+            rb.AddForce(frictionForce, ForceMode.Acceleration);
+        }
+    }
+
+    void HandleJump()
+    {
+        if (jumpBufferCounter > 0 && (isGrounded || Time.time - lastGroundedTime <= coyoteTime))
+        {
+            rb.velocity = new Vector3(rb.velocity.x, jumpForce, rb.velocity.z);
+            jumpBufferCounter = 0;
+        }
+    }
+
+    void UpdateCameraFOV()
+    {
+        // Calcul de la vitesse actuelle du joueur (magnitude du vecteur de vitesse)
+        float currentSpeed = rb.velocity.magnitude;
+
+        // Interpolation du FOV entre le FOV par défaut et le FOV maximum
+        float targetFOV = Mathf.Lerp(defaultFOV, maxFOV, currentSpeed / maxSpeed);
+        cam.fieldOfView = Mathf.Lerp(cam.fieldOfView, targetFOV, Time.deltaTime * fovSpeed);
     }
 
     void OnDrawGizmosSelected()
     {
-        if (groundCheck == null) return;
-
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(groundCheck.position, groundCheckRadius);
     }
