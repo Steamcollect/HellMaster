@@ -6,7 +6,7 @@ public class PlayerHealth : MonoBehaviour, IHealth
     [Header("Settings")]
     [SerializeField] int maxHealth;
     int currentHealth;
-    
+
     //[Header("References")]
 
     //[Space(10)]
@@ -16,6 +16,11 @@ public class PlayerHealth : MonoBehaviour, IHealth
 
     //[Header("Input")]
     //[Header("Output")]
+
+    void Start()
+    {
+        currentHealth = maxHealth;
+    }
 
     public void TakeHealth(int health)
     {

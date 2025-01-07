@@ -16,6 +16,11 @@ public class EnemyHealth : MonoBehaviour, IHealth
     //[Header("Input")]
     //[Header("Output")]
 
+    void Start()
+    {
+        currentHealth = maxHealth;
+    }
+
     public void TakeHealth(int health)
     {
         currentHealth += health;
@@ -33,6 +38,6 @@ public class EnemyHealth : MonoBehaviour, IHealth
 
     void Die()
     {
-        print("Enemy dead");
+        Destroy(gameObject);
     }
 }
