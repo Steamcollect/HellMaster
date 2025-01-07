@@ -12,6 +12,13 @@ public class Weapon_DesertEagle : WeaponTemplate
     [SerializeField] int bulletCount;
     bool isReloading = false;
 
+    [SerializeField] TrailRenderer bulletTrail;
+    [SerializeField] Transform bulletSpawnPoint;
+    [SerializeField] ParticleSystem shootingParticleSystem;
+    [SerializeField] ParticleSystem impactParticleSystem;
+    [SerializeField] LayerMask Mask;
+    [SerializeField] Animator animator;
+
     //[Header("References")]
 
     //[Space(10)]
@@ -25,8 +32,15 @@ public class Weapon_DesertEagle : WeaponTemplate
     {
         RaycastHit hit;
 
+        //animator.SetBool("IsShooting", true);
+        shootingParticleSystem.Play();
+
         if (Physics.Raycast(attackPosition, attackDirection, out hit, maxShootDistance))
         {
+            TrailRenderer trail = Instantiate(bulletTrail, bulletSpawnPoint.position, Quaternion.identity);
+
+            StartCoroutine(SpawnTrail(trail, hit));
+
             if (hit.transform.TryGetComponent(out IHealth health))
             {
                 health.TakeDamage(damage);
@@ -53,5 +67,24 @@ public class Weapon_DesertEagle : WeaponTemplate
 
         bulletCount = maxBulletCount;
         isReloading = false;
+    }
+
+    IEnumerator SpawnTrail(TrailRenderer trail, RaycastHit hit)
+    {
+        float time = 0;
+        Vector3 startPosition = trail.transform.position;
+
+        while (time < 1)
+        {
+            trail.transform.position = Vector3.Lerp(startPosition, hit.point, time);
+            time += Time.deltaTime / trail.time;
+
+            yield return null;
+        }
+        //animator.SetBool("IsShooting", false);
+        trail.transform.position = hit.point;
+        Instantiate(impactParticleSystem, hit.point, Quaternion.LookRotation(hit.normal));
+
+        Destroy(trail.gameObject, trail.time);
     }
 }
