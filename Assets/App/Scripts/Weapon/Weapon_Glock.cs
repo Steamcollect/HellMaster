@@ -23,6 +23,8 @@ public class Weapon_Glock : WeaponTemplate
     {
         RaycastHit hit;
 
+        shootingParticleSystem.Play();
+
         if (Physics.Raycast(attackPosition, attackDirection, out hit, maxShootDistance))
         {
             TrailRenderer trail = Instantiate(bulletTrail, bulletSpawnPoint.position, Quaternion.identity);
@@ -58,7 +60,6 @@ public class Weapon_Glock : WeaponTemplate
 
             yield return null;
         }
-        //animator.SetBool("IsShooting", false);
         trail.transform.position = hit.point;
         Instantiate(impactParticleSystem, hit.point, Quaternion.LookRotation(hit.normal));
 

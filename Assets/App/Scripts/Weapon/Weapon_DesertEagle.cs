@@ -32,7 +32,6 @@ public class Weapon_DesertEagle : WeaponTemplate
     {
         RaycastHit hit;
 
-        //animator.SetBool("IsShooting", true);
         shootingParticleSystem.Play();
 
         if (Physics.Raycast(attackPosition, attackDirection, out hit, maxShootDistance))
@@ -81,7 +80,6 @@ public class Weapon_DesertEagle : WeaponTemplate
 
             yield return null;
         }
-        //animator.SetBool("IsShooting", false);
         trail.transform.position = hit.point;
         Instantiate(impactParticleSystem, hit.point, Quaternion.LookRotation(hit.normal));
 
