@@ -101,6 +101,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 0
   animator: {fileID: 3146580574340673453}
+  shakingEffect: {fileID: 0}
 --- !u!95 &3146580574340673453
 Animator:
   serializedVersion: 5

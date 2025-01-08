@@ -5,14 +5,16 @@ using UnityEngine;
 public class ShakingEffect : MonoBehaviour
 {
     public bool start = false;
+    bool isShaking = false;
     public AnimationCurve curve;
     public float duration = 1f;
 
     private void Update()
     {
-        if(start)
+        if(start && !isShaking)
         {
             start = false;
+            isShaking = true;
             StartCoroutine(Shaking());
 
         }
@@ -31,5 +33,6 @@ public class ShakingEffect : MonoBehaviour
             yield return null;
         }
         transform.position = startPosition;
+        isShaking=false;
     }
 }
