@@ -79,6 +79,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 7
+  damageMultiplier: 1
   attackDelay: 0
   isSemiAuto: 0
   hasSpread: 0
@@ -93,6 +94,7 @@ MonoBehaviour:
   fleshParticleSystem: {fileID: 911969438504156231, guid: f8a7926c978d6f0488dde885fb2ec0b7,
     type: 3}
   animator: {fileID: 776464444234782360}
+  shakingEffect: {fileID: 0}
 --- !u!95 &776464444234782360
 Animator:
   serializedVersion: 5
@@ -221,8 +223,38 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1743301284569550, guid: ad2ab49d0a2a17148bd51c93d977bdbc,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7694453086878824148}
   m_SourcePrefab: {fileID: 100100000, guid: ad2ab49d0a2a17148bd51c93d977bdbc, type: 3}
+--- !u!1 &424151759812508698 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1743301284569550, guid: ad2ab49d0a2a17148bd51c93d977bdbc,
+    type: 3}
+  m_PrefabInstance: {fileID: 424695449207086548}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &7694453086878824148
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 424151759812508698}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 29dd40af94355cb4fa9f438b26aa0704, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  start: 0
+  curve:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  duration: 1
 --- !u!4 &426598473151918528 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4300533007854612, guid: ad2ab49d0a2a17148bd51c93d977bdbc,

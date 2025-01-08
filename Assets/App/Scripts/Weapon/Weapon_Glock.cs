@@ -12,6 +12,8 @@ public class Weapon_Glock : WeaponTemplate
     [SerializeField] ParticleSystem fleshParticleSystem;
     [SerializeField] Animator animator;
 
+    [SerializeField] ShakingEffect shakingEffect;
+
     //[Header("References")]
 
     //[Space(10)]
@@ -28,6 +30,8 @@ public class Weapon_Glock : WeaponTemplate
         shootingParticleSystem.Play();
 
         animator.SetTrigger("Attack");
+
+        shakingEffect.start = true;
 
         if (Physics.Raycast(attackPosition, attackDirection, out hit, maxShootDistance))
         {

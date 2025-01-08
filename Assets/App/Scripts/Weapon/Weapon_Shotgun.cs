@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using System.Security.Cryptography;
 
 public class Weapon_Shotgun : WeaponTemplate
 {
@@ -20,6 +21,8 @@ public class Weapon_Shotgun : WeaponTemplate
     [SerializeField] ParticleSystem fleshParticleSystem;
     [SerializeField] LayerMask Mask;
     [SerializeField] Animator animator;
+
+    [SerializeField] ShakingEffect shakingEffect;
 
     //[Header("References")]
 
@@ -44,6 +47,8 @@ public class Weapon_Shotgun : WeaponTemplate
             shootingParticleSystem.Play();
 
             animator.SetTrigger("Attack");
+
+            shakingEffect.start = true;
 
             if (Physics.Raycast(attackPosition, attackDirection, out hit, maxShootDistance))
             {
