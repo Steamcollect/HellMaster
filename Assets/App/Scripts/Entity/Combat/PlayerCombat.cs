@@ -12,9 +12,11 @@ public class PlayerCombat : MonoBehaviour
     [SerializeField] int currentWeaponIndex = 0;
     [SerializeField] Transform cam;
 
-    float damageMultiplier;
+    float damageMultiplier = 1;
 
-    //[Space(10)]
+    [Header("Achievments")]
+    [SerializeField] SSO_Achievment_Kill1Enemy achievmentKill1Enemy;
+    
     // RSO
     // RSF
     // RSP
@@ -23,7 +25,7 @@ public class PlayerCombat : MonoBehaviour
     [SerializeField] RSE_AddDamageMultiplier rseAddDamageMult;
 
     //[Header("Output")]
-
+    
     private void OnEnable()
     {
         rseAddDamageMult.action += AddDamageMultiplier;
@@ -80,9 +82,10 @@ public class PlayerCombat : MonoBehaviour
     void AddDamageMultiplier(float multToAdd)
     {
         damageMultiplier += multToAdd;
+        print("svcds");
     }
     void OnEnemyKill()
     {
-        print("kill enemy");
+        achievmentKill1Enemy.AddEnemysKilled(1);
     }
 }
