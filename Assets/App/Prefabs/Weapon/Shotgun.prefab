@@ -87,8 +87,8 @@ MonoBehaviour:
   maxShootDistance: 1000
   reloadTime: 0.4
   bulletShotForOneShot: 8
-  maxBulletCount: 6
-  bulletCount: 6
+  maxBulletCount: 2
+  bulletCount: 2
   bulletTrail: {fileID: 3797463065826991015, guid: 9b73f81fa0412834d877bfb3b937b869,
     type: 3}
   bulletSpawnPoint: {fileID: 3348913855670763207}
@@ -101,7 +101,6 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 0
   animator: {fileID: 3146580574340673453}
-  shakingEffect: {fileID: 0}
 --- !u!95 &3146580574340673453
 Animator:
   serializedVersion: 5
