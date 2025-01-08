@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class EnemyHealth : MonoBehaviour, IHealth
@@ -27,11 +28,12 @@ public class EnemyHealth : MonoBehaviour, IHealth
         if (currentHealth > maxHealth) currentHealth = maxHealth;
     }
 
-    public void TakeDamage(int damage)
+    public void TakeDamage(int damage, Action onDeath)
     {
         currentHealth -= damage;
         if (currentHealth <= 0)
         {
+            onDeath?.Invoke();
             Die();
         }
     }

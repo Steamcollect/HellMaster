@@ -1,10 +1,12 @@
+using System;
 using System.Collections;
-using Unity.VisualScripting;
 using UnityEngine;
+
 public abstract class WeaponTemplate : MonoBehaviour
 {
     [Header("Settings")]
     public int damage;
+    public float damageMultiplier = 1;
 
     [Space(5)]
     public float attackDelay;
@@ -13,6 +15,8 @@ public abstract class WeaponTemplate : MonoBehaviour
     public Vector3 bulletSpreadVariance;
 
     bool canAttack = true;
+
+    public Action OnTargetKill;
 
     //[Header("References")]
 
@@ -31,9 +35,9 @@ public abstract class WeaponTemplate : MonoBehaviour
             if(hasSpread)
             {
                 attackDirection += new Vector3(
-                    Random.Range(-bulletSpreadVariance.x, bulletSpreadVariance.x), 
-                    Random.Range(-bulletSpreadVariance.y, bulletSpreadVariance.y), 
-                    Random.Range(-bulletSpreadVariance.z, bulletSpreadVariance.z));
+                    UnityEngine.Random.Range(-bulletSpreadVariance.x, bulletSpreadVariance.x),
+                    UnityEngine.Random.Range(-bulletSpreadVariance.y, bulletSpreadVariance.y), 
+                    UnityEngine.Random.Range(-bulletSpreadVariance.z, bulletSpreadVariance.z));
             }
 
             Attack(attackPosition, attackDirection);
