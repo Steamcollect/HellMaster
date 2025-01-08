@@ -10,6 +10,7 @@ public class Weapon_Glock : WeaponTemplate
     [SerializeField] ParticleSystem shootingParticleSystem;
     [SerializeField] ParticleSystem impactParticleSystem;
     [SerializeField] ParticleSystem fleshParticleSystem;
+    [SerializeField] Animator animator;
 
     //[Header("References")]
 
@@ -25,6 +26,8 @@ public class Weapon_Glock : WeaponTemplate
         RaycastHit hit;
 
         shootingParticleSystem.Play();
+
+        animator.SetTrigger("Attack");
 
         if (Physics.Raycast(attackPosition, attackDirection, out hit, maxShootDistance))
         {
