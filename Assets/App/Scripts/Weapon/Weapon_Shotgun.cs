@@ -54,7 +54,7 @@ public class Weapon_Shotgun : WeaponTemplate
                 if (hit.transform.TryGetComponent(out IHealth health))
                 {
                     Instantiate(fleshParticleSystem, hit.point, Quaternion.LookRotation(hit.normal));
-                    health.TakeDamage(damage, OnTargetKill);
+                    health.TakeDamage(damage * damageMultiplier, OnTargetKill);
                 }
                 else
                 {

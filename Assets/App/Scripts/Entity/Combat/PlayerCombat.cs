@@ -82,7 +82,6 @@ public class PlayerCombat : MonoBehaviour
     void AddDamageMultiplier(float multToAdd)
     {
         damageMultiplier += multToAdd;
-        print("svcds");
     }
     void OnEnemyKill()
     {
