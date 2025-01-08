@@ -47,7 +47,30 @@ MonoBehaviour:
   enemys:
   - enemyPrefab: {fileID: 1654254885166785251, guid: dfc1d5eb7cab5ab45af13d72348177e2,
       type: 3}
-    enemySpawnDelay: 5
+    enemySpawnDelay:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 5
+        inSlope: -0.008501417
+        outSlope: -0.008501417
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0.29895806
+      - serializedVersion: 3
+        time: 60
+        value: 0.5
+        inSlope: -0.16165428
+        outSlope: -0.16165428
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.105797485
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
   spawnPoints:
   - {fileID: 0}
   - {fileID: 0}
