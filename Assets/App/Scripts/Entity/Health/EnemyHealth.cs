@@ -4,8 +4,8 @@ using UnityEngine;
 public class EnemyHealth : MonoBehaviour, IHealth
 {
     [Header("Settings")]
-    [SerializeField] int maxHealth;
-    int currentHealth;
+    [SerializeField] float maxHealth;
+    float currentHealth;
 
     //[Header("References")]
 
@@ -28,7 +28,7 @@ public class EnemyHealth : MonoBehaviour, IHealth
         if (currentHealth > maxHealth) currentHealth = maxHealth;
     }
 
-    public void TakeDamage(int damage, Action onDeath)
+    public void TakeDamage(float damage, Action onDeath)
     {
         currentHealth -= damage;
         if (currentHealth <= 0)

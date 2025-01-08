@@ -5,7 +5,7 @@ using UnityEngine;
 public abstract class WeaponTemplate : MonoBehaviour
 {
     [Header("Settings")]
-    public int damage;
+    public float damage;
     public float damageMultiplier = 1;
 
     [Space(5)]
