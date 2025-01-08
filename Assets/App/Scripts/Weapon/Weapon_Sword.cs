@@ -31,7 +31,7 @@ public class Weapon_Sword : WeaponTemplate
             {
                 if (hit.transform.TryGetComponent(out IHealth health))
                 {
-                    health.TakeDamage(damage);
+                    health.TakeDamage(damage, OnTargetKill);
                 }
             }            
         }

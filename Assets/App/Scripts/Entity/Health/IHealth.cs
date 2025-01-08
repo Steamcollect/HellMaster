@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,5 +6,5 @@ using UnityEngine;
 public interface IHealth
 {
     public void TakeHealth(int health);
-    public void TakeDamage(int damage);
+    public void TakeDamage(int damage, Action onDeath);
 }

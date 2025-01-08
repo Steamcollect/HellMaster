@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -11,17 +12,31 @@ public class PlayerCombat : MonoBehaviour
     [SerializeField] int currentWeaponIndex = 0;
     [SerializeField] Transform cam;
 
+    float damageMultiplier;
+
     //[Space(10)]
     // RSO
     // RSF
     // RSP
 
-    //[Header("Input")]
+    [Header("Input")]
+    [SerializeField] RSE_AddDamageMultiplier rseAddDamageMult;
+
     //[Header("Output")]
+
+    private void OnEnable()
+    {
+        rseAddDamageMult.action += AddDamageMultiplier;
+    }
+    private void OnDisable()
+    {
+        rseAddDamageMult.action -= AddDamageMultiplier;
+    }
 
     private void Start()
     {
-        weapons[currentWeaponIndex].Reload();
+        weapons[currentWeaponIndex].damageMultiplier = damageMultiplier;
+        weapons[currentWeaponIndex].OnTargetKill += OnEnemyKill;
     }
 
     private void Update()
@@ -32,8 +47,13 @@ public class PlayerCombat : MonoBehaviour
         if(newWeaponIndex != currentWeaponIndex)
         {
             weapons[currentWeaponIndex].gameObject.SetActive(false);
+            weapons[currentWeaponIndex].OnTargetKill -= OnEnemyKill;
+
             weapons[newWeaponIndex].gameObject.SetActive(true);
             currentWeaponIndex = newWeaponIndex;
+
+            weapons[currentWeaponIndex].damageMultiplier = damageMultiplier;
+            weapons[currentWeaponIndex].OnTargetKill += OnEnemyKill;
         }
 
         if (Input.GetKey(KeyCode.Mouse0) && weapons[currentWeaponIndex].isSemiAuto || Input.GetKeyDown(KeyCode.Mouse0))
@@ -55,5 +75,14 @@ public class PlayerCombat : MonoBehaviour
         weapons[currentWeaponIndex].gameObject.SetActive(false);
         weapons[newWeaponIndex].gameObject.SetActive(true);
         currentWeaponIndex = newWeaponIndex;
+    }
+
+    void AddDamageMultiplier(float multToAdd)
+    {
+        damageMultiplier += multToAdd;
+    }
+    void OnEnemyKill()
+    {
+        print("kill enemy");
     }
 }

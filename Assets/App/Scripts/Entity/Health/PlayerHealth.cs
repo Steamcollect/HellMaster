@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using UnityEngine;
 
 public class PlayerHealth : MonoBehaviour, IHealth
@@ -28,11 +29,12 @@ public class PlayerHealth : MonoBehaviour, IHealth
         if (currentHealth > maxHealth) currentHealth = maxHealth;
     }
 
-    public void TakeDamage(int damage)
+    public void TakeDamage(int damage, Action onDeath)
     {
         currentHealth -= damage;
         if (currentHealth <= 0)
         {
+            onDeath?.Invoke();
             Die();
         }
     }

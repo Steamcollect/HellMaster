@@ -2,8 +2,7 @@ using UnityEngine;
 
 public class AchievmentManager : MonoBehaviour
 {
-    [Header("Settings")]
-    [SerializeField] float damageMultiplier;
+    //[Header("Settings")]
 
     //[Header("References")]
 
@@ -14,12 +13,4 @@ public class AchievmentManager : MonoBehaviour
 
     //[Header("Input")]
     //[Header("Output")]
-
-
-}
-
-[System.Serializable]
-public class Achievment
-{
-    public string achievmentName;
 }
