@@ -35,6 +35,8 @@ public class Weapon_DesertEagle : WeaponTemplate
 
         shootingParticleSystem.Play();
 
+        animator.SetTrigger("Attack");
+
         if (Physics.Raycast(attackPosition, attackDirection, out hit, maxShootDistance))
         {
             TrailRenderer trail = Instantiate(bulletTrail, bulletSpawnPoint.position, Quaternion.identity);

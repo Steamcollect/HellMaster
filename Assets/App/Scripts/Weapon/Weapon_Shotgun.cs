@@ -41,8 +41,9 @@ public class Weapon_Shotgun : WeaponTemplate
 
             RaycastHit hit;
 
-            //animator.SetBool("IsShooting", true);
             shootingParticleSystem.Play();
+
+            animator.SetTrigger("Attack");
 
             if (Physics.Raycast(attackPosition, attackDirection, out hit, maxShootDistance))
             {
