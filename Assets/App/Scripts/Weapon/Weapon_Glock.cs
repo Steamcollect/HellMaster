@@ -9,6 +9,7 @@ public class Weapon_Glock : WeaponTemplate
     [SerializeField] Transform bulletSpawnPoint;
     [SerializeField] ParticleSystem shootingParticleSystem;
     [SerializeField] ParticleSystem impactParticleSystem;
+    [SerializeField] ParticleSystem fleshParticleSystem;
 
     //[Header("References")]
 
@@ -33,7 +34,12 @@ public class Weapon_Glock : WeaponTemplate
 
             if (hit.transform.TryGetComponent(out IHealth health))
             {
+                Instantiate(fleshParticleSystem, hit.point, Quaternion.LookRotation(hit.normal));
                 health.TakeDamage(damage);
+            }
+            else
+            {
+                Instantiate(impactParticleSystem, hit.point, Quaternion.LookRotation(hit.normal));
             }
         }
     }

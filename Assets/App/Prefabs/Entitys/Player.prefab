@@ -100,8 +100,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a39db4b678a5999419f6be02b38f27e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  groundAcceleration: 20
-  airAcceleration: 10
+  groundAcceleration: 30
+  airAcceleration: 20
   maxSpeed: 10
   friction: 8
   jumpForce: 5
@@ -301,9 +301,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerBody: {fileID: 3114915042047929270}
-  mouseSensitivity: 300
-  maxTiltAngle: 10
-  tiltSpeed: 5
+  mouseSensitivity: 400
+  maxTiltAngle: 4
+  tiltSpeed: 8
 --- !u!1 &6205696927364304765
 GameObject:
   m_ObjectHideFlags: 0

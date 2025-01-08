@@ -17,6 +17,7 @@ public class Weapon_Shotgun : WeaponTemplate
     [SerializeField] Transform bulletSpawnPoint;
     [SerializeField] ParticleSystem shootingParticleSystem;
     [SerializeField] ParticleSystem impactParticleSystem;
+    [SerializeField] ParticleSystem fleshParticleSystem;
     [SerializeField] LayerMask Mask;
     [SerializeField] Animator animator;
 
@@ -51,12 +52,21 @@ public class Weapon_Shotgun : WeaponTemplate
 
                 if (hit.transform.TryGetComponent(out IHealth health))
                 {
+                    Instantiate(fleshParticleSystem, hit.point, Quaternion.LookRotation(hit.normal));
                     health.TakeDamage(damage);
+                }
+                else
+                {
+                    Instantiate(impactParticleSystem, hit.point, Quaternion.LookRotation(hit.normal));
                 }
             }
         }
 
         bulletCount--;
+        if(bulletCount <= 0)
+        {
+            Reload();
+        }
     }
 
     public override bool CanAttack()
@@ -66,7 +76,11 @@ public class Weapon_Shotgun : WeaponTemplate
 
     public override void Reload()
     {
-        StartCoroutine(ReloadDelay());
+        if (!isReloading)
+        {
+            animator.SetTrigger("Reload");
+            StartCoroutine(ReloadDelay());
+        }
     }
 
     IEnumerator ReloadDelay()
@@ -92,7 +106,6 @@ public class Weapon_Shotgun : WeaponTemplate
         }
         //animator.SetBool("IsShooting", false);
         trail.transform.position = hit.point;
-        Instantiate(impactParticleSystem, hit.point, Quaternion.LookRotation(hit.normal));
 
         Destroy(trail.gameObject, trail.time);
     }

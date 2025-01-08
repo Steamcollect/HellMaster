@@ -46,7 +46,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71d9006c3e99e5b4d8739170974d348d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 4
+  damage: 7
   attackDelay: 0
   isSemiAuto: 0
   hasSpread: 0
@@ -57,6 +57,8 @@ MonoBehaviour:
   bulletSpawnPoint: {fileID: 426598473151918528}
   shootingParticleSystem: {fileID: 514702645660549262}
   impactParticleSystem: {fileID: 3743483068969131167, guid: 57f4f40178d1b18479df2ba8260116e4,
+    type: 3}
+  fleshParticleSystem: {fileID: 911969438504156231, guid: f8a7926c978d6f0488dde885fb2ec0b7,
     type: 3}
 --- !u!1001 &424695449207086548
 PrefabInstance:
