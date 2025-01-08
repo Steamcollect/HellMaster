@@ -9,6 +9,7 @@ public class EnemyController : MonoBehaviour
     [SerializeField] NavMeshAgent agent;
     [SerializeField] RSO_PlayerTransform rsoTarget;
     [SerializeField] WeaponTemplate weapon;
+    [SerializeField] Animator animator;
 
     Transform lookAtRot;
 
@@ -20,7 +21,7 @@ public class EnemyController : MonoBehaviour
     //[Header("Input")]
     //[Header("Output")]
 
-    private void Start()
+    private void Awake()
     {
         lookAtRot = new GameObject("LookAtRot").transform;
         lookAtRot.parent = transform;
@@ -29,9 +30,12 @@ public class EnemyController : MonoBehaviour
     private void Update()
     {
         agent.destination = rsoTarget.Value.position;
+        animator.SetBool("isRunning", true);
 
         if(agent.remainingDistance <= agent.stoppingDistance)
         {
+            animator.SetTrigger("Attack");
+            Debug.Log("caca attaque");
             lookAtRot.position = transform.position;
             lookAtRot.LookAt(rsoTarget.Value);
             weapon.OnAttack(transform.position, lookAtRot.forward);

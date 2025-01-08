@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using UnityEngine;
 
 public class EnemyHealth : MonoBehaviour, IHealth
@@ -6,6 +7,7 @@ public class EnemyHealth : MonoBehaviour, IHealth
     [Header("Settings")]
     [SerializeField] float maxHealth;
     float currentHealth;
+    [SerializeField] Animator animator;
 
     //[Header("References")]
 
@@ -40,6 +42,16 @@ public class EnemyHealth : MonoBehaviour, IHealth
 
     void Die()
     {
+        StartCoroutine(DeathAnim());
+    }
+
+    IEnumerator DeathAnim()
+    {
+        animator.SetTrigger("Death");
+        Debug.Log("caca meurt");
+
+        yield return new WaitForSeconds(0.767f);
+
         Destroy(gameObject);
     }
 }

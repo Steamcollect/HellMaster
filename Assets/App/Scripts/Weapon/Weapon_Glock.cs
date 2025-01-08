@@ -70,7 +70,6 @@ public class Weapon_Glock : WeaponTemplate
             yield return null;
         }
         trail.transform.position = hit.point;
-        Instantiate(impactParticleSystem, hit.point, Quaternion.LookRotation(hit.normal));
 
         Destroy(trail.gameObject, trail.time);
     }
