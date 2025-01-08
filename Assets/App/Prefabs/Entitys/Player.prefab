@@ -146,9 +146,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weaponsContent: {fileID: 8221105608950911600}
   weapons:
-  - {fileID: 0}
+  - {fileID: 2531179655409192238}
   currentWeaponIndex: 0
   cam: {fileID: 8221105608950911600}
+  achievmentKill1Enemy: {fileID: 11400000, guid: 715c1ffaffe45f54ca67919a1c70e5da,
+    type: 2}
   rseAddDamageMult: {fileID: 11400000, guid: f55fe3cc3c1594a4b9d8c585c71bebfc, type: 2}
 --- !u!1 &2772180619573001532
 GameObject:
@@ -183,7 +185,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 2229423063964663195}
+  - {fileID: 8390652425179550477}
   m_Father: {fileID: 3114915042047929270}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!20 &1943746074359606207
@@ -336,7 +338,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 3114915042047929270}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &6031702244754038166
+--- !u!1001 &4122478805976118016
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -347,7 +349,7 @@ PrefabInstance:
     - target: {fileID: 4059864337073731308, guid: cb14b17d5884ee14bbd4ae221ea228b3,
         type: 3}
       propertyPath: m_Name
-      value: DesertEagle
+      value: AssaultRifle
       objectReference: {fileID: 0}
     - target: {fileID: 5567690818985173005, guid: cb14b17d5884ee14bbd4ae221ea228b3,
         type: 3}
@@ -404,9 +406,21 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cb14b17d5884ee14bbd4ae221ea228b3, type: 3}
---- !u!4 &2229423063964663195 stripped
+--- !u!114 &2531179655409192238 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1879534715276639790, guid: cb14b17d5884ee14bbd4ae221ea228b3,
+    type: 3}
+  m_PrefabInstance: {fileID: 4122478805976118016}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 475bcf25634b6ee4e8d001ec72955354, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &8390652425179550477 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5567690818985173005, guid: cb14b17d5884ee14bbd4ae221ea228b3,
     type: 3}
-  m_PrefabInstance: {fileID: 6031702244754038166}
+  m_PrefabInstance: {fileID: 4122478805976118016}
   m_PrefabAsset: {fileID: 0}

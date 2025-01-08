@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6b8e4a1cfa01e947b2767af9e0de6d3, type: 3}
+  m_Name: SSO_Achievment_Kill1Enemy
+  m_EditorClassIdentifier: 
+  achivmentName: The first one
+  achivmentDescription: 'Kill 1 enemy
+
+    Gain : 10% attack damage'
+  achievmentIcon: {fileID: 1399627028, guid: 87d273997b7563e49a6f21c80b28191a, type: 3}
+  isAchieve: 1
+  killRequired: 1
+  damageMultGiven: 0.05
+  rseAddDamageMult: {fileID: 11400000, guid: f55fe3cc3c1594a4b9d8c585c71bebfc, type: 2}
