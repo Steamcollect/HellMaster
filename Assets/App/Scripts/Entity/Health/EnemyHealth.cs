@@ -16,12 +16,28 @@ public class EnemyHealth : MonoBehaviour, IHealth
     // RSF
     // RSP
 
-    //[Header("Input")]
+    [Header("Input")]
+    [SerializeField] RSE_OnPlayerDeath rseOnPlayerDeath;
+
     //[Header("Output")]
+
+    void OnEnable()
+    {
+        rseOnPlayerDeath.action += OnPlayerDeath;
+    }
+    void OnDisable()
+    {
+        rseOnPlayerDeath.action -= OnPlayerDeath;
+    }
 
     void Start()
     {
         currentHealth = maxHealth;
+    }
+
+    void OnPlayerDeath()
+    {
+        Destroy(gameObject);
     }
 
     public void TakeMaxHealth(int health)

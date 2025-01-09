@@ -12,61 +12,81 @@ public class PlayerCombat : MonoBehaviour
     [SerializeField] int currentWeaponIndex = 0;
     [SerializeField] Transform cam;
 
+    int totalEnemysKilled;
     float damageMultiplier = 1;
+
+    bool canAttack = false;
 
     [Header("Achievments")]
     [SerializeField] SSO_Achievment_KillEnemys[] achievmentsKillEnemys;
-    
+
     // RSO
+    [SerializeField] RSO_ContentSaved rsoContentSave;
     // RSF
     // RSP
 
     [Header("Input")]
     [SerializeField] RSE_AddDamageMultiplier rseAddDamageMult;
+    [SerializeField] RSE_OnGameStart rseOnGameStart;
+    [SerializeField] RSE_OnPlayerDeath rseOnPlayerDeath;
 
     //[Header("Output")]
-    
+
     private void OnEnable()
     {
         rseAddDamageMult.action += AddDamageMultiplier;
+        rseOnGameStart.action += OnGameStart;
+        rseOnPlayerDeath.action += OnPlayerDeath;
     }
     private void OnDisable()
     {
         rseAddDamageMult.action -= AddDamageMultiplier;
+        rseOnGameStart.action -= OnGameStart;
+        rseOnPlayerDeath.action -= OnPlayerDeath;
     }
 
-    private void Start()
+    void OnGameStart()
     {
+        totalEnemysKilled = rsoContentSave.Value.totalEnemysKilled;
         weapons[currentWeaponIndex].damageMultiplier = damageMultiplier;
         weapons[currentWeaponIndex].OnTargetKill += OnEnemyKill;
+        canAttack = true;
+    }
+    void OnPlayerDeath()
+    {
+        rsoContentSave.Value.totalEnemysKilled = totalEnemysKilled;
+        canAttack = false;
     }
 
     private void Update()
     {
-        int newWeaponIndex = (currentWeaponIndex + (int)Input.mouseScrollDelta.y) % weapons.Count;
-        if(newWeaponIndex < 0) newWeaponIndex = weapons.Count - 1;
-
-        if(newWeaponIndex != currentWeaponIndex)
+        if (canAttack)
         {
-            weapons[currentWeaponIndex].gameObject.SetActive(false);
-            weapons[currentWeaponIndex].OnTargetKill -= OnEnemyKill;
+            int newWeaponIndex = (currentWeaponIndex + (int)Input.mouseScrollDelta.y) % weapons.Count;
+            if (newWeaponIndex < 0) newWeaponIndex = weapons.Count - 1;
 
-            weapons[newWeaponIndex].gameObject.SetActive(true);
-            currentWeaponIndex = newWeaponIndex;
+            if (newWeaponIndex != currentWeaponIndex)
+            {
+                weapons[currentWeaponIndex].gameObject.SetActive(false);
+                weapons[currentWeaponIndex].OnTargetKill -= OnEnemyKill;
 
-            weapons[currentWeaponIndex].damageMultiplier = damageMultiplier;
-            weapons[currentWeaponIndex].OnTargetKill += OnEnemyKill;
-        }
+                weapons[newWeaponIndex].gameObject.SetActive(true);
+                currentWeaponIndex = newWeaponIndex;
 
-        if (Input.GetKey(KeyCode.Mouse0) && weapons[currentWeaponIndex].isSemiAuto || Input.GetKeyDown(KeyCode.Mouse0))
-        {
-            weapons[currentWeaponIndex].OnAttack(cam.position, cam.forward);
-        }
+                weapons[currentWeaponIndex].damageMultiplier = damageMultiplier;
+                weapons[currentWeaponIndex].OnTargetKill += OnEnemyKill;
+            }
 
-        if (Input.GetKey(KeyCode.R))
-        {
-            weapons[currentWeaponIndex].Reload();
-        }
+            if (Input.GetKey(KeyCode.Mouse0) && weapons[currentWeaponIndex].isSemiAuto || Input.GetKeyDown(KeyCode.Mouse0))
+            {
+                weapons[currentWeaponIndex].OnAttack(cam.position, cam.forward);
+            }
+
+            if (Input.GetKey(KeyCode.R))
+            {
+                weapons[currentWeaponIndex].Reload();
+            }
+        }        
     }
 
     void AddWeapon(WeaponTemplate newWeaponPrefab)
@@ -85,6 +105,7 @@ public class PlayerCombat : MonoBehaviour
     }
     void OnEnemyKill()
     {
+        totalEnemysKilled++;
         foreach (var item in achievmentsKillEnemys)
         {
             item.AddEnemysKilled(1);

@@ -9,6 +9,7 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] List<EnemySpawn> enemys = new();
 
     float gameTime;
+    bool canSpawn = false;
 
     [Header("References")]
     [SerializeField] Transform[] spawnPoints;
@@ -18,8 +19,21 @@ public class EnemySpawner : MonoBehaviour
     // RSF
     // RSP
 
-    //[Header("Input")]
+    [Header("Input")]
+    [SerializeField] RSE_OnGameStart rseOnGameStart;
+    [SerializeField] RSE_OnPlayerDeath rseOnPlayerDeath;
     //[Header("Output")]
+
+    private void OnEnable()
+    {
+        rseOnGameStart.action += OnGameStart;
+        rseOnPlayerDeath.action += OnPlayerDeath;
+    }
+    private void OnDisable()
+    {
+        rseOnGameStart.action -= OnGameStart;
+        rseOnPlayerDeath.action -= OnPlayerDeath;
+    }
 
     private void Start()
     {
@@ -32,6 +46,15 @@ public class EnemySpawner : MonoBehaviour
     private void Update()
     {
         gameTime += Time.deltaTime;
+    }
+
+    void OnGameStart()
+    {
+        canSpawn = true;
+    }
+    void OnPlayerDeath()
+    {
+        canSpawn = false;
     }
 
     void SpawnEnemy(EnemySpawn enemy)
@@ -49,12 +72,16 @@ public class EnemySpawner : MonoBehaviour
 
     IEnumerator EnemySpawnDelay(EnemySpawn enemy, Action<EnemySpawn> action)
     {
+        if (!canSpawn) yield return new WaitUntil(() => canSpawn);
+
         yield return new WaitForSeconds(enemy.enemySpawnDelay.Evaluate(gameTime));
 
         action.Invoke(enemy);
     }
     IEnumerator EnemySpawnDelay(EnemySpawn enemy, Action<EnemySpawn> action, float delay)
     {
+        if (!canSpawn) yield return new WaitUntil(() => canSpawn);
+
         yield return new WaitForSeconds(delay);
         action.Invoke(enemy);
     }

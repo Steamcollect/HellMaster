@@ -13,15 +13,41 @@ public class CameraController : MonoBehaviour
     float xRotation = 0f;
     float currentTilt = 0f;
 
-    void Start()
+    bool canMove = false;
+
+    [Space(10)]
+    [SerializeField] RSE_OnGameStart rseOnGameStart;
+    [SerializeField] RSE_OnPlayerDeath rseOnPlayerDeath;
+
+    private void OnEnable()
+    {
+        rseOnGameStart.action += OnGameStart;
+        rseOnPlayerDeath.action += OnPlayerDeath;
+    }
+    private void OnDisable()
+    {
+        rseOnGameStart.action -= OnGameStart;
+        rseOnPlayerDeath.action -= OnPlayerDeath;
+    }
+
+    void OnGameStart()
     {
         Cursor.lockState = CursorLockMode.Locked;
+        canMove = true;   
+    }
+    void OnPlayerDeath()
+    {
+        Cursor.lockState = CursorLockMode.None;
+        canMove = false;
     }
 
     private void LateUpdate()
     {
-        RotateCamera();
-        TiltCameraBasedOnMovement();
+        if (canMove)
+        {
+            RotateCamera();
+            TiltCameraBasedOnMovement();
+        }    
     }
 
     void RotateCamera()

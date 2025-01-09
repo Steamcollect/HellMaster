@@ -22,4 +22,12 @@ public class SSO_Achievment_SurvivMinTime : Achievment
             isAchieve = true;
         }
     }
+
+    public override void GiveBonnus()
+    {
+        if (isAchieve)
+        {
+            rseAddMaxHealth.Call(maxHealthGiven);
+        }
+    }
 }

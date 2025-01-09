@@ -39,23 +39,32 @@ public class PlayerMovement : MonoBehaviour
 
     [Space(10)]
     [SerializeField] RSO_PlayerTransform rsoPlayerTransform;
+    [SerializeField] RSO_ContentSaved rsoContentSaved;
 
     Vector3 moveDirection;
     bool isGrounded;
     float lastGroundedTime;
     float jumpBufferCounter;
 
+    bool canMove = false;
+
     [Header("Input")]
     [SerializeField] RSE_AddMoveSpeedMultiplier rseAddMoveSpeedMult;
+    [SerializeField] RSE_OnGameStart rseOnGameStart;
+    [SerializeField] RSE_OnPlayerDeath rseOnPlayerDeath;
 
     private void OnEnable()
     {
         rsoPlayerTransform.Value = transform;
         rseAddMoveSpeedMult.action += AddMoveSpeedMultiplier;
+        rseOnGameStart.action += OnGameStart;
+        rseOnPlayerDeath.action += OnPlayerDeath;
     }
     private void OnDisable()
     {
         rseAddMoveSpeedMult.action -= AddMoveSpeedMultiplier;
+        rseOnPlayerDeath.action -= OnPlayerDeath;
+        rseOnGameStart.action -= OnGameStart;
     }
 
     void Update()
@@ -67,11 +76,25 @@ public class PlayerMovement : MonoBehaviour
 
     void FixedUpdate()
     {
-        MovePlayer();
-        TrackDistanceTravelled();
+        if (canMove)
+        {
+            MovePlayer();
+            TrackDistanceTravelled();
 
-        ApplyFriction();
-        HandleJump();
+            ApplyFriction();
+            HandleJump();
+        }        
+    }
+
+    void OnGameStart()
+    {
+        distanceTravelled = rsoContentSaved.Value.totalDistanceTravelled;
+        canMove = true;
+    }
+    void OnPlayerDeath()
+    {
+        rsoContentSaved.Value.totalDistanceTravelled = distanceTravelled;
+        canMove = false;
     }
 
     void AddMoveSpeedMultiplier(float multGiven)

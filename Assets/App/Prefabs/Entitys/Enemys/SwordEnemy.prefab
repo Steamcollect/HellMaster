@@ -112,6 +112,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 20
   animator: {fileID: 3020447815270557842}
+  rseOnPlayerDeath: {fileID: 11400000, guid: 8a4b2423a095dfb4884674599ccc4b24, type: 2}
 --- !u!1001 &3354278185600213139
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -21,4 +21,12 @@ public class SSO_Achievment_KillEnemys : Achievment
             rseAddDamageMult.Call(damageMultGiven);
         }
     }
+
+    public override void GiveBonnus()
+    {
+        if (isAchieve)
+        {
+            rseAddDamageMult.Call(damageMultGiven);
+        }
+    }
 }

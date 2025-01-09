@@ -126,8 +126,11 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 58ef6fb1d9df4a2429d0cc16a35697f4, type: 2}
   - {fileID: 11400000, guid: 659da689a98bf3c4f82bd00d70b2852f, type: 2}
   rsoPlayerTransform: {fileID: 11400000, guid: 2d8d81c0e5fe70c40b604958f0a9b082, type: 2}
+  rsoContentSaved: {fileID: 11400000, guid: af883388f9f4c2b44b3dc5140f911432, type: 2}
   rseAddMoveSpeedMult: {fileID: 11400000, guid: ec7e23ce33fa50d47a0056f872eb5868,
     type: 2}
+  rseOnGameStart: {fileID: 11400000, guid: 88a565a514476f74baa9c0ca7be72107, type: 2}
+  rseOnPlayerDeath: {fileID: 11400000, guid: 8a4b2423a095dfb4884674599ccc4b24, type: 2}
 --- !u!114 &2325282933072371097
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -141,12 +144,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 100
+  rsoContentSaved: {fileID: 11400000, guid: af883388f9f4c2b44b3dc5140f911432, type: 2}
   achievmentsSurvivMinTime:
   - {fileID: 11400000, guid: 9df34200858fd454480386e1e475f23e, type: 2}
   - {fileID: 11400000, guid: c0039d1f2aea5dd448de435000309fb8, type: 2}
   - {fileID: 11400000, guid: f5c2422c8ef5a84479073919864e20fa, type: 2}
   - {fileID: 11400000, guid: 0387a5705c350194789b536f09536004, type: 2}
   rseAddMaxHealth: {fileID: 11400000, guid: f0bbe7007d5a25e4db250469aa309d3a, type: 2}
+  rseOnGameStart: {fileID: 11400000, guid: 88a565a514476f74baa9c0ca7be72107, type: 2}
+  rseOnPlayerDeath: {fileID: 11400000, guid: 8a4b2423a095dfb4884674599ccc4b24, type: 2}
   rseUpdateHealthBar: {fileID: 11400000, guid: 8871cfeb85b86234692995e0d261bb3f, type: 2}
 --- !u!114 &1418595597308619600
 MonoBehaviour:
@@ -173,7 +179,10 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 14a5cfd16d25c2145aadf2720fa79e6c, type: 2}
   - {fileID: 11400000, guid: 36c7eede97070a34f981c9e53ff60be9, type: 2}
   - {fileID: 11400000, guid: 5ee83a5002f67dc4c98dcac6f8e78273, type: 2}
+  rsoContentSave: {fileID: 11400000, guid: af883388f9f4c2b44b3dc5140f911432, type: 2}
   rseAddDamageMult: {fileID: 11400000, guid: f55fe3cc3c1594a4b9d8c585c71bebfc, type: 2}
+  rseOnGameStart: {fileID: 11400000, guid: 88a565a514476f74baa9c0ca7be72107, type: 2}
+  rseOnPlayerDeath: {fileID: 11400000, guid: 8a4b2423a095dfb4884674599ccc4b24, type: 2}
 --- !u!1 &2772180619573001532
 GameObject:
   m_ObjectHideFlags: 0
@@ -330,6 +339,8 @@ MonoBehaviour:
   mouseSensitivity: 400
   maxTiltAngle: 4
   tiltSpeed: 8
+  rseOnGameStart: {fileID: 11400000, guid: 88a565a514476f74baa9c0ca7be72107, type: 2}
+  rseOnPlayerDeath: {fileID: 11400000, guid: 8a4b2423a095dfb4884674599ccc4b24, type: 2}
 --- !u!1 &6205696927364304765
 GameObject:
   m_ObjectHideFlags: 0

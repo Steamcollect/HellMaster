@@ -16,4 +16,12 @@ public class SSO_Achievment_RunDistance : Achievment
             isAchieve = true;
         }
     }
+
+    public override void GiveBonnus()
+    {
+        if (isAchieve)
+        {
+            rseAddMoveSpeedMult.Call(moveSpeedMult);
+        }
+    }
 }

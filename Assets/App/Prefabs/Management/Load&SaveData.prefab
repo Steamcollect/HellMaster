@@ -1,0 +1,70 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &5260293246457464332
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6770947454259867609}
+  - component: {fileID: 2356460747657526572}
+  m_Layer: 0
+  m_Name: Load&SaveData
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6770947454259867609
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5260293246457464332}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2356460747657526572
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5260293246457464332}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0e083318e8336b42864d3a6b6da23f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  infoToSave:
+    achievments:
+    - {fileID: 11400000, guid: 715c1ffaffe45f54ca67919a1c70e5da, type: 2}
+    - {fileID: 11400000, guid: 0342e681c7fba6f48b76c5aa4104aa6e, type: 2}
+    - {fileID: 11400000, guid: 6c5484c8e3df0e544a24fcecbcc1d7f0, type: 2}
+    - {fileID: 11400000, guid: 14a5cfd16d25c2145aadf2720fa79e6c, type: 2}
+    - {fileID: 11400000, guid: 36c7eede97070a34f981c9e53ff60be9, type: 2}
+    - {fileID: 11400000, guid: 5ee83a5002f67dc4c98dcac6f8e78273, type: 2}
+    - {fileID: 11400000, guid: 1c0a52a103b7967418d2d62c06695066, type: 2}
+    - {fileID: 11400000, guid: 6a47118923288b145a1e4b0f3bf475d8, type: 2}
+    - {fileID: 11400000, guid: ffc69e37a6ee0154692835f58bdbeb46, type: 2}
+    - {fileID: 11400000, guid: dab1e372104704745a18087524ad9356, type: 2}
+    - {fileID: 11400000, guid: 58ef6fb1d9df4a2429d0cc16a35697f4, type: 2}
+    - {fileID: 11400000, guid: 659da689a98bf3c4f82bd00d70b2852f, type: 2}
+    - {fileID: 11400000, guid: 9df34200858fd454480386e1e475f23e, type: 2}
+    - {fileID: 11400000, guid: c0039d1f2aea5dd448de435000309fb8, type: 2}
+    - {fileID: 11400000, guid: f5c2422c8ef5a84479073919864e20fa, type: 2}
+    - {fileID: 11400000, guid: 0387a5705c350194789b536f09536004, type: 2}
+    totalDistanceTravelled: 0
+    totalEnemysKilled: 0
+    totalTimeAlive: 0
+  rsoContentSave: {fileID: 11400000, guid: af883388f9f4c2b44b3dc5140f911432, type: 2}
+  rseSaveData: {fileID: 11400000, guid: 94fdca2f03a20554b85ce3b1b05aa863, type: 2}
+  rseLoadData: {fileID: 11400000, guid: c2b9392b4ed3cf244b441d79ce9f0718, type: 2}
