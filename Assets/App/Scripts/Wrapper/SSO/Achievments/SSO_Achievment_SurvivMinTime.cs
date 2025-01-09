@@ -20,6 +20,7 @@ public class SSO_Achievment_SurvivMinTime : Achievment
 
             rseAddMaxHealth.Call(maxHealthGiven);
             isAchieve = true;
+            rseSaveAllGameData.Call();
         }
     }
 

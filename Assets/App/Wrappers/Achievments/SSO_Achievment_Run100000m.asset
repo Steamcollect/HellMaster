@@ -18,6 +18,7 @@ MonoBehaviour:
     +10% move speed'
   achievmentIcon: {fileID: 0}
   isAchieve: 0
+  rseSaveAllGameData: {fileID: 11400000, guid: 6b2d0fac7e3f1d14d9f3157d9b2527fb, type: 2}
   distanceRequire: 100000
   moveSpeedMult: 0.1
   rseAddMoveSpeedMult: {fileID: 11400000, guid: ec7e23ce33fa50d47a0056f872eb5868,

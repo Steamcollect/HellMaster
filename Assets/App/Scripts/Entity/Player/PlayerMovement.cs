@@ -52,6 +52,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] RSE_AddMoveSpeedMultiplier rseAddMoveSpeedMult;
     [SerializeField] RSE_OnGameStart rseOnGameStart;
     [SerializeField] RSE_OnPlayerDeath rseOnPlayerDeath;
+    [SerializeField] RSE_SaveAllGameData rseSaveGameData;
 
     private void OnEnable()
     {
@@ -59,12 +60,14 @@ public class PlayerMovement : MonoBehaviour
         rseAddMoveSpeedMult.action += AddMoveSpeedMultiplier;
         rseOnGameStart.action += OnGameStart;
         rseOnPlayerDeath.action += OnPlayerDeath;
+        rseSaveGameData.action += SaveGameData;
     }
     private void OnDisable()
     {
         rseAddMoveSpeedMult.action -= AddMoveSpeedMultiplier;
         rseOnPlayerDeath.action -= OnPlayerDeath;
         rseOnGameStart.action -= OnGameStart;
+        rseSaveGameData.action -= SaveGameData;
     }
 
     void Update()
@@ -95,6 +98,10 @@ public class PlayerMovement : MonoBehaviour
     {
         rsoContentSaved.Value.totalDistanceTravelled = distanceTravelled;
         canMove = false;
+    }
+    void SaveGameData()
+    {
+        rsoContentSaved.Value.totalDistanceTravelled = distanceTravelled;
     }
 
     void AddMoveSpeedMultiplier(float multGiven)

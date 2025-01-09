@@ -14,6 +14,7 @@ public class SSO_Achievment_RunDistance : Achievment
         {
             rseAddMoveSpeedMult.Call(moveSpeedMult);
             isAchieve = true;
+            rseSaveAllGameData.Call();
         }
     }
 

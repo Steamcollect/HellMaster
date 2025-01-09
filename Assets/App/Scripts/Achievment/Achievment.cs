@@ -8,5 +8,7 @@ public abstract class Achievment : ScriptableObject
 
     public bool isAchieve;
 
+    public RSE_SaveAllGameData rseSaveAllGameData;
+
     public abstract void GiveBonnus();
 }

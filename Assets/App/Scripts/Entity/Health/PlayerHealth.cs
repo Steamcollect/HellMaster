@@ -25,6 +25,7 @@ public class PlayerHealth : MonoBehaviour, IHealth
     [SerializeField] RSE_AddPlayerMaxHealth rseAddMaxHealth;
     [SerializeField] RSE_OnGameStart rseOnGameStart;
     [SerializeField] RSE_OnPlayerDeath rseOnPlayerDeath;
+    [SerializeField] RSE_SaveAllGameData rseSaveGameData;
 
     [Header("Output")]
     [SerializeField] RSE_UdateHealthBar rseUpdateHealthBar;
@@ -34,12 +35,14 @@ public class PlayerHealth : MonoBehaviour, IHealth
         rseAddMaxHealth.action += TakeMaxHealth;
         rseOnGameStart.action += OnGameStart;
         rseOnPlayerDeath.action += OnPlayerDeath;
+        rseSaveGameData.action += SaveGameData;
     }
     void OnDisable()
     {
         rseAddMaxHealth.action -= TakeMaxHealth;
         rseOnGameStart.action -= OnGameStart;
         rseOnPlayerDeath.action -= OnPlayerDeath;
+        rseSaveGameData.action -= SaveGameData;
     }
 
     void Update()
@@ -63,7 +66,10 @@ public class PlayerHealth : MonoBehaviour, IHealth
     {
         rsoContentSaved.Value.totalTimeAlive = timeAlive;
     }
-
+    void SaveGameData()
+    {
+        rsoContentSaved.Value.totalTimeAlive = timeAlive;
+    }
     public void TakeMaxHealth(int health)
     {
         maxHealth += health;

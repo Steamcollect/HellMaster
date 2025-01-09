@@ -4,7 +4,6 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "SSO_Achievment_KillEnemys", menuName = "ScriptableObject/SSO_Achievment_KillEnemys")]
 public class SSO_Achievment_KillEnemys : Achievment
 {
-    int enemysKilled = 0;
     [SerializeField] int killRequired;
 
     [SerializeField] float damageMultGiven;
@@ -13,12 +12,12 @@ public class SSO_Achievment_KillEnemys : Achievment
 
     public void AddEnemysKilled(int kill)
     {
-        enemysKilled += kill;
-
-        if(enemysKilled >= killRequired && !isAchieve)
+        if(kill >= killRequired && !isAchieve)
         {
+            Debug.Log(kill);
             isAchieve = true;
             rseAddDamageMult.Call(damageMultGiven);
+            rseSaveAllGameData.Call();
         }
     }
 

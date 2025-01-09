@@ -29,6 +29,7 @@ public class PlayerCombat : MonoBehaviour
     [SerializeField] RSE_AddDamageMultiplier rseAddDamageMult;
     [SerializeField] RSE_OnGameStart rseOnGameStart;
     [SerializeField] RSE_OnPlayerDeath rseOnPlayerDeath;
+    [SerializeField] RSE_SaveAllGameData rseSaveGameData;
 
     //[Header("Output")]
 
@@ -37,12 +38,14 @@ public class PlayerCombat : MonoBehaviour
         rseAddDamageMult.action += AddDamageMultiplier;
         rseOnGameStart.action += OnGameStart;
         rseOnPlayerDeath.action += OnPlayerDeath;
+        rseSaveGameData.action += SaveGameData;
     }
     private void OnDisable()
     {
         rseAddDamageMult.action -= AddDamageMultiplier;
         rseOnGameStart.action -= OnGameStart;
         rseOnPlayerDeath.action -= OnPlayerDeath;
+        rseSaveGameData.action -= SaveGameData;
     }
 
     void OnGameStart()
@@ -57,7 +60,10 @@ public class PlayerCombat : MonoBehaviour
         rsoContentSave.Value.totalEnemysKilled = totalEnemysKilled;
         canAttack = false;
     }
-
+    void SaveGameData()
+    {
+        rsoContentSave.Value.totalEnemysKilled = totalEnemysKilled;
+    }
     private void Update()
     {
         if (canAttack)
@@ -106,9 +112,10 @@ public class PlayerCombat : MonoBehaviour
     void OnEnemyKill()
     {
         totalEnemysKilled++;
+        print(totalEnemysKilled);
         foreach (var item in achievmentsKillEnemys)
         {
-            item.AddEnemysKilled(1);
+            item.AddEnemysKilled(totalEnemysKilled);
         }
     }
 }

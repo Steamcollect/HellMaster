@@ -9,6 +9,7 @@ public class LoadAndSaveData : MonoBehaviour
     [SerializeField] RSO_ContentSaved rsoContentSave;
     [SerializeField] RSE_SaveData rseSaveData;
     [SerializeField] RSE_LoadData rseLoadData;
+    [SerializeField] RSE_SaveAllGameData rseSaveAllGameData;
 
     string filepath;
 
@@ -16,16 +17,19 @@ public class LoadAndSaveData : MonoBehaviour
     {
         rseLoadData.action += LoadFromJson;
         rseSaveData.action += SaveToJson;
+        rseSaveAllGameData.action += SaveAllGameData;
     }
     private void OnDisable()
     {
         rseLoadData.action -= LoadFromJson;
         rseSaveData.action -= SaveToJson;
+        rseSaveAllGameData.action -= SaveAllGameData;
     }
 
-    private void Awake()
+    private void Start()
     {
         filepath = Application.persistentDataPath + "/InfoToLoad.json";
+        print(filepath);
 
         if (FileAlreadyExist()) LoadFromJson();
         else SaveToJson();
@@ -34,6 +38,11 @@ public class LoadAndSaveData : MonoBehaviour
         {
             item.GiveBonnus();
         }
+    }
+
+    void SaveAllGameData()
+    {
+        Invoke("SaveToJson", .1f);
     }
 
     void SaveToJson()
