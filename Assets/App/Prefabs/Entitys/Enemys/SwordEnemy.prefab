@@ -95,9 +95,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   agent: {fileID: 1857455776393661648}
+  enemyCollider: {fileID: 5264243295605445424}
   rsoTarget: {fileID: 11400000, guid: 2d8d81c0e5fe70c40b604958f0a9b082, type: 2}
   weapon: {fileID: 4530312260100105603}
   animator: {fileID: 3020447815270557842}
+  isDead: 0
 --- !u!114 &7254633286562719040
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -111,6 +113,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 20
+  controller: {fileID: 4760199000783193703}
   animator: {fileID: 3020447815270557842}
   rseOnPlayerDeath: {fileID: 11400000, guid: 8a4b2423a095dfb4884674599ccc4b24, type: 2}
 --- !u!1001 &3354278185600213139

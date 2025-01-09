@@ -7,9 +7,11 @@ public class EnemyController : MonoBehaviour
 
     [Header("References")]
     [SerializeField] NavMeshAgent agent;
+    [SerializeField] Collider enemyCollider;
     [SerializeField] RSO_PlayerTransform rsoTarget;
     [SerializeField] WeaponTemplate weapon;
     [SerializeField] Animator animator;
+    public bool isDead = false;
 
     Transform lookAtRot;
 
@@ -29,16 +31,19 @@ public class EnemyController : MonoBehaviour
 
     private void Update()
     {
-        agent.destination = rsoTarget.Value.position;
-        animator.SetBool("isRunning", true);
-
-        if(agent.remainingDistance <= agent.stoppingDistance)
+        if(!isDead)
         {
-            animator.SetTrigger("Attack");
-            Debug.Log("caca attaque");
-            lookAtRot.position = transform.position;
-            lookAtRot.LookAt(rsoTarget.Value);
-            weapon.OnAttack(transform.position, lookAtRot.forward);
+            agent.destination = rsoTarget.Value.position;
+            animator.SetBool("isRunning", true);
+
+            if (agent.remainingDistance <= agent.stoppingDistance)
+            {
+                animator.SetTrigger("Attack");
+                lookAtRot.position = transform.position;
+                lookAtRot.LookAt(rsoTarget.Value);
+                weapon.OnAttack(transform.position, lookAtRot.forward);
+            }
         }
+        else { agent.isStopped = true; enemyCollider.enabled = false; }
     }
 }

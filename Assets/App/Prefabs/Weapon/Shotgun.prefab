@@ -85,7 +85,7 @@ MonoBehaviour:
   hasSpread: 0
   bulletSpreadVariance: {x: 0.06, y: 0.06, z: 0.06}
   maxShootDistance: 1000
-  reloadTime: 0.4
+  reloadTime: 0.8
   bulletShotForOneShot: 8
   maxBulletCount: 2
   bulletCount: 2
