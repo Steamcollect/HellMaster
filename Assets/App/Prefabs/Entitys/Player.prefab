@@ -132,6 +132,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 100
+  achievmentsSurvivMinTime:
+  - {fileID: 11400000, guid: 9df34200858fd454480386e1e475f23e, type: 2}
+  - {fileID: 11400000, guid: c0039d1f2aea5dd448de435000309fb8, type: 2}
+  - {fileID: 11400000, guid: f5c2422c8ef5a84479073919864e20fa, type: 2}
+  - {fileID: 11400000, guid: 0387a5705c350194789b536f09536004, type: 2}
+  rseAddMaxHealth: {fileID: 11400000, guid: f0bbe7007d5a25e4db250469aa309d3a, type: 2}
   rseUpdateHealthBar: {fileID: 11400000, guid: 8871cfeb85b86234692995e0d261bb3f, type: 2}
 --- !u!114 &1418595597308619600
 MonoBehaviour:
@@ -151,8 +157,13 @@ MonoBehaviour:
   - {fileID: 2048997444476958417}
   currentWeaponIndex: 0
   cam: {fileID: 8221105608950911600}
-  achievmentKill1Enemy: {fileID: 11400000, guid: 715c1ffaffe45f54ca67919a1c70e5da,
-    type: 2}
+  achievmentsKillEnemys:
+  - {fileID: 11400000, guid: 715c1ffaffe45f54ca67919a1c70e5da, type: 2}
+  - {fileID: 11400000, guid: 0342e681c7fba6f48b76c5aa4104aa6e, type: 2}
+  - {fileID: 11400000, guid: 6c5484c8e3df0e544a24fcecbcc1d7f0, type: 2}
+  - {fileID: 11400000, guid: 14a5cfd16d25c2145aadf2720fa79e6c, type: 2}
+  - {fileID: 11400000, guid: 36c7eede97070a34f981c9e53ff60be9, type: 2}
+  - {fileID: 11400000, guid: 5ee83a5002f67dc4c98dcac6f8e78273, type: 2}
   rseAddDamageMult: {fileID: 11400000, guid: f55fe3cc3c1594a4b9d8c585c71bebfc, type: 2}
 --- !u!1 &2772180619573001532
 GameObject:

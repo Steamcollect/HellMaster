@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 83caa019844008a48897f0f12b527d54, type: 3}
+  m_Name: SSO_Achievment_Surviv1Min
+  m_EditorClassIdentifier: 
+  achivmentName: Barely Breathing
+  achivmentDescription: 'Surviv 1 min
+
+    +10 Max health'
+  achievmentIcon: {fileID: 0}
+  isAchieve: 0
+  timeRequire: 60
+  maxHealthGiven: 10
+  rseAddMaxHealth: {fileID: 11400000, guid: f0bbe7007d5a25e4db250469aa309d3a, type: 2}

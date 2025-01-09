@@ -1,13 +1,13 @@
 using System;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "SSO_Achievment_Kill1Enemy", menuName = "ScriptableObject/SSO_Achievment_Kill1Enemy")]
-public class SSO_Achievment_Kill1Enemy : Achievment
+[CreateAssetMenu(fileName = "SSO_Achievment_KillEnemys", menuName = "ScriptableObject/SSO_Achievment_KillEnemys")]
+public class SSO_Achievment_KillEnemys : Achievment
 {
     int enemysKilled = 0;
-    public int killRequired;
+    [SerializeField] int killRequired;
 
-    public float damageMultGiven;
+    [SerializeField] float damageMultGiven;
 
     [SerializeField] RSE_AddDamageMultiplier rseAddDamageMult;
 

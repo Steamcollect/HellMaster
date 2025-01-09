@@ -10,14 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d6b8e4a1cfa01e947b2767af9e0de6d3, type: 3}
-  m_Name: SSO_Achievment_Kill1Enemy
+  m_Name: SSO_Achievment_Kill100Enemy
   m_EditorClassIdentifier: 
-  achivmentName: First blood
-  achivmentDescription: 'Kill 1 enemy
+  achivmentName: Reaper
+  achivmentDescription: 'Kill 100 enemy
 
     +5% attack damage'
   achievmentIcon: {fileID: 1399627028, guid: 87d273997b7563e49a6f21c80b28191a, type: 3}
   isAchieve: 1
-  killRequired: 1
+  killRequired: 100
   damageMultGiven: 0.05
   rseAddDamageMult: {fileID: 11400000, guid: f55fe3cc3c1594a4b9d8c585c71bebfc, type: 2}

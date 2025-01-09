@@ -15,7 +15,7 @@ public class PlayerCombat : MonoBehaviour
     float damageMultiplier = 1;
 
     [Header("Achievments")]
-    [SerializeField] SSO_Achievment_Kill1Enemy achievmentKill1Enemy;
+    [SerializeField] SSO_Achievment_KillEnemys[] achievmentsKillEnemys;
     
     // RSO
     // RSF
@@ -85,6 +85,9 @@ public class PlayerCombat : MonoBehaviour
     }
     void OnEnemyKill()
     {
-        achievmentKill1Enemy.AddEnemysKilled(1);
+        foreach (var item in achievmentsKillEnemys)
+        {
+            item.AddEnemysKilled(1);
+        }
     }
 }

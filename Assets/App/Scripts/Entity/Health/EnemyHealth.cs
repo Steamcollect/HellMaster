@@ -24,10 +24,10 @@ public class EnemyHealth : MonoBehaviour, IHealth
         currentHealth = maxHealth;
     }
 
-    public void TakeHealth(int health)
+    public void TakeMaxHealth(int health)
     {
+        maxHealth += health;
         currentHealth += health;
-        if (currentHealth > maxHealth) currentHealth = maxHealth;
     }
 
     public void TakeDamage(float damage, Action onDeath)
