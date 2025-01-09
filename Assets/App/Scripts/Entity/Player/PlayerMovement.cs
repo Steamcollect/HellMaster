@@ -9,6 +9,10 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] float airAcceleration = 10f;
     [SerializeField] float maxSpeed = 10f;
     [SerializeField] float friction = 8f;
+    float moveSpeedMultiplier = 1;
+
+    float distanceTravelled;
+    private Vector3 lastPosition;
 
     [Header("Jump")]
     [SerializeField] float jumpForce = 5f;
@@ -30,6 +34,9 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] Camera cam;
     [SerializeField] Rigidbody rb;
 
+    [Header("Achievment")]
+    [SerializeField] SSO_Achievment_RunDistance[] achievmentsRunDistance;
+
     [Space(10)]
     [SerializeField] RSO_PlayerTransform rsoPlayerTransform;
 
@@ -38,9 +45,17 @@ public class PlayerMovement : MonoBehaviour
     float lastGroundedTime;
     float jumpBufferCounter;
 
+    [Header("Input")]
+    [SerializeField] RSE_AddMoveSpeedMultiplier rseAddMoveSpeedMult;
+
     private void OnEnable()
     {
         rsoPlayerTransform.Value = transform;
+        rseAddMoveSpeedMult.action += AddMoveSpeedMultiplier;
+    }
+    private void OnDisable()
+    {
+        rseAddMoveSpeedMult.action -= AddMoveSpeedMultiplier;
     }
 
     void Update()
@@ -53,8 +68,15 @@ public class PlayerMovement : MonoBehaviour
     void FixedUpdate()
     {
         MovePlayer();
+        TrackDistanceTravelled();
+
         ApplyFriction();
         HandleJump();
+    }
+
+    void AddMoveSpeedMultiplier(float multGiven)
+    {
+        moveSpeedMultiplier += multGiven;
     }
 
     void HandleInput()
@@ -86,10 +108,23 @@ public class PlayerMovement : MonoBehaviour
     void MovePlayer()
     {
         float acceleration = isGrounded ? groundAcceleration : airAcceleration;
-        Vector3 targetVelocity = moveDirection * maxSpeed;
+        Vector3 targetVelocity = moveDirection * maxSpeed * moveSpeedMultiplier;
         Vector3 velocity = rb.velocity;
-        Vector3 velocityChange = Vector3.ClampMagnitude(targetVelocity - new Vector3(velocity.x, 0, velocity.z), acceleration * Time.fixedDeltaTime);
+        Vector3 velocityChange = Vector3.ClampMagnitude(targetVelocity - new Vector3(velocity.x, 0, velocity.z), acceleration * moveSpeedMultiplier * Time.fixedDeltaTime);
         rb.AddForce(velocityChange, ForceMode.VelocityChange);
+    }
+
+    private void TrackDistanceTravelled()
+    {
+        float distance = Vector3.Distance(lastPosition, transform.position);
+
+        distanceTravelled += distance;
+        lastPosition = transform.position;
+
+        foreach (var item in achievmentsRunDistance)
+        {
+            item.CheckDistance(distance);
+        }
     }
 
     void ApplyFriction()
