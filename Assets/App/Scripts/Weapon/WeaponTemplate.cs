@@ -18,7 +18,8 @@ public abstract class WeaponTemplate : MonoBehaviour
 
     public Action OnTargetKill;
 
-    //[Header("References")]
+    [Header("References")]
+    [SerializeField] GameObject visual;
 
     //[Space(10)]
     // RSO
@@ -55,5 +56,14 @@ public abstract class WeaponTemplate : MonoBehaviour
         canAttack = false;
         yield return new WaitForSeconds(attackDelay);
         canAttack = true;
+    }
+
+    public void Hide()
+    {
+        visual.SetActive(false);
+    }
+    public void Show()
+    {
+        visual.SetActive(true);
     }
 }

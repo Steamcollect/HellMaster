@@ -67,10 +67,10 @@ public class PlayerCombat : MonoBehaviour
 
             if (newWeaponIndex != currentWeaponIndex)
             {
-                weapons[currentWeaponIndex].gameObject.SetActive(false);
+                weapons[currentWeaponIndex].Hide();
                 weapons[currentWeaponIndex].OnTargetKill -= OnEnemyKill;
 
-                weapons[newWeaponIndex].gameObject.SetActive(true);
+                weapons[newWeaponIndex].Show();
                 currentWeaponIndex = newWeaponIndex;
 
                 weapons[currentWeaponIndex].damageMultiplier = damageMultiplier;

@@ -84,6 +84,7 @@ MonoBehaviour:
   isSemiAuto: 0
   hasSpread: 0
   bulletSpreadVariance: {x: 0.06, y: 0.06, z: 0.06}
+  visual: {fileID: 1416901301475932862}
   maxShootDistance: 1000
   reloadTime: 0.8
   bulletShotForOneShot: 8
@@ -209,6 +210,12 @@ PrefabInstance:
       addedObject: {fileID: 3348913855670763207}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fcbd88e50b6f08b45baa97abc97ba6a7, type: 3}
+--- !u!1 &1416901301475932862 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: fcbd88e50b6f08b45baa97abc97ba6a7,
+    type: 3}
+  m_PrefabInstance: {fileID: 2263254439392430063}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1793005044651696132 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: fcbd88e50b6f08b45baa97abc97ba6a7,
