@@ -35,14 +35,6 @@ public class EnemySpawner : MonoBehaviour
         rseOnPlayerDeath.action -= OnPlayerDeath;
     }
 
-    private void Start()
-    {
-        foreach (var enemy in enemys)
-        {
-            SpawnEnemy(enemy);
-        }
-    }
-
     private void Update()
     {
         gameTime += Time.deltaTime;
@@ -51,6 +43,11 @@ public class EnemySpawner : MonoBehaviour
     void OnGameStart()
     {
         canSpawn = true;
+
+        foreach (var enemy in enemys)
+        {
+            SpawnEnemy(enemy);
+        }
     }
     void OnPlayerDeath()
     {
