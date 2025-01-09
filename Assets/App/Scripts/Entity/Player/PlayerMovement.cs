@@ -123,7 +123,7 @@ public class PlayerMovement : MonoBehaviour
 
         foreach (var item in achievmentsRunDistance)
         {
-            item.CheckDistance(distance);
+            item.CheckDistance(distanceTravelled);
         }
     }
 
