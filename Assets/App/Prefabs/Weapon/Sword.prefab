@@ -197,6 +197,7 @@ MonoBehaviour:
   isSemiAuto: 0
   hasSpread: 0
   bulletSpreadVariance: {x: 0, y: 0, z: 0}
+  visual: {fileID: 2188636430748704454}
   attackDistance: 2.5
   animator: {fileID: 4027417760990739042}
 --- !u!95 &4027417760990739042
@@ -310,6 +311,12 @@ PrefabInstance:
 --- !u!4 &1518919859301319804 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: be1e485affd02924e8aa89e3f4714d46,
+    type: 3}
+  m_PrefabInstance: {fileID: 1341774639722685335}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &2188636430748704454 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: be1e485affd02924e8aa89e3f4714d46,
     type: 3}
   m_PrefabInstance: {fileID: 1341774639722685335}
   m_PrefabAsset: {fileID: 0}

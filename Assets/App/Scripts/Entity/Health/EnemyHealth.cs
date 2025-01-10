@@ -7,6 +7,7 @@ public class EnemyHealth : MonoBehaviour, IHealth
     [Header("Settings")]
     [SerializeField] float maxHealth;
     float currentHealth;
+    [SerializeField] EnemyController controller;
     [SerializeField] Animator animator;
 
     //[Header("References")]
@@ -58,15 +59,15 @@ public class EnemyHealth : MonoBehaviour, IHealth
 
     void Die()
     {
+        controller.isDead = true;
         StartCoroutine(DeathAnim());
     }
 
     IEnumerator DeathAnim()
     {
         animator.SetTrigger("Death");
-        Debug.Log("caca meurt");
 
-        yield return new WaitForSeconds(0.767f);
+        yield return new WaitForSeconds(1f);
 
         Destroy(gameObject);
     }

@@ -43,7 +43,7 @@ GameObject:
   - component: {fileID: 7323119263055290921}
   - component: {fileID: 776464444234782360}
   m_Layer: 0
-  m_Name: Glock
+  m_Name: EnnemyGun
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -78,13 +78,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71d9006c3e99e5b4d8739170974d348d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 7
+  damage: 5
   damageMultiplier: 1
-  attackDelay: 0
+  attackDelay: 1
   isSemiAuto: 0
-  hasSpread: 0
-  bulletSpreadVariance: {x: 0, y: 0, z: 0}
-  visual: {fileID: 6463075618262767635}
+  hasSpread: 1
+  bulletSpreadVariance: {x: 0.3, y: 0.1, z: 0.3}
   maxShootDistance: 1000
   bulletTrail: {fileID: 3797463065826991015, guid: 9b73f81fa0412834d877bfb3b937b869,
     type: 3}
@@ -357,12 +356,6 @@ PrefabInstance:
 --- !u!4 &5979273582129840809 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 6f6c0cc8e681c3445b7fd0e7f5c5af1b,
-    type: 3}
-  m_PrefabInstance: {fileID: 6156452412355208514}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &6463075618262767635 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 6f6c0cc8e681c3445b7fd0e7f5c5af1b,
     type: 3}
   m_PrefabInstance: {fileID: 6156452412355208514}
   m_PrefabAsset: {fileID: 0}
