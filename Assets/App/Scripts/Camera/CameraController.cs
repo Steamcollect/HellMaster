@@ -32,12 +32,10 @@ public class CameraController : MonoBehaviour
 
     void OnGameStart()
     {
-        Cursor.lockState = CursorLockMode.Locked;
         canMove = true;   
     }
     void OnPlayerDeath()
     {
-        Cursor.lockState = CursorLockMode.None;
         canMove = false;
     }
 

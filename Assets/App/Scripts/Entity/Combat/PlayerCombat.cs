@@ -115,7 +115,6 @@ public class PlayerCombat : MonoBehaviour
     void OnEnemyKill()
     {
         totalEnemysKilled++;
-        print(totalEnemysKilled);
         foreach (var item in achievmentsKillEnemys)
         {
             item.AddEnemysKilled(totalEnemysKilled);
