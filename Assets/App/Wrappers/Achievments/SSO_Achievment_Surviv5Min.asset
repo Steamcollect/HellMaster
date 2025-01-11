@@ -22,3 +22,5 @@ MonoBehaviour:
   timeRequire: 300
   maxHealthGiven: 20
   rseAddMaxHealth: {fileID: 11400000, guid: f0bbe7007d5a25e4db250469aa309d3a, type: 2}
+  rsoAchievmentCompleteCount: {fileID: 11400000, guid: 7eb12019ffd4e0f459fa01778a830153,
+    type: 2}

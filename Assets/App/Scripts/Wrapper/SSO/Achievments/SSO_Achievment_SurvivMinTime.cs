@@ -10,6 +10,7 @@ public class SSO_Achievment_SurvivMinTime : Achievment
     [SerializeField] int maxHealthGiven;
 
     [SerializeField] RSE_AddPlayerMaxHealth rseAddMaxHealth;
+    [SerializeField] RSO_AchievmentCompleteCount rsoAchievmentCompleteCount;
 
     public Coroutine delayTimer;
     public IEnumerator Delay()
@@ -21,6 +22,7 @@ public class SSO_Achievment_SurvivMinTime : Achievment
             rseAddMaxHealth.Call(maxHealthGiven);
             isAchieve = true;
             rseSaveAllGameData.Call();
+            rsoAchievmentCompleteCount.Value++;
         }
     }
 
@@ -29,6 +31,7 @@ public class SSO_Achievment_SurvivMinTime : Achievment
         if (isAchieve)
         {
             rseAddMaxHealth.Call(maxHealthGiven);
+            rsoAchievmentCompleteCount.Value++;
         }
     }
 }

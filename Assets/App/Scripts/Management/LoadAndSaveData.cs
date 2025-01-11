@@ -7,6 +7,7 @@ public class LoadAndSaveData : MonoBehaviour
 
     [Space(10)]
     [SerializeField] RSO_ContentSaved rsoContentSave;
+    [SerializeField] RSO_AchievmentCompleteCount rsoAchievmentCompleteCount;
     [SerializeField] RSE_SaveData rseSaveData;
     [SerializeField] RSE_LoadData rseLoadData;
     [SerializeField] RSE_SaveAllGameData rseSaveAllGameData;
@@ -38,6 +39,8 @@ public class LoadAndSaveData : MonoBehaviour
         {
             item.GiveBonnus();
         }
+
+        rsoAchievmentCompleteCount.Value = 0;
     }
 
     void SaveAllGameData()

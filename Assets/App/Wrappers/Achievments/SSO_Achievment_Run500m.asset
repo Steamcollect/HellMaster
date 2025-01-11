@@ -23,3 +23,5 @@ MonoBehaviour:
   moveSpeedMult: 0.05
   rseAddMoveSpeedMult: {fileID: 11400000, guid: ec7e23ce33fa50d47a0056f872eb5868,
     type: 2}
+  rsoAchievmentCompleteCount: {fileID: 11400000, guid: 7eb12019ffd4e0f459fa01778a830153,
+    type: 2}

@@ -17,8 +17,10 @@ MonoBehaviour:
 
     +5% attack damage'
   achievmentIcon: {fileID: 1399627028, guid: 87d273997b7563e49a6f21c80b28191a, type: 3}
-  isAchieve: 0
+  isAchieve: 1
   rseSaveAllGameData: {fileID: 11400000, guid: 6b2d0fac7e3f1d14d9f3157d9b2527fb, type: 2}
   killRequired: 1
   damageMultGiven: 0.05
   rseAddDamageMult: {fileID: 11400000, guid: f55fe3cc3c1594a4b9d8c585c71bebfc, type: 2}
+  rsoAchievmentCompleteCount: {fileID: 11400000, guid: 7eb12019ffd4e0f459fa01778a830153,
+    type: 2}

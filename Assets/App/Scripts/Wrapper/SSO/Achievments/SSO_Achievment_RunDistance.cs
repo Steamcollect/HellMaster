@@ -7,6 +7,7 @@ public class SSO_Achievment_RunDistance : Achievment
     [SerializeField] float moveSpeedMult;
 
     [SerializeField] RSE_AddMoveSpeedMultiplier rseAddMoveSpeedMult;
+    [SerializeField] RSO_AchievmentCompleteCount rsoAchievmentCompleteCount;
 
     public void CheckDistance(float distance)
     {
@@ -15,6 +16,7 @@ public class SSO_Achievment_RunDistance : Achievment
             rseAddMoveSpeedMult.Call(moveSpeedMult);
             isAchieve = true;
             rseSaveAllGameData.Call();
+            rsoAchievmentCompleteCount.Value++;
         }
     }
 
@@ -23,6 +25,7 @@ public class SSO_Achievment_RunDistance : Achievment
         if (isAchieve)
         {
             rseAddMoveSpeedMult.Call(moveSpeedMult);
+            rsoAchievmentCompleteCount.Value++;
         }
     }
 }

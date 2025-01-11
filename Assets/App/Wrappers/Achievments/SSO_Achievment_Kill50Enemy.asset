@@ -22,3 +22,5 @@ MonoBehaviour:
   killRequired: 50
   damageMultGiven: 0.05
   rseAddDamageMult: {fileID: 11400000, guid: f55fe3cc3c1594a4b9d8c585c71bebfc, type: 2}
+  rsoAchievmentCompleteCount: {fileID: 11400000, guid: 7eb12019ffd4e0f459fa01778a830153,
+    type: 2}

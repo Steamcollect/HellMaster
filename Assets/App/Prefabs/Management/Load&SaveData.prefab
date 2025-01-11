@@ -66,6 +66,8 @@ MonoBehaviour:
     totalEnemysKilled: 0
     totalTimeAlive: 0
   rsoContentSave: {fileID: 11400000, guid: af883388f9f4c2b44b3dc5140f911432, type: 2}
+  rsoAchievmentCompleteCount: {fileID: 11400000, guid: 7eb12019ffd4e0f459fa01778a830153,
+    type: 2}
   rseSaveData: {fileID: 11400000, guid: 94fdca2f03a20554b85ce3b1b05aa863, type: 2}
   rseLoadData: {fileID: 11400000, guid: c2b9392b4ed3cf244b441d79ce9f0718, type: 2}
   rseSaveAllGameData: {fileID: 11400000, guid: 6b2d0fac7e3f1d14d9f3157d9b2527fb, type: 2}

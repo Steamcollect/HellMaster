@@ -30,6 +30,7 @@ public class PlayerCombat : MonoBehaviour
     [SerializeField] RSE_OnGameStart rseOnGameStart;
     [SerializeField] RSE_OnPlayerDeath rseOnPlayerDeath;
     [SerializeField] RSE_SaveAllGameData rseSaveGameData;
+    [SerializeField] RSE_AddWeapon rseAddWeapon;
 
     //[Header("Output")]
 
@@ -39,6 +40,7 @@ public class PlayerCombat : MonoBehaviour
         rseOnGameStart.action += OnGameStart;
         rseOnPlayerDeath.action += OnPlayerDeath;
         rseSaveGameData.action += SaveGameData;
+        rseAddWeapon.action += AddWeapon;
     }
     private void OnDisable()
     {
@@ -46,6 +48,7 @@ public class PlayerCombat : MonoBehaviour
         rseOnGameStart.action -= OnGameStart;
         rseOnPlayerDeath.action -= OnPlayerDeath;
         rseSaveGameData.action -= SaveGameData;
+        rseAddWeapon.action -= AddWeapon;
     }
 
     void OnGameStart()
@@ -100,8 +103,8 @@ public class PlayerCombat : MonoBehaviour
         weapons.Add(Instantiate(newWeaponPrefab, weaponsContent));
 
         int newWeaponIndex = weapons.Count - 1;
-        weapons[currentWeaponIndex].gameObject.SetActive(false);
-        weapons[newWeaponIndex].gameObject.SetActive(true);
+        weapons[currentWeaponIndex].Hide();
+        weapons[newWeaponIndex].Show();
         currentWeaponIndex = newWeaponIndex;
     }
 
