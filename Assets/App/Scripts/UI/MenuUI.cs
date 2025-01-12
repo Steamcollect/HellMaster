@@ -72,6 +72,7 @@ public class MenuUI : MonoBehaviour
         rseOnGameStart.Call();
         isOnMainMenu = false;
         Cursor.lockState = CursorLockMode.Locked;
+        //restart la scène d'arène
     }
 
     void ShowMenu()

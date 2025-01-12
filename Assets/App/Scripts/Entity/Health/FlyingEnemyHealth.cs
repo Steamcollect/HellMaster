@@ -4,23 +4,16 @@ using UnityEngine;
 
 public class FlyingEnemyHealth : MonoBehaviour, IHealth
 {
+    //Désolé si c'est dégueulasse et que ça fait du copié-collé de code, mais c'est moi le GD qui ait fait ça rapidement pour que ça marche :,)
+
     [Header("Settings")]
     [SerializeField] float maxHealth;
     float currentHealth;
     [SerializeField] FlyingEnemyController controller;
     [SerializeField] Animator animator;
 
-    //[Header("References")]
-
-    //[Space(10)]
-    // RSO
-    // RSF
-    // RSP
-
     [Header("Input")]
     [SerializeField] RSE_OnPlayerDeath rseOnPlayerDeath;
-
-    //[Header("Output")]
 
     void OnEnable()
     {
