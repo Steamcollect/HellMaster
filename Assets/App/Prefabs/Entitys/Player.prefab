@@ -187,6 +187,8 @@ MonoBehaviour:
   rseOnPlayerDeath: {fileID: 11400000, guid: 8a4b2423a095dfb4884674599ccc4b24, type: 2}
   rseSaveGameData: {fileID: 11400000, guid: 6b2d0fac7e3f1d14d9f3157d9b2527fb, type: 2}
   rseAddWeapon: {fileID: 11400000, guid: 27f8b9bb7fcd4dc4bafe2c88b2b15d33, type: 2}
+  rseOnPauseStateChanged: {fileID: 11400000, guid: cb3fe0f53e1955b41a5140923f27eb89,
+    type: 2}
 --- !u!1 &2772180619573001532
 GameObject:
   m_ObjectHideFlags: 0

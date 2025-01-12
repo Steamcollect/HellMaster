@@ -31,6 +31,7 @@ public class PlayerCombat : MonoBehaviour
     [SerializeField] RSE_OnPlayerDeath rseOnPlayerDeath;
     [SerializeField] RSE_SaveAllGameData rseSaveGameData;
     [SerializeField] RSE_AddWeapon rseAddWeapon;
+    [SerializeField] RSE_OnPauseStateChanged rseOnPauseStateChanged;
 
     //[Header("Output")]
 
@@ -41,6 +42,7 @@ public class PlayerCombat : MonoBehaviour
         rseOnPlayerDeath.action += OnPlayerDeath;
         rseSaveGameData.action += SaveGameData;
         rseAddWeapon.action += AddWeapon;
+        rseOnPauseStateChanged.action += OnPauseStateChanged;
     }
     private void OnDisable()
     {
@@ -49,6 +51,7 @@ public class PlayerCombat : MonoBehaviour
         rseOnPlayerDeath.action -= OnPlayerDeath;
         rseSaveGameData.action -= SaveGameData;
         rseAddWeapon.action -= AddWeapon;
+        rseOnPauseStateChanged.action -= OnPauseStateChanged;
     }
 
     void OnGameStart()
@@ -95,7 +98,7 @@ public class PlayerCombat : MonoBehaviour
             {
                 weapons[currentWeaponIndex].Reload();
             }
-        }        
+        }
     }
 
     void AddWeapon(WeaponTemplate newWeaponPrefab)
@@ -119,5 +122,10 @@ public class PlayerCombat : MonoBehaviour
         {
             item.AddEnemysKilled(totalEnemysKilled);
         }
+    }
+
+    void OnPauseStateChanged(bool isPaused)
+    {
+        canAttack = !isPaused;
     }
 }

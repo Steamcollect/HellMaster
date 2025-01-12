@@ -1,4 +1,4 @@
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "RSE_OnGameStart", menuName = "RSE/RSE_OnGameStart")]
+[CreateAssetMenu(fileName = "rseOnGameStart", menuName = "RSE/rseOnGameStart")]
 public class RSE_OnGameStart : BT.ScriptablesObject.RuntimeScriptableEvent{}

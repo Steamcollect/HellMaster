@@ -1,4 +1,4 @@
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "RSE_OnPlayerDeath", menuName = "RSE/RSE_OnPlayerDeath")]
+[CreateAssetMenu(fileName = "rseOnPlayerDeath", menuName = "RSE/rseOnPlayerDeath")]
 public class RSE_OnPlayerDeath : BT.ScriptablesObject.RuntimeScriptableEvent{}
