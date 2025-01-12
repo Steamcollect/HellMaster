@@ -5,6 +5,7 @@ public class MainPanelUI : MonoBehaviour
     public GameObject pausePanel;
     public GameObject gameOverPanel;
     public GameObject mainPanelVisual;
+    public GameObject settingsPanel;
 
     private GameObject currentActivePanel;
 
@@ -37,6 +38,7 @@ public class MainPanelUI : MonoBehaviour
 
     public bool IsMainMenuActive() => currentActivePanel == mainMenuPanel;
     public bool IsGameOverActive() => currentActivePanel == gameOverPanel;
+    public bool IsSettingsActive() => settingsPanel.activeSelf;
 
     private void UpdateMainPanelVisual()
     {

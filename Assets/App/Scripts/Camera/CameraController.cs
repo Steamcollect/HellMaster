@@ -10,6 +10,9 @@ public class CameraController : MonoBehaviour
     [SerializeField] float maxTiltAngle = 10f;
     [SerializeField] float tiltSpeed = 5f;
 
+    [Space(10)]
+    [SerializeField] RSO_MouseSensitivityMultiplier rsoMouseSensitivityMult;
+
     float xRotation = 0f;
     float currentTilt = 0f;
 
@@ -50,8 +53,8 @@ public class CameraController : MonoBehaviour
 
     void RotateCamera()
     {
-        float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity * Time.deltaTime;
-        float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity * Time.deltaTime;
+        float mouseX = Input.GetAxis("Mouse X") * (mouseSensitivity * rsoMouseSensitivityMult.Value) * Time.deltaTime;
+        float mouseY = Input.GetAxis("Mouse Y") * (mouseSensitivity * rsoMouseSensitivityMult.Value) * Time.deltaTime;
 
         xRotation -= mouseY;
         xRotation = Mathf.Clamp(xRotation, -90f, 90f);

@@ -3,6 +3,8 @@ public class PausePanelUI : MonoBehaviour
 {
     [SerializeField] private MainPanelUI mainPanel;
     [SerializeField] GameObject pauseButtons;
+    [SerializeField] SettingsPanel settingsPanel;
+
     [SerializeField] private RSE_OnPauseStateChanged rseOnPauseStateChanged;
 
     bool isPaused = false;
@@ -11,7 +13,7 @@ public class PausePanelUI : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            if (!mainPanel.IsMainMenuActive() && !mainPanel.IsGameOverActive())
+            if (!mainPanel.IsMainMenuActive() && !mainPanel.IsGameOverActive() && !mainPanel.IsSettingsActive())
             {
                 if (Time.timeScale == 0f)
                 {
@@ -43,7 +45,7 @@ public class PausePanelUI : MonoBehaviour
 
     public void OpenSettings()
     {
-        // Logic to open settings
+        settingsPanel.Show();
     }
 
     public void ReturnToMainMenu()

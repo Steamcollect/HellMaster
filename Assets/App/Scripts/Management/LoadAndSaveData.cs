@@ -48,16 +48,11 @@ public class LoadAndSaveData : MonoBehaviour
 
     void SaveToJson()
     {
-        // Update achievmentsStatus based on current achievments
-        infoToSave.achievmentsStatus = new bool[achievments.Length];
+        infoToSave = rsoContentSave.Value;
         for (int i = 0; i < achievments.Length; i++)
         {
             infoToSave.achievmentsStatus[i] = achievments[i].isAchieve;
         }
-
-        infoToSave.totalDistanceTravelled = rsoContentSave.Value.totalDistanceTravelled;
-        infoToSave.totalEnemysKilled = rsoContentSave.Value.totalEnemysKilled;
-        infoToSave.totalTimeAlive = rsoContentSave.Value.totalTimeAlive;
 
         string infoData = JsonUtility.ToJson(infoToSave);
         System.IO.File.WriteAllText(filepath, infoData);
@@ -113,4 +108,9 @@ public class InfoToSave
     public float totalDistanceTravelled;
     public int totalEnemysKilled;
     public float totalTimeAlive;
+
+    public float musicVolume = 1;
+    public float soundVolume = 1;
+    public float mouseSensitivity = 1;
+    public bool isFullScreen = true;
 }

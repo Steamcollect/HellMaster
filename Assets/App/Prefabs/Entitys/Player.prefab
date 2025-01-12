@@ -345,6 +345,8 @@ MonoBehaviour:
   mouseSensitivity: 400
   maxTiltAngle: 4
   tiltSpeed: 8
+  rsoMouseSensitivityMult: {fileID: 11400000, guid: 0d97823373570f64abe6d19d3d8ed902,
+    type: 2}
   rseOnGameStart: {fileID: 11400000, guid: 88a565a514476f74baa9c0ca7be72107, type: 2}
   rseOnPlayerDeath: {fileID: 11400000, guid: 8a4b2423a095dfb4884674599ccc4b24, type: 2}
 --- !u!1 &6205696927364304765

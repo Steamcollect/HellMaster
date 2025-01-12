@@ -4,6 +4,7 @@ public class MainMenuUI : MonoBehaviour
 {
     [SerializeField] private MainPanelUI mainPanel;
     [SerializeField] private RSE_OnGameStart rseOnGameStart;
+    [SerializeField] SettingsPanel settingsPanel;
 
     public void PlayGame()
     {
@@ -13,7 +14,7 @@ public class MainMenuUI : MonoBehaviour
 
     public void OpenSettings()
     {
-        // Logic to open settings
+        settingsPanel.Show();
     }
 
     public void QuitGame()
