@@ -3,8 +3,6 @@ using System.Collections.Generic;
 
 public class AchievmentUIManager : MonoBehaviour
 {
-    //[Header("Settings")]
-
     [Header("References")]
     [SerializeField] Achievment[] achievments;
 
@@ -20,17 +18,16 @@ public class AchievmentUIManager : MonoBehaviour
     // RSP
 
     [Header("Input")]
-    [SerializeField] RSE_ShowAchievmentOnScreen rseShowAchievmentOnScreen;
-
-    //[Header("Output")]
+    [SerializeField] RSE_OnAchievmentComplete rseShowAchievmentOnScreen;
+    [SerializeField] RSE_OnPanelOpen rsePanelOpen;
 
     [Space(10)]
     [SerializeField] List<AchievmentUISetup> achievmentUISetup = new();
 
     public struct AchievmentUISetup
     {
-        Achievment achievment;
-        AchievmentUI ui;
+        public Achievment achievment;
+        public AchievmentUI ui;
         public AchievmentUISetup(Achievment achievment, AchievmentUI ui)
         {
             this.achievment = achievment;
@@ -41,33 +38,40 @@ public class AchievmentUIManager : MonoBehaviour
     private void OnEnable()
     {
         rseShowAchievmentOnScreen.action += ShowAchievment;
+        rsePanelOpen.action += OnPanelOpen;
     }
     private void OnDisable()
     {
         rseShowAchievmentOnScreen.action -= ShowAchievment;
+        rsePanelOpen.action -= OnPanelOpen;
     }
-    
+
     private void Start()
     {
-        Invoke("LateStart", .01f);
+        Invoke("LateStart", .1f);
     }
 
     void LateStart()
     {
-        if(rsoContentSave.Value.achievments.Length < achievments.Length)
+        if (rsoContentSave.Value.achievmentsStatus == null || rsoContentSave.Value.achievmentsStatus.Length < achievments.Length)
         {
-            rsoContentSave.Value.achievments = achievments;
-        }
-        else
-        {
-            achievments = rsoContentSave.Value.achievments;
+            rsoContentSave.Value.achievmentsStatus = new bool[achievments.Length];
         }
 
-        foreach (var achievment in achievments)
+        for (int i = 0; i < achievments.Length; i++)
         {
+            achievments[i].isAchieve = rsoContentSave.Value.achievmentsStatus[i];
             AchievmentUI ui = Instantiate(achievmentUIPrefab, achievmentMenuUIContent);
-            ui.Setup(achievment);
-            achievmentUISetup.Add(new AchievmentUISetup(achievment, ui));
+            ui.Setup(achievments[i]);
+            achievmentUISetup.Add(new AchievmentUISetup(achievments[i], ui));
+        }
+    }
+
+    void OnPanelOpen()
+    {
+        foreach (var achivment in achievmentUISetup)
+        {
+            achivment.ui.Setup(achivment.achievment);
         }
     }
 

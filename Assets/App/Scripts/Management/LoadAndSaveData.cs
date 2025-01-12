@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.IO;
+using System.Collections.Generic;
 
 public class LoadAndSaveData : MonoBehaviour
 {
@@ -11,6 +12,8 @@ public class LoadAndSaveData : MonoBehaviour
     [SerializeField] RSE_SaveData rseSaveData;
     [SerializeField] RSE_LoadData rseLoadData;
     [SerializeField] RSE_SaveAllGameData rseSaveAllGameData;
+
+    [SerializeField] Achievment[] achievments;
 
     string filepath;
 
@@ -35,30 +38,60 @@ public class LoadAndSaveData : MonoBehaviour
         if (FileAlreadyExist()) LoadFromJson();
         else SaveToJson();
 
-        foreach (var item in infoToSave.achievments)
-        {
-            item.GiveBonnus();
-        }
-
         rsoAchievmentCompleteCount.Value = 0;
     }
 
     void SaveAllGameData()
     {
-        Invoke("SaveToJson", .1f);
+        Invoke("SaveToJson", .05f);
     }
 
     void SaveToJson()
     {
-        infoToSave = rsoContentSave.Value;
+        // Update achievmentsStatus based on current achievments
+        infoToSave.achievmentsStatus = new bool[achievments.Length];
+        for (int i = 0; i < achievments.Length; i++)
+        {
+            infoToSave.achievmentsStatus[i] = achievments[i].isAchieve;
+        }
+
+        infoToSave.totalDistanceTravelled = rsoContentSave.Value.totalDistanceTravelled;
+        infoToSave.totalEnemysKilled = rsoContentSave.Value.totalEnemysKilled;
+        infoToSave.totalTimeAlive = rsoContentSave.Value.totalTimeAlive;
+
         string infoData = JsonUtility.ToJson(infoToSave);
         System.IO.File.WriteAllText(filepath, infoData);
     }
+
     void LoadFromJson()
     {
         string infoData = System.IO.File.ReadAllText(filepath);
         infoToSave = JsonUtility.FromJson<InfoToSave>(infoData);
-        rsoContentSave.Value = infoToSave;
+
+        // Vérification de la taille du tableau
+        if (infoToSave.achievmentsStatus.Length != achievments.Length)
+        {
+            Debug.LogWarning("Mismatch between saved achievements and current achievements. Adjusting size.");
+            bool[] correctedStatus = new bool[achievments.Length];
+
+            // Copier les valeurs existantes dans les limites du tableau
+            for (int i = 0; i < Mathf.Min(infoToSave.achievmentsStatus.Length, correctedStatus.Length); i++)
+            {
+                correctedStatus[i] = infoToSave.achievmentsStatus[i];
+            }
+
+            infoToSave.achievmentsStatus = correctedStatus;
+        }
+
+        // Appliquer les états chargés aux réalisations
+        for (int i = 0; i < achievments.Length; i++)
+        {
+            achievments[i].isAchieve = infoToSave.achievmentsStatus[i];
+        }
+
+        rsoContentSave.Value.totalDistanceTravelled = infoToSave.totalDistanceTravelled;
+        rsoContentSave.Value.totalEnemysKilled = infoToSave.totalEnemysKilled;
+        rsoContentSave.Value.totalTimeAlive = infoToSave.totalTimeAlive;
     }
 
     bool FileAlreadyExist()
@@ -75,7 +108,7 @@ public class LoadAndSaveData : MonoBehaviour
 [System.Serializable]
 public class InfoToSave
 {
-    public Achievment[] achievments;
+    public bool[] achievmentsStatus;
 
     public float totalDistanceTravelled;
     public int totalEnemysKilled;
