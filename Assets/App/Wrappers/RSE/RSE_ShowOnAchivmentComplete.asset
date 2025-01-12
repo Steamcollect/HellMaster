@@ -9,6 +9,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 50391dbcbf766b74486965c4c14ffe3e, type: 3}
-  m_Name: RSE_ShowAchievmentOnScreen
+  m_Script: {fileID: 11500000, guid: 2b96efa51cf2dc54e9a7bc19ac9dde77, type: 3}
+  m_Name: RSE_ShowOnAchivmentComplete
   m_EditorClassIdentifier: 

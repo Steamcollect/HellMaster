@@ -8,6 +8,8 @@ public class MainPanelUI : MonoBehaviour
 
     private GameObject currentActivePanel;
 
+    [SerializeField] RSE_OnPanelOpen rseOnPanelOpen;
+
     private void Start()
     {
         HideAllPanels();
@@ -20,6 +22,8 @@ public class MainPanelUI : MonoBehaviour
         panel.SetActive(true);
         currentActivePanel = panel;
         UpdateMainPanelVisual();
+
+        rseOnPanelOpen.Call();
     }
 
     public void HideAllPanels()

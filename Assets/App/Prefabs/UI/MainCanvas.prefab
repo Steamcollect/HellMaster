@@ -2344,6 +2344,7 @@ MonoBehaviour:
   pausePanel: {fileID: 4651714981330614983}
   gameOverPanel: {fileID: 8476676231794519896}
   mainPanelVisual: {fileID: 6202492862892944520}
+  rseOnPanelOpen: {fileID: 11400000, guid: bd355b348b4739346b531a399ac1d49e, type: 2}
 --- !u!114 &4437144711220451779
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4708,6 +4709,7 @@ MonoBehaviour:
   rsoContentSave: {fileID: 11400000, guid: af883388f9f4c2b44b3dc5140f911432, type: 2}
   rseShowAchievmentOnScreen: {fileID: 11400000, guid: 638a230e5337ba04b851a7fbb97560bb,
     type: 2}
+  rsePanelOpen: {fileID: 11400000, guid: bd355b348b4739346b531a399ac1d49e, type: 2}
 --- !u!1 &8781360597947496949
 GameObject:
   m_ObjectHideFlags: 0
