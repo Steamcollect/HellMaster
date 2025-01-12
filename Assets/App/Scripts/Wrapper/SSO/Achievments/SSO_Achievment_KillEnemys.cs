@@ -20,6 +20,8 @@ public class SSO_Achievment_KillEnemys : Achievment
             rseAddDamageMult.Call(damageMultGiven);
             rseSaveAllGameData.Call();
             rsoAchievmentCompleteCount.Value++;
+
+            rseShowAchievmentOnScreen.Call(this);
         }
     }
 

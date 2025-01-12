@@ -9,7 +9,8 @@ public class AchievmentUIManager : MonoBehaviour
     [SerializeField] Achievment[] achievments;
 
     [Space(10)]
-    [SerializeField] Transform achievmentUIContent;
+    [SerializeField] Transform achievmentMenuUIContent;
+    [SerializeField] Transform achievmentGameUIContent;
     [SerializeField] AchievmentUI achievmentUIPrefab;
 
     [Space(10)]
@@ -18,7 +19,9 @@ public class AchievmentUIManager : MonoBehaviour
     // RSF
     // RSP
 
-    //[Header("Input")]
+    [Header("Input")]
+    [SerializeField] RSE_ShowAchievmentOnScreen rseShowAchievmentOnScreen;
+
     //[Header("Output")]
 
     [Space(10)]
@@ -35,6 +38,15 @@ public class AchievmentUIManager : MonoBehaviour
         }
     }
 
+    private void OnEnable()
+    {
+        rseShowAchievmentOnScreen.action += ShowAchievment;
+    }
+    private void OnDisable()
+    {
+        rseShowAchievmentOnScreen.action -= ShowAchievment;
+    }
+    
     private void Start()
     {
         Invoke("LateStart", .01f);
@@ -51,11 +63,18 @@ public class AchievmentUIManager : MonoBehaviour
             achievments = rsoContentSave.Value.achievments;
         }
 
-        foreach (var item in achievments)
+        foreach (var achievment in achievments)
         {
-            AchievmentUI ui = Instantiate(achievmentUIPrefab, achievmentUIContent);
-            ui.Setup(item);
-            achievmentUISetup.Add(new AchievmentUISetup(item, ui));
+            AchievmentUI ui = Instantiate(achievmentUIPrefab, achievmentMenuUIContent);
+            ui.Setup(achievment);
+            achievmentUISetup.Add(new AchievmentUISetup(achievment, ui));
         }
+    }
+
+    void ShowAchievment(Achievment achievment)
+    {
+        AchievmentUI ui = Instantiate(achievmentUIPrefab, achievmentGameUIContent);
+        ui.Setup(achievment);
+        Destroy(ui.gameObject, 5f);
     }
 }

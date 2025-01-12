@@ -23,6 +23,7 @@ public class SSO_Achievment_SurvivMinTime : Achievment
             isAchieve = true;
             rseSaveAllGameData.Call();
             rsoAchievmentCompleteCount.Value++;
+            rseShowAchievmentOnScreen.Call(this);
         }
     }
 
