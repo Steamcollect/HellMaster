@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: SSO_Achivment_Heal50Times
   m_EditorClassIdentifier: 
   achivmentName: Walking Pharmacy
-  achivmentDescription: Heal yourself 1 time
-  achievmentIcon: {fileID: 0}
+  achivmentDescription: Heal yourself 50 time
+  achievmentIcon: {fileID: 21300000, guid: db918ce097752c3409faf2203ac53335, type: 3}
   isAchieve: 0
   rsoAchievmentCompleteCount: {fileID: 11400000, guid: 7eb12019ffd4e0f459fa01778a830153,
     type: 2}

@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: SSO_Achivment_Heal3Times
   m_EditorClassIdentifier: 
   achivmentName: Band-Aid Bandit
-  achivmentDescription: Heal yourself 1 time
-  achievmentIcon: {fileID: 0}
-  isAchieve: 0
+  achivmentDescription: Heal yourself 3 time
+  achievmentIcon: {fileID: 21300000, guid: a34a6616cf5cad94188d587e3eca5e94, type: 3}
+  isAchieve: 1
   rsoAchievmentCompleteCount: {fileID: 11400000, guid: 7eb12019ffd4e0f459fa01778a830153,
     type: 2}
   rseSaveAllGameData: {fileID: 11400000, guid: 6b2d0fac7e3f1d14d9f3157d9b2527fb, type: 2}

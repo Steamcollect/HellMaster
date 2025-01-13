@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: SSO_Achivment_Heal100Times
   m_EditorClassIdentifier: 
   achivmentName: BANDAGE MUMMY
-  achivmentDescription: Heal yourself 1 time
-  achievmentIcon: {fileID: 0}
+  achivmentDescription: Heal yourself 100 time
+  achievmentIcon: {fileID: 21300000, guid: 133304eef03cf2540ac8cdfddf9d01ed, type: 3}
   isAchieve: 0
   rsoAchievmentCompleteCount: {fileID: 11400000, guid: 7eb12019ffd4e0f459fa01778a830153,
     type: 2}

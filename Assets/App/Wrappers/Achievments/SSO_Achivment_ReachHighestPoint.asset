@@ -16,7 +16,7 @@ MonoBehaviour:
   achivmentDescription: 'Reach the highest point of the map
 
     +1 Jump'
-  achievmentIcon: {fileID: 0}
+  achievmentIcon: {fileID: 21300000, guid: a5b6b34a852aca24a83a4aaf9e454acf, type: 3}
   isAchieve: 1
   rsoAchievmentCompleteCount: {fileID: 11400000, guid: 7eb12019ffd4e0f459fa01778a830153,
     type: 2}

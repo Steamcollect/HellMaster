@@ -16,13 +16,13 @@ MonoBehaviour:
   achivmentDescription: 'Kill 10 enemy
 
     +5% attack damage'
-  achievmentIcon: {fileID: 21300000, guid: af1f1b45fa6b5e64894c04ceb8a592f7, type: 3}
-  isAchieve: 0
+  achievmentIcon: {fileID: 21300000, guid: 20c41013123eb7648bdced416882a18a, type: 3}
+  isAchieve: 1
+  rsoAchievmentCompleteCount: {fileID: 11400000, guid: 7eb12019ffd4e0f459fa01778a830153,
+    type: 2}
   rseSaveAllGameData: {fileID: 11400000, guid: 6b2d0fac7e3f1d14d9f3157d9b2527fb, type: 2}
   rseShowAchievmentOnScreen: {fileID: 11400000, guid: 638a230e5337ba04b851a7fbb97560bb,
     type: 2}
   killRequired: 10
   damageMultGiven: 0.05
   rseAddDamageMult: {fileID: 11400000, guid: f55fe3cc3c1594a4b9d8c585c71bebfc, type: 2}
-  rsoAchievmentCompleteCount: {fileID: 11400000, guid: 7eb12019ffd4e0f459fa01778a830153,
-    type: 2}
