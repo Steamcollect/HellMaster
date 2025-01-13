@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.IO;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 
 public class LoadAndSaveData : MonoBehaviour
 {
@@ -78,15 +79,7 @@ public class LoadAndSaveData : MonoBehaviour
             infoToSave.achievmentsStatus = correctedStatus;
         }
 
-        // Appliquer les états chargés aux réalisations
-        for (int i = 0; i < achievments.Length; i++)
-        {
-            infoToSave.achievmentsStatus[i] = achievments[i].isAchieve;
-        }
-
-        rsoContentSave.Value.totalDistanceTravelled = infoToSave.totalDistanceTravelled;
-        rsoContentSave.Value.totalEnemysKilled = infoToSave.totalEnemysKilled;
-        rsoContentSave.Value.totalTimeAlive = infoToSave.totalTimeAlive;
+        rsoContentSave.Value = infoToSave;
     }
 
     bool FileAlreadyExist()

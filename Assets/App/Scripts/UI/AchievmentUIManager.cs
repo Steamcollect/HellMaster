@@ -53,11 +53,6 @@ public class AchievmentUIManager : MonoBehaviour
 
     void LateStart()
     {
-        if (rsoContentSave.Value.achievmentsStatus == null || rsoContentSave.Value.achievmentsStatus.Length < achievments.Length)
-        {
-            rsoContentSave.Value.achievmentsStatus = new bool[achievments.Length];
-        }
-
         for (int i = 0; i < achievments.Length; i++)
         {
             achievments[i].isAchieve = rsoContentSave.Value.achievmentsStatus[i];

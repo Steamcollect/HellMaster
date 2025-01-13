@@ -1,5 +1,6 @@
 using BT.ScriptablesObject;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 public class GameOverPanelUI : MonoBehaviour
 {
     [SerializeField] private MainPanelUI mainPanel;
@@ -29,7 +30,8 @@ public class GameOverPanelUI : MonoBehaviour
 
     public void ReturnToMainMenu()
     {
-        mainPanel.ShowPanel(mainPanel.mainMenuPanel);
+        Time.timeScale = 1;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
     public void QuitGame()

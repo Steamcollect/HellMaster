@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 public class PausePanelUI : MonoBehaviour
 {
     [SerializeField] private MainPanelUI mainPanel;
@@ -50,7 +51,7 @@ public class PausePanelUI : MonoBehaviour
 
     public void ReturnToMainMenu()
     {
-        Time.timeScale = 1f;
-        mainPanel.ShowPanel(mainPanel.mainMenuPanel);
+        Time.timeScale = 1;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }
