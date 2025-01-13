@@ -10,6 +10,7 @@ public class AchievmentUIManager : MonoBehaviour
     [SerializeField] Transform achievmentMenuUIContent;
     [SerializeField] Transform achievmentGameUIContent;
     [SerializeField] AchievmentUI achievmentUIPrefab;
+    [SerializeField] AudioClip[] showAchievementSounds;
 
     [Space(10)]
     // RSO
@@ -17,14 +18,8 @@ public class AchievmentUIManager : MonoBehaviour
     // RSF
     // RSP
 
-    [Header("Input")]
-    [SerializeField] RSE_OnAchievmentComplete rseShowAchievmentOnScreen;
-    [SerializeField] RSE_OnPanelOpen rsePanelOpen;
-    [SerializeField] RSE_OnGameStart rseOnGameStart;
-
     [Space(10)]
     [SerializeField] List<AchievmentUISetup> achievmentUISetup = new();
-
     public struct AchievmentUISetup
     {
         public Achievment achievment;
@@ -35,6 +30,14 @@ public class AchievmentUIManager : MonoBehaviour
             this.ui = ui;
         }
     }
+
+    [Header("Input")]
+    [SerializeField] RSE_OnAchievmentComplete rseShowAchievmentOnScreen;
+    [SerializeField] RSE_OnPanelOpen rsePanelOpen;
+    [SerializeField] RSE_OnGameStart rseOnGameStart;
+
+    [Header("Output")]
+    [SerializeField] RSE_PlayClipAt rsePlayClipAt;
 
     private void OnEnable()
     {
@@ -87,6 +90,7 @@ public class AchievmentUIManager : MonoBehaviour
 
     void ShowAchievment(Achievment achievment)
     {
+        rsePlayClipAt.Call(showAchievementSounds.GetRandom(), transform.position, 0);
         AchievmentUI ui = Instantiate(achievmentUIPrefab, achievmentGameUIContent);
         ui.Setup(achievment);
         Destroy(ui.gameObject, 5f);

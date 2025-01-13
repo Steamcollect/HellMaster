@@ -162,6 +162,12 @@ MonoBehaviour:
   maxHealth: 100
   hitShakeRange: 3
   hitShakeTime: 0.1
+  takeDamageSounds:
+  - {fileID: 8300000, guid: 401a943d288bf1a4b87f8ab07f85a562, type: 3}
+  healSounds:
+  - {fileID: 8300000, guid: abd1fd9872478d14b8b0a9b91c6a7f0c, type: 3}
+  deathSounds:
+  - {fileID: 8300000, guid: 6615535695acb0a4b84606a24a27e362, type: 3}
   rsoContentSaved: {fileID: 11400000, guid: af883388f9f4c2b44b3dc5140f911432, type: 2}
   achievmentsSurvivMinTime:
   - {fileID: 11400000, guid: 9df34200858fd454480386e1e475f23e, type: 2}
@@ -183,6 +189,7 @@ MonoBehaviour:
   rseSaveGameData: {fileID: 11400000, guid: 6b2d0fac7e3f1d14d9f3157d9b2527fb, type: 2}
   rseUpdateHealthBar: {fileID: 11400000, guid: 8871cfeb85b86234692995e0d261bb3f, type: 2}
   rseCameraShake: {fileID: 11400000, guid: f413fc97221675e418e1197be515569c, type: 2}
+  rsePlayClipAt: {fileID: 11400000, guid: cccf594a54ee21f43b8c6c2ebd626b5e, type: 2}
 --- !u!114 &1418595597308619600
 MonoBehaviour:
   m_ObjectHideFlags: 0

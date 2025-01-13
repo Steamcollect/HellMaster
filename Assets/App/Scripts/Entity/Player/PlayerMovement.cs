@@ -38,6 +38,7 @@ public class PlayerMovement : MonoBehaviour
     [Header("References")]
     [SerializeField] Camera cam;
     [SerializeField] Rigidbody rb;
+    [SerializeField] AudioClip[] jumpSounds;
 
     [Header("Achievment")]
     [SerializeField] SSO_Achievment_RunDistance[] achievmentsRunDistance;
@@ -62,6 +63,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] RSE_SaveAllGameData rseSaveGameData;
     [SerializeField] RSE_ActiveDoubleJump rseActiveDoubleJump;
     [SerializeField] RSE_AddJumpForceMultiplier rseAddJumpForceMult;
+    [SerializeField] RSE_PlayClipAt rsePlayClipAt;
 
     private void OnEnable()
     {
@@ -208,6 +210,7 @@ public class PlayerMovement : MonoBehaviour
             }
             rb.velocity = new Vector3(rb.velocity.x * jumpImpulsionMult, jumpForce * jumpForceMultiplier, rb.velocity.z * jumpImpulsionMult);
             jumpBufferCounter = 0;
+            rsePlayClipAt.Call(jumpSounds.GetRandom(), transform.position, 1);
         }
         else if (canDoubleJump && !hasDoubleJumped && jumpBufferCounter > 0)
         {

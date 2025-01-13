@@ -15,7 +15,9 @@ public class PlayerHealth : MonoBehaviour, IHealth
     [SerializeField] float hitShakeTime;
 
     [Header("References")]
-
+    [SerializeField] AudioClip[] takeDamageSounds;
+    [SerializeField] AudioClip[] healSounds;
+    [SerializeField] AudioClip[] deathSounds;
     //[Space(10)]
     // RSO
     [SerializeField] RSO_ContentSaved rsoContentSaved;
@@ -36,6 +38,7 @@ public class PlayerHealth : MonoBehaviour, IHealth
     [Header("Output")]
     [SerializeField] RSE_UdateHealthBar rseUpdateHealthBar;
     [SerializeField] RSE_CameraShake rseCameraShake;
+    [SerializeField] RSE_PlayClipAt rsePlayClipAt;
 
     void OnEnable()
     {
@@ -87,8 +90,9 @@ public class PlayerHealth : MonoBehaviour, IHealth
     public void Heal(int health)
     {
         currentHealth += health;
-        if(currentHealth > maxHealth) currentHealth = maxHealth;
+        if (currentHealth > maxHealth) currentHealth = maxHealth;
         rseUpdateHealthBar.Call(currentHealth, maxHealth);
+        rsePlayClipAt.Call(healSounds.GetRandom(), transform.position, 1);
 
         rsoContentSaved.Value.healCount++;
         foreach (var item in achivmentHealCount)
@@ -100,6 +104,7 @@ public class PlayerHealth : MonoBehaviour, IHealth
     {
         currentHealth -= damage;
         rseCameraShake.Call(hitShakeTime, hitShakeRange);
+        rsePlayClipAt.Call(takeDamageSounds.GetRandom(), transform.position, 1);
 
         if(currentHealth < 0) currentHealth = 0;
         rseUpdateHealthBar.Call(currentHealth, maxHealth);
@@ -118,6 +123,7 @@ public class PlayerHealth : MonoBehaviour, IHealth
             if(item.delayTimer != null) StopCoroutine(item.delayTimer);
         }
 
+        rsePlayClipAt.Call(deathSounds.GetRandom(), transform.position, 1);
         rseOnPlayerDeath.Call();
         onDeathAchivment.Achieve();
         print("Player is dead");

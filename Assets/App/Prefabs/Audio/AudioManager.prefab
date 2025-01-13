@@ -44,7 +44,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23963d86e38a756448e8fa51731f0c4f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playlists: []
+  playlists:
+  - volumMultiplier: 1
+    maxLoop: -1
+    clips:
+    - {fileID: 8300000, guid: efef0066cfafcf0498c52704f9385f36, type: 3}
+    audioSource: {fileID: 0}
+    currentClipIndex: 0
   audioMixer: {fileID: 24100000, guid: 07c28d71ba07f054886165d4f189b57e, type: 2}
   musicMixerGroup: {fileID: -5432920205480667071, guid: 07c28d71ba07f054886165d4f189b57e,
     type: 2}
