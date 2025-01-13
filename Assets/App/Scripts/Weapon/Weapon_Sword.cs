@@ -5,7 +5,8 @@ using UnityEngine;
 public class Weapon_Sword : WeaponTemplate
 {
     [Header("Settings")]
-    [SerializeField] float attackDistance = 2;
+    [SerializeField] bool isAttacking;
+    [SerializeField] float duration;
     [SerializeField] Animator animator;
 
     //[Header("References")]
@@ -21,20 +22,9 @@ public class Weapon_Sword : WeaponTemplate
     {
         transform.forward = attackDirection;
 
-        RaycastHit[] hits = Physics.RaycastAll(attackPosition, attackDirection, attackDistance);
-
         animator.SetTrigger("Attack");
 
-        if (hits.Length > 0)
-        {
-            foreach (RaycastHit hit in hits)
-            {
-                if (hit.transform.TryGetComponent(out IHealth health))
-                {
-                    health.TakeDamage(damage * damageMultiplier, OnTargetKill);
-                }
-            }            
-        }
+        StartCoroutine("SwipeDelay");
     }
 
     public override bool CanAttack()
@@ -50,6 +40,24 @@ public class Weapon_Sword : WeaponTemplate
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.red;
-        Gizmos.DrawLine(transform.position, transform.position + transform.forward * attackDistance);
+        //Gizmos.DrawLine(transform.position, transform.position + transform.forward * attackDistance);
+    }
+
+    private void OnTriggerStay(Collider other)
+    {
+        if (isAttacking)
+        {
+            if (other.TryGetComponent(out IHealth health))
+            {
+                health.TakeDamage(damage * damageMultiplier, OnTargetKill);
+            }
+        }
+    }
+
+    IEnumerator SwipeDelay()
+    {
+        isAttacking = true;
+        yield return new WaitForSeconds(duration);
+        isAttacking = false;
     }
 }

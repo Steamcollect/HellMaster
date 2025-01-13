@@ -154,8 +154,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8633878093095823456}
-  - component: {fileID: 1176051671048373520}
   - component: {fileID: 4027417760990739042}
+  - component: {fileID: 8508045064613433895}
   m_Layer: 0
   m_Name: EnemyMelee
   m_TagString: Untagged
@@ -179,28 +179,6 @@ Transform:
   - {fileID: 1518919859301319804}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1176051671048373520
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7339204608549325885}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 58157e4d69977224fb2d7e013ee1bc2c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  damage: 10
-  damageMultiplier: 1
-  attackDelay: 0.8
-  attackRateMultiplier: 1
-  isSemiAuto: 0
-  hasSpread: 0
-  bulletSpreadVariance: {x: 0, y: 0, z: 0}
-  visual: {fileID: 2188636430748704454}
-  attackDistance: 2
-  animator: {fileID: 4027417760990739042}
 --- !u!95 &4027417760990739042
 Animator:
   serializedVersion: 5
@@ -222,6 +200,28 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &8508045064613433895
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7339204608549325885}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ce3a7f131474db478b3df43d5573d28, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 10
+  damageMultiplier: 1
+  attackDelay: 0.8
+  attackRateMultiplier: 1
+  isSemiAuto: 0
+  hasSpread: 0
+  bulletSpreadVariance: {x: 0, y: 0, z: 0}
+  visual: {fileID: 2188636430748704454}
+  attackDistance: 1.5
+  animator: {fileID: 4027417760990739042}
 --- !u!1001 &1341774639722685335
 PrefabInstance:
   m_ObjectHideFlags: 0
