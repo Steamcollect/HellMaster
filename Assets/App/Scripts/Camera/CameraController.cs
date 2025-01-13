@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class CameraController : MonoBehaviour
@@ -79,15 +80,18 @@ public class CameraController : MonoBehaviour
 
     IEnumerator CameraShake(float time, float range)
     {
-        float elapsedTime = 0f;
-        while (elapsedTime < time)
+        if (range > Mathf.Abs(shakeOffset))
         {
-            shakeOffset = Mathf.Sin(elapsedTime * shakeSpeed) * range;
-            elapsedTime += Time.deltaTime;
-            yield return null;
-        }
+            float elapsedTime = 0f;
+            while (elapsedTime < time)
+            {
+                shakeOffset = Mathf.Sin(elapsedTime * shakeSpeed) * range;
+                elapsedTime += Time.deltaTime;
+                yield return null;
+            }
 
-        shakeOffset = 0f; // Reset the shake offset after shaking
+            shakeOffset = 0f;
+        }
     }
 
     void ApplyShake()
