@@ -5,6 +5,7 @@ public class HealthPickUp : MonoBehaviour
 {
     [Header("Settings")]
     [SerializeField] float recorveryDelay;
+    [SerializeField] GameObject visual;
     [SerializeField] int healthGiven;
 
     bool canPick = true;
@@ -30,7 +31,9 @@ public class HealthPickUp : MonoBehaviour
     IEnumerator RecorveryCooldown()
     {
         canPick = false;
+        visual.SetActive(false);
         yield return new WaitForSeconds(recorveryDelay);
+        visual.SetActive(true);
         canPick = true;
     }
 }
