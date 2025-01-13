@@ -13,11 +13,13 @@ MonoBehaviour:
   m_Name: SSO_Achivment_ReloadFirstTime
   m_EditorClassIdentifier: 
   achivmentName: Yes, this button exists
-  achivmentDescription: 
+  achivmentDescription: You clicked the reload button
   achievmentIcon: {fileID: 0}
-  isAchieve: 0
+  isAchieve: 1
   rsoAchievmentCompleteCount: {fileID: 11400000, guid: 7eb12019ffd4e0f459fa01778a830153,
     type: 2}
   rseSaveAllGameData: {fileID: 11400000, guid: 6b2d0fac7e3f1d14d9f3157d9b2527fb, type: 2}
   rseShowAchievmentOnScreen: {fileID: 11400000, guid: 638a230e5337ba04b851a7fbb97560bb,
     type: 2}
+  rseDoubleJump: {fileID: 0}
+  canActiveDoubleJumps: 0

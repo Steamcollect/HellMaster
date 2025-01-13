@@ -12,17 +12,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d6b8e4a1cfa01e947b2767af9e0de6d3, type: 3}
   m_Name: SSO_Achievment_Kill10000Enemy
   m_EditorClassIdentifier: 
-  achivmentName: God killer
+  achivmentName: GOD KILLER
   achivmentDescription: 'Kill 10,000 enemy
 
     +10% attack damage'
   achievmentIcon: {fileID: 21300000, guid: af1f1b45fa6b5e64894c04ceb8a592f7, type: 3}
   isAchieve: 0
+  rsoAchievmentCompleteCount: {fileID: 11400000, guid: 7eb12019ffd4e0f459fa01778a830153,
+    type: 2}
   rseSaveAllGameData: {fileID: 11400000, guid: 6b2d0fac7e3f1d14d9f3157d9b2527fb, type: 2}
   rseShowAchievmentOnScreen: {fileID: 11400000, guid: 638a230e5337ba04b851a7fbb97560bb,
     type: 2}
   killRequired: 10000
   damageMultGiven: 0.1
   rseAddDamageMult: {fileID: 11400000, guid: f55fe3cc3c1594a4b9d8c585c71bebfc, type: 2}
-  rsoAchievmentCompleteCount: {fileID: 11400000, guid: 7eb12019ffd4e0f459fa01778a830153,
-    type: 2}

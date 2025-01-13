@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83caa019844008a48897f0f12b527d54, type: 3}
   m_Name: SSO_Achievment_Surviv5Min
   m_EditorClassIdentifier: 
-  achivmentName: Unbreakable
+  achivmentName: UNBREAKABLE
   achivmentDescription: 'Survive 20 min
 
     +50 Max health'

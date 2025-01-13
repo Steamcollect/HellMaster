@@ -13,9 +13,11 @@ MonoBehaviour:
   m_Name: SSO_Achivment_ReachHighestPoint
   m_EditorClassIdentifier: 
   achivmentName: King of the Hill
-  achivmentDescription: 
+  achivmentDescription: 'Reach the highest point of the map
+
+    +1 Jump'
   achievmentIcon: {fileID: 0}
-  isAchieve: 0
+  isAchieve: 1
   rsoAchievmentCompleteCount: {fileID: 11400000, guid: 7eb12019ffd4e0f459fa01778a830153,
     type: 2}
   rseSaveAllGameData: {fileID: 11400000, guid: 6b2d0fac7e3f1d14d9f3157d9b2527fb, type: 2}

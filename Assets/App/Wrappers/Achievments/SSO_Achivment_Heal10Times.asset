@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4398c832b4126f4e9cb6b7808be6209, type: 3}
   m_Name: SSO_Achivment_Heal10Times
   m_EditorClassIdentifier: 
-  achivmentName: Medic in Training
-  achivmentDescription: 
+  achivmentName: Healing Hobbyist
+  achivmentDescription: Heal yourself 1 time
   achievmentIcon: {fileID: 0}
   isAchieve: 0
   rsoAchievmentCompleteCount: {fileID: 11400000, guid: 7eb12019ffd4e0f459fa01778a830153,

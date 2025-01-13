@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: SSO_Achivment_Heal1Time
   m_EditorClassIdentifier: 
   achivmentName: Very First Aid
-  achivmentDescription: 
+  achivmentDescription: Heal yourself 1 time
   achievmentIcon: {fileID: 0}
   isAchieve: 0
   rsoAchievmentCompleteCount: {fileID: 11400000, guid: 7eb12019ffd4e0f459fa01778a830153,

@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e4398c832b4126f4e9cb6b7808be6209, type: 3}
-  m_Name: SSO_Achivment_Heal1000Times
+  m_Name: SSO_Achivment_Heal25Times
   m_EditorClassIdentifier: 
-  achivmentName: BANDAGE MUMMY
-  achivmentDescription: 
+  achivmentName: Bandage Addict
+  achivmentDescription: Heal yourself 1 time
   achievmentIcon: {fileID: 0}
   isAchieve: 0
   rsoAchievmentCompleteCount: {fileID: 11400000, guid: 7eb12019ffd4e0f459fa01778a830153,
@@ -21,4 +21,4 @@ MonoBehaviour:
   rseSaveAllGameData: {fileID: 11400000, guid: 6b2d0fac7e3f1d14d9f3157d9b2527fb, type: 2}
   rseShowAchievmentOnScreen: {fileID: 11400000, guid: 638a230e5337ba04b851a7fbb97560bb,
     type: 2}
-  healCountRequire: 1000
+  healCountRequire: 25
