@@ -80,14 +80,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 8
   damageMultiplier: 1
-  attackDelay: 0.35
+  attackDelay: 0.25
   attackRateMultiplier: 1
   isSemiAuto: 0
   hasSpread: 0
   bulletSpreadVariance: {x: 0.06, y: 0.06, z: 0.06}
   visual: {fileID: 1416901301475932862}
   maxShootDistance: 1000
-  reloadTime: 0.8
+  reloadTime: 0.55
   bulletShotForOneShot: 8
   maxBulletCount: 2
   bulletCount: 2

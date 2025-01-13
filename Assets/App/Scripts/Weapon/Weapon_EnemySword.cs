@@ -2,11 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Weapon_Sword : WeaponTemplate
+public class Weapon_EnemySword : WeaponTemplate
 {
     [Header("Settings")]
-    [SerializeField] bool isAttacking;
-    [SerializeField] float duration;
+    [SerializeField] float attackDistance = 2;
     [SerializeField] Animator animator;
 
     //[Header("References")]
@@ -22,9 +21,20 @@ public class Weapon_Sword : WeaponTemplate
     {
         transform.forward = attackDirection;
 
+        RaycastHit[] hits = Physics.RaycastAll(attackPosition, attackDirection, attackDistance);
+
         animator.SetTrigger("Attack");
 
-        StartCoroutine("SwipeDelay");
+        if (hits.Length > 0)
+        {
+            foreach (RaycastHit hit in hits)
+            {
+                if (hit.transform.TryGetComponent(out IHealth health))
+                {
+                    health.TakeDamage(damage * damageMultiplier, OnTargetKill);
+                }
+            }            
+        }
     }
 
     public override bool CanAttack()
@@ -40,24 +50,6 @@ public class Weapon_Sword : WeaponTemplate
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.red;
-        //Gizmos.DrawLine(transform.position, transform.position + transform.forward * attackDistance);
-    }
-
-    private void OnTriggerStay(Collider other)
-    {
-        if (isAttacking)
-        {
-            if (other.TryGetComponent(out IHealth health))
-            {
-                health.TakeDamage(damage * damageMultiplier, OnTargetKill);
-            }
-        }
-    }
-
-    IEnumerator SwipeDelay()
-    {
-        isAttacking = true;
-        yield return new WaitForSeconds(duration);
-        isAttacking = false;
+        Gizmos.DrawLine(transform.position, transform.position + transform.forward * attackDistance);
     }
 }
