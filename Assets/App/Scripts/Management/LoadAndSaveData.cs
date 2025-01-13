@@ -51,7 +51,8 @@ public class LoadAndSaveData : MonoBehaviour
         infoToSave = rsoContentSave.Value;
         for (int i = 0; i < achievments.Length; i++)
         {
-            infoToSave.achievmentsStatus[i] = achievments[i].isAchieve;
+            if (infoToSave.achievmentsStatus.Length <= i) achievments[i].isAchieve = false;
+            else achievments[i].isAchieve = infoToSave.achievmentsStatus[i];
         }
 
         string infoData = JsonUtility.ToJson(infoToSave);
@@ -115,4 +116,19 @@ public class InfoToSave
     public float soundVolume = 1;
     public float mouseSensitivity = 1;
     public bool isFullScreen = true;
+
+    public InfoToSave()
+    {
+        achievmentsStatus = new bool[0];
+        totalDistanceTravelled = 0;
+        totalEnemysKilled = 0;
+        totalTimeAlive = 0;
+        jumpCount = 0;
+        healCount = 0;
+
+        musicVolume = 1;
+        soundVolume = 1;
+        mouseSensitivity = 1;
+        isFullScreen = true;
+    }
 }

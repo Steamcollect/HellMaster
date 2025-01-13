@@ -110,4 +110,10 @@ public class SettingsPanel : MonoBehaviour
         float normalizedValue = Mathf.InverseLerp(minValue, maxValue, slider.value);
         percentageText.text = Mathf.RoundToInt(normalizedValue * 100) + "%";
     }
+
+    public void ResetAchivmentsButton()
+    {
+        rsoContentSaved.Value = new();
+        rseSaveData.Call();
+    }
 }
