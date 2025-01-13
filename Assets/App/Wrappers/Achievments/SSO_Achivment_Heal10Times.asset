@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: SSO_Achivment_Heal10Times
   m_EditorClassIdentifier: 
   achivmentName: Healing Hobbyist
-  achivmentDescription: Heal yourself 1 time
-  achievmentIcon: {fileID: 0}
-  isAchieve: 0
+  achivmentDescription: Heal yourself 10 time
+  achievmentIcon: {fileID: 21300000, guid: c1708e662e8f3814382affe02ad34fe1, type: 3}
+  isAchieve: 1
   rsoAchievmentCompleteCount: {fileID: 11400000, guid: 7eb12019ffd4e0f459fa01778a830153,
     type: 2}
   rseSaveAllGameData: {fileID: 11400000, guid: 6b2d0fac7e3f1d14d9f3157d9b2527fb, type: 2}

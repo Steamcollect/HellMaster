@@ -13,9 +13,11 @@ MonoBehaviour:
   m_Name: SSO_Achievment_Jump1Time
   m_EditorClassIdentifier: 
   achivmentName: First Leap
-  achivmentDescription: 
-  achievmentIcon: {fileID: 0}
-  isAchieve: 0
+  achivmentDescription: 'Jump for the first time
+
+    +5% Jump Force'
+  achievmentIcon: {fileID: 21300000, guid: a53ee359fd0455d48a8667a7eaf06ad1, type: 3}
+  isAchieve: 1
   rsoAchievmentCompleteCount: {fileID: 11400000, guid: 7eb12019ffd4e0f459fa01778a830153,
     type: 2}
   rseSaveAllGameData: {fileID: 11400000, guid: 6b2d0fac7e3f1d14d9f3157d9b2527fb, type: 2}

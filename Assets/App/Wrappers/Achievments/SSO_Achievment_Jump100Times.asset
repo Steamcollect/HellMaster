@@ -13,9 +13,11 @@ MonoBehaviour:
   m_Name: SSO_Achievment_Jump100Times
   m_EditorClassIdentifier: 
   achivmentName: Bunny Hopper
-  achivmentDescription: 
-  achievmentIcon: {fileID: 0}
-  isAchieve: 0
+  achivmentDescription: 'Jump 100 Times
+
+    +5% Jump Force'
+  achievmentIcon: {fileID: 21300000, guid: 0f04b3041d64a7543be9bc7270d18207, type: 3}
+  isAchieve: 1
   rsoAchievmentCompleteCount: {fileID: 11400000, guid: 7eb12019ffd4e0f459fa01778a830153,
     type: 2}
   rseSaveAllGameData: {fileID: 11400000, guid: 6b2d0fac7e3f1d14d9f3157d9b2527fb, type: 2}

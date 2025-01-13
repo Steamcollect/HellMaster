@@ -17,7 +17,7 @@ MonoBehaviour:
 
     +20% Attack
     Rate'
-  achievmentIcon: {fileID: 0}
+  achievmentIcon: {fileID: 21300000, guid: 1590e3ddeb67d2a48be7968b239e7df1, type: 3}
   isAchieve: 1
   rsoAchievmentCompleteCount: {fileID: 11400000, guid: 7eb12019ffd4e0f459fa01778a830153,
     type: 2}

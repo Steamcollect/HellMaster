@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   achivmentName: Let the Chaos Begin
   achivmentDescription: Play for the first time!
-  achievmentIcon: {fileID: 0}
+  achievmentIcon: {fileID: 21300000, guid: 987752f86aeb755458fcf9a6aaf96c4c, type: 3}
   isAchieve: 1
   rsoAchievmentCompleteCount: {fileID: 11400000, guid: 7eb12019ffd4e0f459fa01778a830153,
     type: 2}

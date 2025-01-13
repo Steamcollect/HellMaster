@@ -13,8 +13,10 @@ MonoBehaviour:
   m_Name: SSO_Achievment_Jump1000Times
   m_EditorClassIdentifier: 
   achivmentName: Kangaroo Simulator
-  achivmentDescription: 
-  achievmentIcon: {fileID: 0}
+  achivmentDescription: 'Jump 1000 Times
+
+    +5% Jump Force'
+  achievmentIcon: {fileID: 21300000, guid: 8d4e9e358bd404f4eb5b43dd65504386, type: 3}
   isAchieve: 0
   rsoAchievmentCompleteCount: {fileID: 11400000, guid: 7eb12019ffd4e0f459fa01778a830153,
     type: 2}
