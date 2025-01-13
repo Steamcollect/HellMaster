@@ -81,7 +81,7 @@ public class LoadAndSaveData : MonoBehaviour
         // Appliquer les états chargés aux réalisations
         for (int i = 0; i < achievments.Length; i++)
         {
-            achievments[i].isAchieve = infoToSave.achievmentsStatus[i];
+            infoToSave.achievmentsStatus[i] = achievments[i].isAchieve;
         }
 
         rsoContentSave.Value.totalDistanceTravelled = infoToSave.totalDistanceTravelled;
