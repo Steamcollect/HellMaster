@@ -81,9 +81,11 @@ MonoBehaviour:
   damage: 5
   damageMultiplier: 1
   attackDelay: 1
+  attackRateMultiplier: 1
   isSemiAuto: 0
   hasSpread: 1
   bulletSpreadVariance: {x: 0.3, y: 0.1, z: 0.3}
+  visual: {fileID: 0}
   maxShootDistance: 1000
   bulletTrail: {fileID: 3797463065826991015, guid: 9b73f81fa0412834d877bfb3b937b869,
     type: 3}

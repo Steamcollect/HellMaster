@@ -10,6 +10,7 @@ public abstract class WeaponTemplate : MonoBehaviour
 
     [Space(5)]
     public float attackDelay;
+    public float attackRateMultiplier = 1;
     public bool isSemiAuto;
     public bool hasSpread;
     public Vector3 bulletSpreadVariance;
@@ -54,7 +55,7 @@ public abstract class WeaponTemplate : MonoBehaviour
     IEnumerator AttackDelay()
     {
         canAttack = false;
-        yield return new WaitForSeconds(attackDelay);
+        yield return new WaitForSeconds(attackDelay * attackRateMultiplier);
         canAttack = true;
     }
 

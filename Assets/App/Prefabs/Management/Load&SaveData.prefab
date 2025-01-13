@@ -49,6 +49,12 @@ MonoBehaviour:
     totalDistanceTravelled: 0
     totalEnemysKilled: 0
     totalTimeAlive: 0
+    jumpCount: 0
+    healCount: 0
+    musicVolume: 1
+    soundVolume: 1
+    mouseSensitivity: 1
+    isFullScreen: 1
   rsoContentSave: {fileID: 11400000, guid: af883388f9f4c2b44b3dc5140f911432, type: 2}
   rsoAchievmentCompleteCount: {fileID: 11400000, guid: 7eb12019ffd4e0f459fa01778a830153,
     type: 2}
@@ -56,6 +62,15 @@ MonoBehaviour:
   rseLoadData: {fileID: 11400000, guid: c2b9392b4ed3cf244b441d79ce9f0718, type: 2}
   rseSaveAllGameData: {fileID: 11400000, guid: 6b2d0fac7e3f1d14d9f3157d9b2527fb, type: 2}
   achievments:
+  - {fileID: 11400000, guid: 95702b56b2230d944bcc39680da025fb, type: 2}
+  - {fileID: 11400000, guid: 2788a2b4603f51f4e8a55011be3f439c, type: 2}
+  - {fileID: 11400000, guid: ac81194a6b1befb42ac5c594ee31b76c, type: 2}
+  - {fileID: 11400000, guid: 00f889bed7cd33a4e86bc2dfe9c85a6d, type: 2}
+  - {fileID: 11400000, guid: e31fb065ba13fc744b2c4236efe87856, type: 2}
+  - {fileID: 11400000, guid: 486e0a5aaa0d06146be1a435b4df652b, type: 2}
+  - {fileID: 11400000, guid: 8082b4ccaedca154caf9ab2d8c0f851f, type: 2}
+  - {fileID: 11400000, guid: 262bceee5466ad04ab9ea89d97cfaa96, type: 2}
+  - {fileID: 11400000, guid: 1522b0ee5597f614e8bba594f826608c, type: 2}
   - {fileID: 11400000, guid: 715c1ffaffe45f54ca67919a1c70e5da, type: 2}
   - {fileID: 11400000, guid: 0342e681c7fba6f48b76c5aa4104aa6e, type: 2}
   - {fileID: 11400000, guid: 6c5484c8e3df0e544a24fcecbcc1d7f0, type: 2}
@@ -73,3 +88,14 @@ MonoBehaviour:
   - {fileID: 11400000, guid: c0039d1f2aea5dd448de435000309fb8, type: 2}
   - {fileID: 11400000, guid: f5c2422c8ef5a84479073919864e20fa, type: 2}
   - {fileID: 11400000, guid: 0387a5705c350194789b536f09536004, type: 2}
+  - {fileID: 11400000, guid: 3dddf71e470904546978ac085b281583, type: 2}
+  - {fileID: 11400000, guid: 2f3bc362eb0084e4fa304a923a656fa0, type: 2}
+  - {fileID: 11400000, guid: e967fe3a129f39d41a41c3792d7bc2f8, type: 2}
+  - {fileID: 11400000, guid: e372569fc7ecf4642a91b4de3f9a8626, type: 2}
+  - {fileID: 11400000, guid: 33ee5188c945a6744a32eabd8b708601, type: 2}
+  - {fileID: 11400000, guid: 87c1587a1c6c5ec4eaffe8d16a0eb453, type: 2}
+  - {fileID: 11400000, guid: 1cd6c38e477fac24d87c3935b888f38b, type: 2}
+  - {fileID: 11400000, guid: 6cb9d4069a823e542b30ce78946ca464, type: 2}
+  - {fileID: 11400000, guid: 8d3a9220b55a7c342b85e97543ab1791, type: 2}
+  - {fileID: 11400000, guid: 3dde06efe4f364b408110148bd4a27b0, type: 2}
+  - {fileID: 11400000, guid: 5c6ff4d2412a8ca4e90a21b72a82559d, type: 2}

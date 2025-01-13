@@ -108,6 +108,8 @@ public class InfoToSave
     public float totalDistanceTravelled;
     public int totalEnemysKilled;
     public float totalTimeAlive;
+    public int jumpCount;
+    public int healCount;
 
     public float musicVolume = 1;
     public float soundVolume = 1;

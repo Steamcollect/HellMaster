@@ -20,6 +20,8 @@ public class PlayerHealth : MonoBehaviour, IHealth
 
     [Header("Achievment")]
     [SerializeField] SSO_Achievment_SurvivMinTime[] achievmentsSurvivMinTime;
+    [SerializeField] SSO_Achivment_HealCount[] achivmentHealCount;
+    [SerializeField] SSO_Achivment_CompleteOnce onDeathAchivment;
 
     [Header("Input")]
     [SerializeField] RSE_AddPlayerMaxHealth rseAddMaxHealth;
@@ -82,6 +84,12 @@ public class PlayerHealth : MonoBehaviour, IHealth
         currentHealth += health;
         if(currentHealth > maxHealth) currentHealth = maxHealth;
         rseUpdateHealthBar.Call(currentHealth, maxHealth);
+
+        rsoContentSaved.Value.healCount++;
+        foreach (var item in achivmentHealCount)
+        {
+            item.CheckHealCount(rsoContentSaved.Value.healCount);
+        }
     }
     public void TakeDamage(float damage, Action onDeath)
     {
@@ -104,6 +112,7 @@ public class PlayerHealth : MonoBehaviour, IHealth
         }
 
         rseOnPlayerDeath.Call();
+        onDeathAchivment.Achieve();
         print("Player is dead");
     }
 }

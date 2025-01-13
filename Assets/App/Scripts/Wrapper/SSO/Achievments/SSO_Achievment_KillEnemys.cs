@@ -9,19 +9,13 @@ public class SSO_Achievment_KillEnemys : Achievment
     [SerializeField] float damageMultGiven;
 
     [SerializeField] RSE_AddDamageMultiplier rseAddDamageMult;
-    [SerializeField] RSO_AchievmentCompleteCount rsoAchievmentCompleteCount;
 
     public void AddEnemysKilled(int kill)
     {
         if(kill >= killRequired && !isAchieve)
         {
-            Debug.Log(kill);
-            isAchieve = true;
             rseAddDamageMult.Call(damageMultGiven);
-            rseSaveAllGameData.Call();
-            rsoAchievmentCompleteCount.Value++;
-
-            rseShowAchievmentOnScreen.Call(this);
+           OnComplete();
         }
     }
 

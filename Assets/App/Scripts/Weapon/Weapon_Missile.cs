@@ -4,7 +4,6 @@ public class Weapon_Missile : MonoBehaviour
 {
     Rigidbody _rb;
     [SerializeField] private float speed = 10f;
-    [SerializeField] private float trailRate = 200;
     //private GameObject smokeTrail;
     //[SerializeField]
     [SerializeField] bool missileFired = false;

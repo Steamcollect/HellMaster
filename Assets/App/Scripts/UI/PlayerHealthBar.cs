@@ -33,6 +33,6 @@ public class PlayerHealthBar : MonoBehaviour
         healthSlider.maxValue = maxHealth;
         healthSlider.value = currentHealth;
 
-        healthPercentageTxt.text = (currentHealth / maxHealth * 100).ToString("F0") + "%";
+        healthPercentageTxt.text = $"{currentHealth}/{maxHealth}";
     }
 }

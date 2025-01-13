@@ -14,11 +14,16 @@ public class PlayerMovement : MonoBehaviour
     float distanceTravelled;
     private Vector3 lastPosition;
 
+    float airTime;
+
     [Header("Jump")]
     [SerializeField] float jumpForce = 5f;
+    float jumpForceMultiplier = 1;
     [SerializeField] float coyoteTime = 0.2f;
     [SerializeField] float jumpBufferTime = 0.2f;
     [SerializeField] float jumpImpulsionMult = 1.2f;
+    bool canDoubleJump = false;
+    private bool hasDoubleJumped = false;
 
     [Header("Physics")]
     [SerializeField] LayerMask groundLayer;
@@ -36,6 +41,8 @@ public class PlayerMovement : MonoBehaviour
 
     [Header("Achievment")]
     [SerializeField] SSO_Achievment_RunDistance[] achievmentsRunDistance;
+    [SerializeField] SSO_Achievment_JumpCount[] achivmentsJumpCount;
+    [SerializeField] SSO_Achievment_AireTimeJump achivmentAirTimeJump;
 
     [Space(10)]
     [SerializeField] RSO_PlayerTransform rsoPlayerTransform;
@@ -53,6 +60,8 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] RSE_OnGameStart rseOnGameStart;
     [SerializeField] RSE_OnPlayerDeath rseOnPlayerDeath;
     [SerializeField] RSE_SaveAllGameData rseSaveGameData;
+    [SerializeField] RSE_ActiveDoubleJump rseActiveDoubleJump;
+    [SerializeField] RSE_AddJumpForceMultiplier rseAddJumpForceMult;
 
     private void OnEnable()
     {
@@ -61,6 +70,8 @@ public class PlayerMovement : MonoBehaviour
         rseOnGameStart.action += OnGameStart;
         rseOnPlayerDeath.action += OnPlayerDeath;
         rseSaveGameData.action += SaveGameData;
+        rseActiveDoubleJump.action += ActiveDoublejump;
+        rseAddJumpForceMult.action += AddJumpForceMult;
     }
     private void OnDisable()
     {
@@ -68,13 +79,22 @@ public class PlayerMovement : MonoBehaviour
         rseOnPlayerDeath.action -= OnPlayerDeath;
         rseOnGameStart.action -= OnGameStart;
         rseSaveGameData.action -= SaveGameData;
+        rseActiveDoubleJump.action -= ActiveDoublejump;
+        rseAddJumpForceMult.action -= AddJumpForceMult;
     }
 
     void Update()
-    {
+    {        
         HandleInput();
         CheckGroundStatus();
         UpdateCameraFOV();
+
+        if (!isGrounded)
+        {
+            airTime += Time.deltaTime;
+            achivmentAirTimeJump.CheckAirTime(airTime);
+        }
+        else airTime = 0;
     }
 
     void FixedUpdate()
@@ -86,7 +106,16 @@ public class PlayerMovement : MonoBehaviour
 
             ApplyFriction();
             HandleJump();
-        }        
+        }
+    }
+
+    void ActiveDoublejump()
+    {
+        canDoubleJump = true;
+    }
+    void AddJumpForceMult(float mult)
+    {
+        jumpForceMultiplier += mult;
     }
 
     void OnGameStart()
@@ -132,6 +161,7 @@ public class PlayerMovement : MonoBehaviour
         if (isGrounded)
         {
             lastGroundedTime = Time.time;
+            hasDoubleJumped = false; // Reset double jump on ground contact
         }
     }
 
@@ -171,7 +201,18 @@ public class PlayerMovement : MonoBehaviour
     {
         if (jumpBufferCounter > 0 && (isGrounded || Time.time - lastGroundedTime <= coyoteTime))
         {
-            rb.velocity = new Vector3(rb.velocity.x * jumpImpulsionMult, jumpForce, rb.velocity.z * jumpImpulsionMult);
+            rsoContentSaved.Value.jumpCount++;
+            foreach (var achievmentJumpCount in achivmentsJumpCount)
+            {
+                achievmentJumpCount.CheckJumpCount(rsoContentSaved.Value.jumpCount);
+            }
+            rb.velocity = new Vector3(rb.velocity.x * jumpImpulsionMult, jumpForce * jumpForceMultiplier, rb.velocity.z * jumpImpulsionMult);
+            jumpBufferCounter = 0;
+        }
+        else if (canDoubleJump && !hasDoubleJumped && jumpBufferCounter > 0)
+        {
+            rb.velocity = new Vector3(rb.velocity.x, jumpForce * jumpForceMultiplier, rb.velocity.z);
+            hasDoubleJumped = true; // Mark double jump as used
             jumpBufferCounter = 0;
         }
     }

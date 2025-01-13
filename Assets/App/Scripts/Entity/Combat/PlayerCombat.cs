@@ -14,11 +14,13 @@ public class PlayerCombat : MonoBehaviour
 
     int totalEnemysKilled;
     float damageMultiplier = 1;
+    float attackRateMultiplier = 1;
 
     bool canAttack = false;
 
     [Header("Achievments")]
     [SerializeField] SSO_Achievment_KillEnemys[] achievmentsKillEnemys;
+    [SerializeField] SSO_Achivment_CompleteOnce reloadAchivment;
 
     // RSO
     [SerializeField] RSO_ContentSaved rsoContentSave;
@@ -27,6 +29,7 @@ public class PlayerCombat : MonoBehaviour
 
     [Header("Input")]
     [SerializeField] RSE_AddDamageMultiplier rseAddDamageMult;
+    [SerializeField] RSE_AddAttackRateMultiplier rseAddAttackRateMult;
     [SerializeField] RSE_OnGameStart rseOnGameStart;
     [SerializeField] RSE_OnPlayerDeath rseOnPlayerDeath;
     [SerializeField] RSE_SaveAllGameData rseSaveGameData;
@@ -38,6 +41,7 @@ public class PlayerCombat : MonoBehaviour
     private void OnEnable()
     {
         rseAddDamageMult.action += AddDamageMultiplier;
+        rseAddAttackRateMult.action += AddAttackRateMultiplier;
         rseOnGameStart.action += OnGameStart;
         rseOnPlayerDeath.action += OnPlayerDeath;
         rseSaveGameData.action += SaveGameData;
@@ -47,6 +51,7 @@ public class PlayerCombat : MonoBehaviour
     private void OnDisable()
     {
         rseAddDamageMult.action -= AddDamageMultiplier;
+        rseAddAttackRateMult.action -= AddAttackRateMultiplier;
         rseOnGameStart.action -= OnGameStart;
         rseOnPlayerDeath.action -= OnPlayerDeath;
         rseSaveGameData.action -= SaveGameData;
@@ -58,6 +63,7 @@ public class PlayerCombat : MonoBehaviour
     {
         totalEnemysKilled = rsoContentSave.Value.totalEnemysKilled;
         weapons[currentWeaponIndex].damageMultiplier = damageMultiplier;
+        weapons[currentWeaponIndex].attackRateMultiplier = attackRateMultiplier;        
         weapons[currentWeaponIndex].OnTargetKill += OnEnemyKill;
         canAttack = true;
     }
@@ -97,6 +103,7 @@ public class PlayerCombat : MonoBehaviour
             if (Input.GetKey(KeyCode.R))
             {
                 weapons[currentWeaponIndex].Reload();
+                reloadAchivment.Achieve();
             }
         }
     }
@@ -114,6 +121,10 @@ public class PlayerCombat : MonoBehaviour
     void AddDamageMultiplier(float multToAdd)
     {
         damageMultiplier += multToAdd;
+    }
+    void AddAttackRateMultiplier(float multToAdd)
+    {
+        attackRateMultiplier += multToAdd;
     }
     void OnEnemyKill()
     {

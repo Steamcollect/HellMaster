@@ -102,6 +102,7 @@ MonoBehaviour:
   damage: 30
   damageMultiplier: 1
   attackDelay: 3
+  attackRateMultiplier: 1
   isSemiAuto: 0
   hasSpread: 0
   bulletSpreadVariance: {x: 0, y: 0, z: 0}
