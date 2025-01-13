@@ -160,6 +160,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 100
+  hitShakeRange: 3
+  hitShakeTime: 0.1
   rsoContentSaved: {fileID: 11400000, guid: af883388f9f4c2b44b3dc5140f911432, type: 2}
   achievmentsSurvivMinTime:
   - {fileID: 11400000, guid: 9df34200858fd454480386e1e475f23e, type: 2}
@@ -180,6 +182,7 @@ MonoBehaviour:
   rseOnPlayerDeath: {fileID: 11400000, guid: 8a4b2423a095dfb4884674599ccc4b24, type: 2}
   rseSaveGameData: {fileID: 11400000, guid: 6b2d0fac7e3f1d14d9f3157d9b2527fb, type: 2}
   rseUpdateHealthBar: {fileID: 11400000, guid: 8871cfeb85b86234692995e0d261bb3f, type: 2}
+  rseCameraShake: {fileID: 11400000, guid: f413fc97221675e418e1197be515569c, type: 2}
 --- !u!114 &1418595597308619600
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -372,10 +375,13 @@ MonoBehaviour:
   mouseSensitivity: 400
   maxTiltAngle: 4
   tiltSpeed: 8
+  shakeSpeed: 100
   rsoMouseSensitivityMult: {fileID: 11400000, guid: 0d97823373570f64abe6d19d3d8ed902,
     type: 2}
   rseOnGameStart: {fileID: 11400000, guid: 88a565a514476f74baa9c0ca7be72107, type: 2}
   rseOnPlayerDeath: {fileID: 11400000, guid: 8a4b2423a095dfb4884674599ccc4b24, type: 2}
+  rseCameraShake: {fileID: 11400000, guid: f413fc97221675e418e1197be515569c, type: 2}
+  rsoContentSave: {fileID: 11400000, guid: af883388f9f4c2b44b3dc5140f911432, type: 2}
 --- !u!1 &6205696927364304765
 GameObject:
   m_ObjectHideFlags: 0

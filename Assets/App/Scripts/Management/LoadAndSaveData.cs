@@ -109,4 +109,5 @@ public class InfoToSave
     public float soundVolume = 1;
     public float mouseSensitivity = 1;
     public bool isFullScreen = true;
+    public bool canShake = true;
 }

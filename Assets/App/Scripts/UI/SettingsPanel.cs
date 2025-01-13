@@ -32,6 +32,7 @@ public class SettingsPanel : MonoBehaviour
     [SerializeField] UnityEngine.UI.Slider mouseSensitivitySlider;
     [SerializeField] TMP_Text mouseSensitivityPercentageText;
     [SerializeField] UnityEngine.UI.Toggle fullScreenToggle;
+    [SerializeField] UnityEngine.UI.Toggle camShakeToggle;
 
     [SerializeField] RSO_ContentSaved rsoContentSaved;
 
@@ -70,6 +71,11 @@ public class SettingsPanel : MonoBehaviour
         UpdatePercentageText(mouseSensitivitySlider, mouseSensitivityPercentageText, mouseSensitivitySlider.minValue, mouseSensitivitySlider.maxValue);
     }
 
+    public void CameraShake(bool canShake)
+    {
+        rsoContentSave.Value.canShake = canShake;
+    }
+
     float LinearToDecibel(float linear)
     {
         float dB;
@@ -98,6 +104,7 @@ public class SettingsPanel : MonoBehaviour
         UpdatePercentageText(mouseSensitivitySlider, mouseSensitivityPercentageText, mouseSensitivitySlider.minValue, mouseSensitivitySlider.maxValue);
 
         fullScreenToggle.isOn = rsoContentSaved.Value.isFullScreen;
+        camShakeToggle.isOn = rsoContentSave.Value.canShake;
     }
 
     public void Hide()
