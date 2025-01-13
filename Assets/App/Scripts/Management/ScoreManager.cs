@@ -4,11 +4,12 @@ using TMPro;
 
 public class ScoreManager : MonoBehaviour
 {
-    //[Header("Settings")]
+    [Header("Settings")]
     [SerializeField] int score;
 
     [Header("References")]
     [SerializeField] TMP_Text scoreTxt;
+    [SerializeField] TMP_Text bestScoreTxt;
 
     //[Space(10)]
     // RSO
@@ -16,10 +17,11 @@ public class ScoreManager : MonoBehaviour
     // RSF
     // RSP
 
-    //[Header("Input")]
+    [Header("Input")]
     [SerializeField] RSE_AddScore rseAddScore;
 
-    //[Header("Output")]
+    [Header("Output")]
+    [SerializeField] RSE_SaveData rseSaveData;
 
     private void OnEnable()
     {
@@ -30,13 +32,25 @@ public class ScoreManager : MonoBehaviour
         rseAddScore.action -= AddScore;
     }
 
+    private void Start()
+    {
+        Invoke("LateStart", .15f);
+    }
+    
+    void LateStart()
+    {
+        bestScoreTxt.text = "Best: " + rsoContentSaved.Value.bestScore.ToString("#,0");
+    }
+
     void AddScore(int scoreGiven)
     {
         score += scoreGiven;
         scoreTxt.text = score.ToString("#,0");
-        if(rsoContentSaved.Value.bestScore > score)
+        if(rsoContentSaved.Value.bestScore < score)
         {
             rsoContentSaved.Value.bestScore = score;
+            bestScoreTxt.text = "Best: " + score.ToString("#,0");
+            rseSaveData.Call();
         }
 
         scoreTxt.transform.BumpVisual();
