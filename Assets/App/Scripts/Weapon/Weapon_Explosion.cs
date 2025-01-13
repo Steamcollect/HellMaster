@@ -6,7 +6,7 @@ public class Weapon_Explosion : MonoBehaviour
     public float damage;
     public float damageMultiplier;
     public Action OnTargetKill;
-
+    
 
     private void OnTriggerEnter(Collider other)
     {

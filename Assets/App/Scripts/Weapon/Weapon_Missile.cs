@@ -8,6 +8,9 @@ public class Weapon_Missile : MonoBehaviour
     //[SerializeField]
     [SerializeField] bool missileFired = false;
     [SerializeField] Weapon_Explosion explosion;
+    [SerializeField] RSE_CameraShake cameraShake;
+    [SerializeField] float shakeRange;
+    [SerializeField] float shakeTime;
     public float damage;
     public float damageMultiplier;
     public Action OnTargetKill;
@@ -32,12 +35,17 @@ public class Weapon_Missile : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Weapon_Explosion tempExplosion = Instantiate(explosion, transform.position, Quaternion.identity);
-        tempExplosion.OnTargetKill += OnTargetKill;
-        tempExplosion.damage = damage;
-        tempExplosion.damageMultiplier = damageMultiplier;
+        if (!other.CompareTag("Player"))
+        {
+            cameraShake.Call(shakeTime, shakeRange);
+            Weapon_Explosion tempExplosion = Instantiate(explosion, transform.position, Quaternion.identity);
+            tempExplosion.OnTargetKill += OnTargetKill;
+            tempExplosion.damage = damage;
+            tempExplosion.damageMultiplier = damageMultiplier;
 
-        Destroy(gameObject);
+            Destroy(gameObject);
+        }
+            
     }
 
     private void OnMissileFired()

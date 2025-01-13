@@ -70,6 +70,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 0
   damageMultiplier: 0
+  cameraShake: {fileID: 11400000, guid: f413fc97221675e418e1197be515569c, type: 2}
+  shakeRange: 1.5
+  shakeTime: 0.5
 --- !u!54 &2857701871708523105
 Rigidbody:
   m_ObjectHideFlags: 0
