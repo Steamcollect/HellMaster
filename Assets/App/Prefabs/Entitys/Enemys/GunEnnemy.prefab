@@ -115,7 +115,9 @@ MonoBehaviour:
   maxHealth: 20
   controller: {fileID: 4760199000783193703}
   animator: {fileID: 3020447815270557842}
+  scoreGiven: 50
   rseOnPlayerDeath: {fileID: 11400000, guid: 8a4b2423a095dfb4884674599ccc4b24, type: 2}
+  rseAddScore: {fileID: 11400000, guid: c907aa7ace30f02468ea63d0babac916, type: 2}
 --- !u!1001 &226048277854959072
 PrefabInstance:
   m_ObjectHideFlags: 0

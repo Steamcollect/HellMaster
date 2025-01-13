@@ -103,6 +103,7 @@ public class InfoToSave
     public float totalTimeAlive;
     public int jumpCount;
     public int healCount;
+    public int bestScore;
 
     public float musicVolume = 1;
     public float soundVolume = 1;

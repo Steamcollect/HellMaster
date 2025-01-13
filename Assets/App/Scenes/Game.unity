@@ -1896,16 +1896,6 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3499936981179977554, guid: 5c75531e24186624cab30566f5b68de7,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3576016683096807489, guid: 5c75531e24186624cab30566f5b68de7,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 3660426522212905209, guid: 5c75531e24186624cab30566f5b68de7,
         type: 3}
       propertyPath: m_AnchorMax.x
@@ -1930,6 +1920,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_SizeDelta.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4950897693821025565, guid: 5c75531e24186624cab30566f5b68de7,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5466915416645258376, guid: 5c75531e24186624cab30566f5b68de7,
         type: 3}
@@ -2101,6 +2096,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: MainCanvas
       objectReference: {fileID: 0}
+    - target: {fileID: 8607602804331206835, guid: 5c75531e24186624cab30566f5b68de7,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2237,65 +2237,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7334091514902704166, guid: 454e8e969eb1f3942af5abd6c6ac3266,
-        type: 3}
-      propertyPath: achivmentAirTimeJump
-      value: 
-      objectReference: {fileID: 11400000, guid: 95702b56b2230d944bcc39680da025fb,
-        type: 2}
-    - target: {fileID: 7334091514902704166, guid: 454e8e969eb1f3942af5abd6c6ac3266,
-        type: 3}
-      propertyPath: achivmentsJumpCount.Array.size
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 7334091514902704166, guid: 454e8e969eb1f3942af5abd6c6ac3266,
-        type: 3}
-      propertyPath: achivmentsJumpCount.Array.data[0]
-      value: 
-      objectReference: {fileID: 11400000, guid: 2788a2b4603f51f4e8a55011be3f439c,
-        type: 2}
-    - target: {fileID: 7334091514902704166, guid: 454e8e969eb1f3942af5abd6c6ac3266,
-        type: 3}
-      propertyPath: achivmentsJumpCount.Array.data[1]
-      value: 
-      objectReference: {fileID: 11400000, guid: ac81194a6b1befb42ac5c594ee31b76c,
-        type: 2}
-    - target: {fileID: 7334091514902704166, guid: 454e8e969eb1f3942af5abd6c6ac3266,
-        type: 3}
-      propertyPath: achivmentsJumpCount.Array.data[2]
-      value: 
-      objectReference: {fileID: 11400000, guid: 00f889bed7cd33a4e86bc2dfe9c85a6d,
-        type: 2}
-    - target: {fileID: 7334091514902704166, guid: 454e8e969eb1f3942af5abd6c6ac3266,
-        type: 3}
-      propertyPath: achivmentsJumpCount.Array.data[3]
-      value: 
-      objectReference: {fileID: 11400000, guid: e31fb065ba13fc744b2c4236efe87856,
-        type: 2}
-    - target: {fileID: 7334091514902704166, guid: 454e8e969eb1f3942af5abd6c6ac3266,
-        type: 3}
-      propertyPath: achivmentsJumpCount.Array.data[4]
-      value: 
-      objectReference: {fileID: 11400000, guid: 486e0a5aaa0d06146be1a435b4df652b,
-        type: 2}
-    - target: {fileID: 7334091514902704166, guid: 454e8e969eb1f3942af5abd6c6ac3266,
-        type: 3}
-      propertyPath: achivmentsJumpCount.Array.data[5]
-      value: 
-      objectReference: {fileID: 11400000, guid: 8082b4ccaedca154caf9ab2d8c0f851f,
-        type: 2}
-    - target: {fileID: 7334091514902704166, guid: 454e8e969eb1f3942af5abd6c6ac3266,
-        type: 3}
-      propertyPath: achivmentsJumpCount.Array.data[6]
-      value: 
-      objectReference: {fileID: 11400000, guid: 262bceee5466ad04ab9ea89d97cfaa96,
-        type: 2}
-    - target: {fileID: 7334091514902704166, guid: 454e8e969eb1f3942af5abd6c6ac3266,
-        type: 3}
-      propertyPath: achivmentsJumpCount.Array.data[7]
-      value: 
-      objectReference: {fileID: 11400000, guid: 1522b0ee5597f614e8bba594f826608c,
-        type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

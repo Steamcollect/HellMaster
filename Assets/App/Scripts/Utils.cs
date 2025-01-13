@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using System.Linq;
+using DG.Tweening;
 
 public static class Utils
 {
@@ -58,4 +59,13 @@ public static class Utils
         action.Invoke();
     }
     #endregion
+
+    public static void BumpVisual(this Transform t)
+    {
+        t.DOKill();
+        t.DOScale(1.1f, .06f).OnComplete(() =>
+        {
+            t.DOScale(1, .08f);
+        });
+    }
 }

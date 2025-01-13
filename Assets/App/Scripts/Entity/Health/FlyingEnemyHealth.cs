@@ -11,9 +11,13 @@ public class FlyingEnemyHealth : MonoBehaviour, IHealth
     float currentHealth;
     [SerializeField] FlyingEnemyController controller;
     [SerializeField] Animator animator;
+    [SerializeField] int scoreGiven;
 
     [Header("Input")]
     [SerializeField] RSE_OnPlayerDeath rseOnPlayerDeath;
+
+    [Header("Output")]
+    [SerializeField] RSE_AddScore rseAddScore;
 
     void OnEnable()
     {
@@ -57,6 +61,7 @@ public class FlyingEnemyHealth : MonoBehaviour, IHealth
     void Die()
     {
         controller.isDead = true;
+        rseAddScore.Call(scoreGiven);
         StartCoroutine(DeathAnim());
     }
 

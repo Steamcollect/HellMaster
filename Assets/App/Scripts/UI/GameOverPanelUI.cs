@@ -23,11 +23,6 @@ public class GameOverPanelUI : MonoBehaviour
         mainPanel.ShowPanel(gameOverButtons);
     }
 
-    public void RestartGame()
-    {
-        // Logic to restart the game
-    }
-
     public void ReturnToMainMenu()
     {
         Time.timeScale = 1;

@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using UnityEditor.Search;
 using UnityEngine;
 
 public class EnemyHealth : MonoBehaviour, IHealth
@@ -9,6 +10,8 @@ public class EnemyHealth : MonoBehaviour, IHealth
     float currentHealth;
     [SerializeField] EnemyController controller;
     [SerializeField] Animator animator;
+
+    [SerializeField] int scoreGiven;
 
     //[Header("References")]
 
@@ -20,7 +23,8 @@ public class EnemyHealth : MonoBehaviour, IHealth
     [Header("Input")]
     [SerializeField] RSE_OnPlayerDeath rseOnPlayerDeath;
 
-    //[Header("Output")]
+    [Header("Output")]
+    [SerializeField] RSE_AddScore rseAddScore;
 
     void OnEnable()
     {
@@ -64,6 +68,7 @@ public class EnemyHealth : MonoBehaviour, IHealth
     void Die()
     {
         controller.isDead = true;
+        rseAddScore.Call(scoreGiven);
         StartCoroutine(DeathAnim());
     }
 
