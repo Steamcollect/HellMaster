@@ -6,5 +6,6 @@ using UnityEngine;
 public interface IHealth
 {
     public void TakeMaxHealth(int health);
+    public void Heal(int health);
     public void TakeDamage(float damage, Action onDeath);
 }

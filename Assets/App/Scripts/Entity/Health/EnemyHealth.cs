@@ -46,7 +46,11 @@ public class EnemyHealth : MonoBehaviour, IHealth
         maxHealth += health;
         currentHealth += health;
     }
-
+    public void Heal(int health)
+    {
+        currentHealth += health;
+        if (currentHealth > maxHealth) currentHealth = maxHealth;
+    }
     public void TakeDamage(float damage, Action onDeath)
     {
         currentHealth -= damage;

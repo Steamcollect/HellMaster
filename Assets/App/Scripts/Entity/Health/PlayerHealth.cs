@@ -77,7 +77,12 @@ public class PlayerHealth : MonoBehaviour, IHealth
 
         rseUpdateHealthBar.Call(currentHealth, maxHealth);
     }
-
+    public void Heal(int health)
+    {
+        currentHealth += health;
+        if(currentHealth > maxHealth) currentHealth = maxHealth;
+        rseUpdateHealthBar.Call(currentHealth, maxHealth);
+    }
     public void TakeDamage(float damage, Action onDeath)
     {
         currentHealth -= damage;
