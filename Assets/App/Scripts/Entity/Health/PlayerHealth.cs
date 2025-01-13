@@ -10,6 +10,10 @@ public class PlayerHealth : MonoBehaviour, IHealth
 
     float timeAlive;
 
+    [Space(10)]
+    [SerializeField] float hitShakeRange;
+    [SerializeField] float hitShakeTime;
+
     [Header("References")]
 
     //[Space(10)]
@@ -31,6 +35,7 @@ public class PlayerHealth : MonoBehaviour, IHealth
 
     [Header("Output")]
     [SerializeField] RSE_UdateHealthBar rseUpdateHealthBar;
+    [SerializeField] RSE_CameraShake rseCameraShake;
 
     void OnEnable()
     {
@@ -94,6 +99,8 @@ public class PlayerHealth : MonoBehaviour, IHealth
     public void TakeDamage(float damage, Action onDeath)
     {
         currentHealth -= damage;
+        rseCameraShake.Call(hitShakeTime, hitShakeRange);
+
         if(currentHealth < 0) currentHealth = 0;
         rseUpdateHealthBar.Call(currentHealth, maxHealth);
 
