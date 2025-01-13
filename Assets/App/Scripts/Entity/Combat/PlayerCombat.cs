@@ -18,6 +18,10 @@ public class PlayerCombat : MonoBehaviour
 
     bool canAttack = false;
 
+    [Space(10)]
+    [SerializeField] AudioClip[] swapWeaponSounds;
+    [SerializeField] RSE_PlayClipAt rsePlayClipAt;
+
     [Header("Achievments")]
     [SerializeField] SSO_Achievment_KillEnemys[] achievmentsKillEnemys;
     [SerializeField] SSO_Achivment_CompleteOnce reloadAchivment;
@@ -85,6 +89,7 @@ public class PlayerCombat : MonoBehaviour
 
             if (newWeaponIndex != currentWeaponIndex)
             {
+                rsePlayClipAt.Call(swapWeaponSounds.GetRandom(), transform.position, 1);
                 weapons[currentWeaponIndex].Hide();
                 weapons[currentWeaponIndex].OnTargetKill -= OnEnemyKill;
 

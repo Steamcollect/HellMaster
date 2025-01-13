@@ -20,6 +20,7 @@ public class SSO_Achievment_AireTimeJump : Achievment
     {
         if (isAchieve)
         {
+            rseAddAttackRateMult.Call(valueGiven);
             rsoAchievmentCompleteCount.Value++;
         }
     }

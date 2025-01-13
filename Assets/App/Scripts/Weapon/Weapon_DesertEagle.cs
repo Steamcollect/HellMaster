@@ -20,7 +20,8 @@ public class Weapon_DesertEagle : WeaponTemplate
     [SerializeField] LayerMask Mask;
     [SerializeField] Animator animator;
 
-    //[Header("References")]
+    [Header("References")]
+    [SerializeField] AudioClip[] reloadSounds;
 
     //[Space(10)]
     // RSO
@@ -70,6 +71,7 @@ public class Weapon_DesertEagle : WeaponTemplate
     {
         if (!isReloading)
         {
+            rsePlayClipAt.Call(reloadSounds.GetRandom(), transform.position, 1);
             animator.SetTrigger("Reload");
             StartCoroutine(ReloadDelay());
         }

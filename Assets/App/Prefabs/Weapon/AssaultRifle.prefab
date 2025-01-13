@@ -86,7 +86,8 @@ MonoBehaviour:
   hasSpread: 1
   bulletSpreadVariance: {x: 0.03, y: 0.03, z: 0.03}
   visual: {fileID: 1094172362136367037}
-  attackClips: []
+  attackClips:
+  - {fileID: 8300000, guid: 94fa1cb215ccc9c4ea9d7cd71c120502, type: 3}
   rsePlayClipAt: {fileID: 11400000, guid: cccf594a54ee21f43b8c6c2ebd626b5e, type: 2}
   maxShootDistance: 1000
   reloadTime: 0.5
@@ -104,6 +105,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8
   animator: {fileID: 5237962818154937095}
+  reloadSounds:
+  - {fileID: 8300000, guid: efc1819c304c15f42b6b17d84cd8b72b, type: 3}
 --- !u!95 &5237962818154937095
 Animator:
   serializedVersion: 5

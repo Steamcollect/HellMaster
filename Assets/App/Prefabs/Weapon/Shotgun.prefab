@@ -107,6 +107,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 0
   animator: {fileID: 3146580574340673453}
+  reloadClips:
+  - {fileID: 8300000, guid: 786d2f4fd5aa35148a85b5638ce877ce, type: 3}
 --- !u!95 &3146580574340673453
 Animator:
   serializedVersion: 5

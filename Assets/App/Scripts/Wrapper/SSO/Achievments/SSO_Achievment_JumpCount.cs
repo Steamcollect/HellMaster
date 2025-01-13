@@ -19,6 +19,7 @@ public class SSO_Achievment_JumpCount : Achievment
     {
         if (isAchieve)
         {
+            rseAddJumpForceMult.Call(valueGiven);
             rsoAchievmentCompleteCount.Value++;
         }
     }
