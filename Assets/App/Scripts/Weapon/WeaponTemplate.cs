@@ -22,7 +22,7 @@ public abstract class WeaponTemplate : MonoBehaviour
     [Header("References")]
     [SerializeField] GameObject visual;
     [SerializeField] AudioClip[] attackClips;
-    [SerializeField] RSE_PlayClipAt rsePlayClipAt;
+    public RSE_PlayClipAt rsePlayClipAt;
 
     public Action OnHide, OnShow;
 

@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -36,7 +37,7 @@ public class EnemyController : MonoBehaviour
             agent.destination = rsoTarget.Value.position;
             animator.SetBool("isRunning", true);
 
-            if (agent.remainingDistance <= agent.stoppingDistance)
+            if (agent.remainingDistance <= agent.stoppingDistance && Vector3.Distance(transform.position, rsoTarget.Value.position) <= agent.stoppingDistance)
             {
                 animator.SetTrigger("Attack");
                 lookAtRot.position = transform.position;

@@ -199,8 +199,10 @@ MonoBehaviour:
   hasSpread: 0
   bulletSpreadVariance: {x: 0, y: 0, z: 0}
   visual: {fileID: 2188636430748704454}
-  attackClips: []
-  rsePlayClipAt: {fileID: 0}
+  attackClips:
+  - {fileID: 8300000, guid: 7b17ec57328071440806f85f903e7a58, type: 3}
+  - {fileID: 8300000, guid: 8cfdb0e356f701e4cad6a76949f84785, type: 3}
+  rsePlayClipAt: {fileID: 11400000, guid: cccf594a54ee21f43b8c6c2ebd626b5e, type: 2}
   isAttacking: 0
   duration: 0.1
   animator: {fileID: 4027417760990739042}

@@ -22,7 +22,8 @@ public class Weapon_Shotgun : WeaponTemplate
     [SerializeField] LayerMask Mask;
     [SerializeField] Animator animator;
 
-    //[Header("References")]
+    [Header("References")]
+    [SerializeField] AudioClip[] reloadClips;
 
     //[Space(10)]
     // RSO
@@ -80,6 +81,7 @@ public class Weapon_Shotgun : WeaponTemplate
     {
         if (!isReloading)
         {
+            rsePlayClipAt.Call(reloadClips.GetRandom(), transform.position, 1);
             animator.SetTrigger("Reload");
             StartCoroutine(ReloadDelay());
         }

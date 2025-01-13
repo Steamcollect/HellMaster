@@ -200,6 +200,9 @@ MonoBehaviour:
   - {fileID: 6114239621756352281}
   currentWeaponIndex: 0
   cam: {fileID: 8221105608950911600}
+  swapWeaponSounds:
+  - {fileID: 8300000, guid: 645fc5da7c346e647a021f12ff29eeac, type: 3}
+  rsePlayClipAt: {fileID: 11400000, guid: cccf594a54ee21f43b8c6c2ebd626b5e, type: 2}
   achievmentsKillEnemys:
   - {fileID: 11400000, guid: 715c1ffaffe45f54ca67919a1c70e5da, type: 2}
   - {fileID: 11400000, guid: 0342e681c7fba6f48b76c5aa4104aa6e, type: 2}

@@ -17,6 +17,7 @@ public class SSO_Achivment_CompleteOnce : Achievment
 
     public override void GiveBonnus()
     {
+        if (canActiveDoubleJumps) rseDoubleJump.Call();
         rsoAchievmentCompleteCount.Value++;
     }
 }

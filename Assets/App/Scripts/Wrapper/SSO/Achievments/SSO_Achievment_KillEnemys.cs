@@ -15,7 +15,7 @@ public class SSO_Achievment_KillEnemys : Achievment
         if(kill >= killRequired && !isAchieve)
         {
             rseAddDamageMult.Call(damageMultGiven);
-           OnComplete();
+            OnComplete();
         }
     }
 
