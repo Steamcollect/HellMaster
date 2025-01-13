@@ -6,7 +6,9 @@ public class Weapon_Explosion : MonoBehaviour
     public float damage;
     public float damageMultiplier;
     public Action OnTargetKill;
-    
+
+    [SerializeField] AudioClip[] explosionsClips;
+    [SerializeField] RSE_PlayClipAt rsePlayClipAt;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -19,6 +21,8 @@ public class Weapon_Explosion : MonoBehaviour
 
     IEnumerator ExplosionDelay()
     {
+        rsePlayClipAt.Call(explosionsClips.GetRandom(), transform.position, 1);
+
         yield return new WaitForSeconds(0.75f);
         Destroy(gameObject);
     }

@@ -70,9 +70,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 0
   damageMultiplier: 0
-  cameraShake: {fileID: 11400000, guid: f413fc97221675e418e1197be515569c, type: 2}
-  shakeRange: 1.5
-  shakeTime: 0.5
+  explosionsClips:
+  - {fileID: 8300000, guid: b9d6aabe7e310d341af9a410f40e6eea, type: 3}
+  - {fileID: 8300000, guid: 7689160fe80a8fd4ba29f4ef602e399e, type: 3}
+  - {fileID: 8300000, guid: 3cbddf4001ae67e4ba645fda166a3a0b, type: 3}
+  rsePlayClipAt: {fileID: 11400000, guid: cccf594a54ee21f43b8c6c2ebd626b5e, type: 2}
 --- !u!54 &2857701871708523105
 Rigidbody:
   m_ObjectHideFlags: 0
