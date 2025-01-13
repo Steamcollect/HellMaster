@@ -14,18 +14,23 @@ public class WeaponPickUp : MonoBehaviour
     // RSF
     // RSP
 
-    //[Header("Input")]
+    [Header("Input")]
+    [SerializeField] RSE_OnGameStart rseOnGameStart;
     [Header("Output")]
     [SerializeField] RSE_AddWeapon rseAddWeapon;
 
-    private void Start()
+    private void OnEnable()
     {
-        Invoke("LateStart", .15f);
+        rseOnGameStart.action += LateStart;
+    }
+    private void OnDisable()
+    {
+        rseOnGameStart.action -= LateStart;
     }
 
     void LateStart()
     {
-        CheckCondition();
+        Invoke("CheckCondition", .15f);
     }
 
     private void OnTriggerEnter(Collider other)

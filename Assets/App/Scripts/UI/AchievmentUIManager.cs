@@ -20,6 +20,7 @@ public class AchievmentUIManager : MonoBehaviour
     [Header("Input")]
     [SerializeField] RSE_OnAchievmentComplete rseShowAchievmentOnScreen;
     [SerializeField] RSE_OnPanelOpen rsePanelOpen;
+    [SerializeField] RSE_OnGameStart rseOnGameStart;
 
     [Space(10)]
     [SerializeField] List<AchievmentUISetup> achievmentUISetup = new();
@@ -39,11 +40,13 @@ public class AchievmentUIManager : MonoBehaviour
     {
         rseShowAchievmentOnScreen.action += ShowAchievment;
         rsePanelOpen.action += OnPanelOpen;
+        rseOnGameStart.action += CheckAchievmentCompleteWithDelay;
     }
     private void OnDisable()
     {
         rseShowAchievmentOnScreen.action -= ShowAchievment;
         rsePanelOpen.action -= OnPanelOpen;
+        rseOnGameStart.action -= CheckAchievmentCompleteWithDelay;
     }
 
     private void Start()
@@ -59,6 +62,18 @@ public class AchievmentUIManager : MonoBehaviour
             AchievmentUI ui = Instantiate(achievmentUIPrefab, achievmentMenuUIContent);
             ui.Setup(achievments[i]);
             achievmentUISetup.Add(new AchievmentUISetup(achievments[i], ui));
+        }
+    }
+
+    void CheckAchievmentCompleteWithDelay()
+    {
+        Invoke("CheckAchievmentComplete", .1f);
+    }
+    void CheckAchievmentComplete()
+    {
+        foreach (var item in achievments)
+        {
+            item.GiveBonnus();
         }
     }
 

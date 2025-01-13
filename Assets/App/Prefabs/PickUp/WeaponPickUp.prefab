@@ -122,4 +122,5 @@ MonoBehaviour:
   weaponPrefab: {fileID: 0}
   rsoAchievmentCompleteCount: {fileID: 11400000, guid: 7eb12019ffd4e0f459fa01778a830153,
     type: 2}
+  rseOnGameStart: {fileID: 11400000, guid: 88a565a514476f74baa9c0ca7be72107, type: 2}
   rseAddWeapon: {fileID: 11400000, guid: 27f8b9bb7fcd4dc4bafe2c88b2b15d33, type: 2}
