@@ -156,7 +156,6 @@ GameObject:
   - component: {fileID: 8633878093095823456}
   - component: {fileID: 1176051671048373520}
   - component: {fileID: 4027417760990739042}
-  - component: {fileID: 5488911696076715710}
   m_Layer: 0
   m_Name: Sword
   m_TagString: Player
@@ -200,9 +199,13 @@ MonoBehaviour:
   hasSpread: 0
   bulletSpreadVariance: {x: 0, y: 0, z: 0}
   visual: {fileID: 2188636430748704454}
+  attackClips: []
+  rsePlayClipAt: {fileID: 0}
   isAttacking: 0
   duration: 0.1
   animator: {fileID: 4027417760990739042}
+  raycastSize: {x: 1.12, y: 0.64, z: 0.43}
+  raycastPosOffset: {x: 0, y: 0, z: 0.47}
 --- !u!95 &4027417760990739042
 Animator:
   serializedVersion: 5
@@ -224,27 +227,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!65 &5488911696076715710
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7339204608549325885}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1.9747407, y: 1.5229064, z: 1.8144159}
-  m_Center: {x: 0, y: -0.32853192, z: 1.4655802}
 --- !u!1001 &1341774639722685335
 PrefabInstance:
   m_ObjectHideFlags: 0

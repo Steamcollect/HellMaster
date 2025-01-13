@@ -9,6 +9,9 @@ public class Weapon_Sword : WeaponTemplate
     [SerializeField] float duration;
     [SerializeField] Animator animator;
 
+    [SerializeField] Vector3 raycastSize;
+    [SerializeField] Vector3 raycastPosOffset;
+
     //[Header("References")]
 
     //[Space(10)]
@@ -18,13 +21,24 @@ public class Weapon_Sword : WeaponTemplate
 
     //[Header("Input")]
     //[Header("Output")]
+
     public override void Attack(Vector3 attackPosition, Vector3 attackDirection)
     {
         transform.forward = attackDirection;
 
         animator.SetTrigger("Attack");
 
-        StartCoroutine("SwipeDelay");
+        // Perform a box cast in front of the weapon
+        Vector3 raycastPosition = transform.position + transform.forward * raycastPosOffset.z + transform.up * raycastPosOffset.y + transform.right * raycastPosOffset.x;
+        Collider[] hitColliders = Physics.OverlapBox(raycastPosition, raycastSize, transform.rotation);
+
+        foreach (var collider in hitColliders)
+        {
+            if (collider.TryGetComponent(out IHealth health))
+            {
+                health.TakeDamage(damage * damageMultiplier, OnTargetKill);
+            }
+        }
     }
 
     public override bool CanAttack()
@@ -40,24 +54,8 @@ public class Weapon_Sword : WeaponTemplate
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.red;
-        //Gizmos.DrawLine(transform.position, transform.position + transform.forward * attackDistance);
-    }
-
-    private void OnTriggerStay(Collider other)
-    {
-        if (isAttacking)
-        {
-            if (other.TryGetComponent(out IHealth health))
-            {
-                health.TakeDamage(damage * damageMultiplier, OnTargetKill);
-            }
-        }
-    }
-
-    IEnumerator SwipeDelay()
-    {
-        isAttacking = true;
-        yield return new WaitForSeconds(duration);
-        isAttacking = false;
+        Vector3 raycastPosition = transform.position + transform.forward * raycastPosOffset.z + transform.up * raycastPosOffset.y + transform.right * raycastPosOffset.x;
+        Gizmos.matrix = Matrix4x4.TRS(raycastPosition, transform.rotation, Vector3.one);
+        Gizmos.DrawWireCube(Vector3.zero, raycastSize);
     }
 }

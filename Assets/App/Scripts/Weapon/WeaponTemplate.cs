@@ -21,6 +21,10 @@ public abstract class WeaponTemplate : MonoBehaviour
 
     [Header("References")]
     [SerializeField] GameObject visual;
+    [SerializeField] AudioClip[] attackClips;
+    [SerializeField] RSE_PlayClipAt rsePlayClipAt;
+
+    public Action OnHide, OnShow;
 
     //[Space(10)]
     // RSO
@@ -34,6 +38,10 @@ public abstract class WeaponTemplate : MonoBehaviour
     {
         if (canAttack && CanAttack())
         {
+            if(attackClips.Length > 0)
+            {
+                rsePlayClipAt.Call(attackClips.GetRandom(), transform.position, 1);
+            }
             if(hasSpread)
             {
                 attackDirection += new Vector3(
@@ -61,10 +69,12 @@ public abstract class WeaponTemplate : MonoBehaviour
 
     public void Hide()
     {
+        OnHide?.Invoke();
         visual.SetActive(false);
     }
     public void Show()
     {
+        OnShow?.Invoke();
         visual.SetActive(true);
     }
 }

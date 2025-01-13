@@ -86,6 +86,10 @@ MonoBehaviour:
   hasSpread: 0
   bulletSpreadVariance: {x: 0.06, y: 0.06, z: 0.06}
   visual: {fileID: 1416901301475932862}
+  attackClips:
+  - {fileID: 8300000, guid: ec5a0337e12c6ca46a5e6c0219a45e1c, type: 3}
+  - {fileID: 8300000, guid: af46a0706b3a03c48b682b2cbb54db7a, type: 3}
+  rsePlayClipAt: {fileID: 11400000, guid: cccf594a54ee21f43b8c6c2ebd626b5e, type: 2}
   maxShootDistance: 1000
   reloadTime: 0.55
   bulletShotForOneShot: 8
