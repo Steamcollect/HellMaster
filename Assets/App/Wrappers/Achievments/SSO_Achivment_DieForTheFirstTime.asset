@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8385f5a1c8a48f7418b0fe1b075a7817, type: 3}
   m_Name: SSO_Achivment_DieForTheFirstTime
   m_EditorClassIdentifier: 
-  achivmentName: 
+  achivmentName: LOL looser
   achivmentDescription: 
   achievmentIcon: {fileID: 0}
   isAchieve: 0

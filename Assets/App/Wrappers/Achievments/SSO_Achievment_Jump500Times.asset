@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a6478b2531d4044097cbac218a535a2, type: 3}
   m_Name: SSO_Achievment_Jump500Times
   m_EditorClassIdentifier: 
-  achivmentName: 
+  achivmentName: Leg Day Everyday
   achivmentDescription: 
   achievmentIcon: {fileID: 0}
   isAchieve: 0
@@ -22,3 +22,6 @@ MonoBehaviour:
   rseShowAchievmentOnScreen: {fileID: 11400000, guid: 638a230e5337ba04b851a7fbb97560bb,
     type: 2}
   jumpCountRequire: 500
+  rseAddJumpForceMult: {fileID: 11400000, guid: fe653bd7070fe1d4c9d778a4af9b2fb7,
+    type: 2}
+  valueGiven: 0.05

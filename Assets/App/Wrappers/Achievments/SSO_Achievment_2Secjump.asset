@@ -10,15 +10,21 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0b3416f3d3b5693458b4498753a9ec06, type: 3}
-  m_Name: SSO_Achievment_5Secjump
+  m_Name: SSO_Achievment_2Secjump
   m_EditorClassIdentifier: 
-  achivmentName: 
-  achivmentDescription: 
+  achivmentName: Flight Simulator
+  achivmentDescription: 'Stay 2 seconds without touching the Ground
+
+    +20% Attack
+    Rate'
   achievmentIcon: {fileID: 0}
-  isAchieve: 0
+  isAchieve: 1
   rsoAchievmentCompleteCount: {fileID: 11400000, guid: 7eb12019ffd4e0f459fa01778a830153,
     type: 2}
   rseSaveAllGameData: {fileID: 11400000, guid: 6b2d0fac7e3f1d14d9f3157d9b2527fb, type: 2}
   rseShowAchievmentOnScreen: {fileID: 11400000, guid: 638a230e5337ba04b851a7fbb97560bb,
     type: 2}
-  aireTimeRequire: 5
+  aireTimeRequire: 2
+  rseAddAttackRateMult: {fileID: 11400000, guid: 2745094ae8190944997a5ff537b4f0e6,
+    type: 2}
+  valueGiven: 0.2

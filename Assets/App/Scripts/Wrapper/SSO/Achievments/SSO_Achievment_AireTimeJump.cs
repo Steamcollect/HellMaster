@@ -4,11 +4,14 @@ using UnityEngine;
 public class SSO_Achievment_AireTimeJump : Achievment
 {
     [SerializeField] float aireTimeRequire;
+    [SerializeField] RSE_AddAttackRateMultiplier rseAddAttackRateMult;
+    [SerializeField] float valueGiven;
 
     public void CheckAirTime(float aireTime)
     {
         if (!isAchieve && aireTimeRequire <= aireTime)
         {
+            rseAddAttackRateMult.Call(valueGiven);
             OnComplete();
         }
     }

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4398c832b4126f4e9cb6b7808be6209, type: 3}
   m_Name: SSO_Achivment_Heal1000Times
   m_EditorClassIdentifier: 
-  achivmentName: 
+  achivmentName: BANDAGE MUMMY
   achivmentDescription: 
   achievmentIcon: {fileID: 0}
   isAchieve: 0
