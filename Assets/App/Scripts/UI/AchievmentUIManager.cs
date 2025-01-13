@@ -4,7 +4,7 @@ using System.Collections.Generic;
 public class AchievmentUIManager : MonoBehaviour
 {
     [Header("References")]
-    [SerializeField] Achievment[] achievments;
+    public Achievment[] achievments;
 
     [Space(10)]
     [SerializeField] Transform achievmentMenuUIContent;

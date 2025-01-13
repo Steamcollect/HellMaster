@@ -15,6 +15,8 @@ public class SettingsPanel : MonoBehaviour
     [Space(10)]
     // RSO
     [SerializeField] RSO_MouseSensitivityMultiplier rsoMouseSensitivity;
+    [SerializeReference] RSO_ContentSaved rsoContentSave;
+    [SerializeReference] AchievmentUIManager achievmentUIManager;
     // RSF
     // RSP
 
@@ -109,5 +111,17 @@ public class SettingsPanel : MonoBehaviour
     {
         float normalizedValue = Mathf.InverseLerp(minValue, maxValue, slider.value);
         percentageText.text = Mathf.RoundToInt(normalizedValue * 100) + "%";
+    }
+
+    public void ResetSaveButton()
+    {
+        foreach (var item in achievmentUIManager.achievments)
+        {
+            item.isAchieve = false;
+        }
+
+        rsoContentSave.Value = new();
+        rsoContentSave.Value.achievmentsStatus = new bool[achievmentUIManager.achievments.Length];
+        rseSaveData.Call();
     }
 }
