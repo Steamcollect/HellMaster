@@ -118,6 +118,10 @@ MonoBehaviour:
   fovSpeed: 5
   cam: {fileID: 1943746074359606207}
   rb: {fileID: 5895177216945678}
+  jumpSounds:
+  - {fileID: 8300000, guid: d994c888015f1064493be8a97052ae64, type: 3}
+  - {fileID: 8300000, guid: 6532b9afaad852249b98128225fc85cd, type: 3}
+  - {fileID: 8300000, guid: bd85bbd18d0fd20499f4ec06b4f8dd26, type: 3}
   achievmentsRunDistance:
   - {fileID: 11400000, guid: 1c0a52a103b7967418d2d62c06695066, type: 2}
   - {fileID: 11400000, guid: 6a47118923288b145a1e4b0f3bf475d8, type: 2}
@@ -147,6 +151,7 @@ MonoBehaviour:
     type: 2}
   rseAddJumpForceMult: {fileID: 11400000, guid: fe653bd7070fe1d4c9d778a4af9b2fb7,
     type: 2}
+  rsePlayClipAt: {fileID: 11400000, guid: cccf594a54ee21f43b8c6c2ebd626b5e, type: 2}
 --- !u!114 &2325282933072371097
 MonoBehaviour:
   m_ObjectHideFlags: 0
