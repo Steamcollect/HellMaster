@@ -108,7 +108,7 @@ public class PlayerHealth : MonoBehaviour, IHealth
     {
         foreach (var item in achievmentsSurvivMinTime)
         {
-            StopCoroutine(item.delayTimer);
+            if(item.delayTimer != null) StopCoroutine(item.delayTimer);
         }
 
         rseOnPlayerDeath.Call();
