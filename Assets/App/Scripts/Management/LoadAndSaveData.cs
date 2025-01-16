@@ -37,7 +37,11 @@ public class LoadAndSaveData : MonoBehaviour
         print(filepath);
 
         if (FileAlreadyExist()) LoadFromJson();
-        else SaveToJson();
+        else
+        {
+            rsoContentSave.Value.mouseSensitivity = 1;
+            SaveToJson();
+        }
 
         rsoAchievmentCompleteCount.Value = 0;
     }

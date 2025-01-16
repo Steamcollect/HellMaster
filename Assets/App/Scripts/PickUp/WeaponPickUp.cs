@@ -1,4 +1,5 @@
 using System.Xml.Serialization;
+using TMPro;
 using UnityEngine;
 public class WeaponPickUp : MonoBehaviour
 {
@@ -7,6 +8,7 @@ public class WeaponPickUp : MonoBehaviour
 
     [Header("References")]
     [SerializeField] WeaponTemplate weaponPrefab;
+    [SerializeField] TMP_Text achivementCountTxt;
 
     //[Space(10)]
     // RSO
@@ -22,10 +24,12 @@ public class WeaponPickUp : MonoBehaviour
     private void OnEnable()
     {
         rseOnGameStart.action += LateStart;
+        rsoAchievmentCompleteCount.OnChanged += UpdateTxtVisual;
     }
     private void OnDisable()
     {
         rseOnGameStart.action -= LateStart;
+        rsoAchievmentCompleteCount.OnChanged -= UpdateTxtVisual;
     }
 
     void LateStart()
@@ -48,5 +52,10 @@ public class WeaponPickUp : MonoBehaviour
             rseAddWeapon.Call(weaponPrefab);
             Destroy(gameObject);
         }
+    }
+
+    void UpdateTxtVisual()
+    {
+        achivementCountTxt.text = rsoAchievmentCompleteCount.Value.ToString() + "/" + achievmentCountRequire;
     }
 }
