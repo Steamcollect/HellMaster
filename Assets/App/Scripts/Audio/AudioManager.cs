@@ -63,7 +63,7 @@ public class AudioManager : MonoBehaviour
         // Set clip index
         playlist.currentClipIndex = (playlist.currentClipIndex + 1) % playlist.clips.Length;
 
-        maxLoop -= 1;
+        if(maxLoop > 0) maxLoop -= 1;
         if (maxLoop > 0 || maxLoop == -1)
         {
             StartCoroutine(SetAudioSourceClip(playlist, maxLoop));

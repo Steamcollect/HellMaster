@@ -63,6 +63,10 @@ public class CameraController : MonoBehaviour
 
     void RotateCamera()
     {
+        if (rsoMouseSensitivityMult.Value < .1f)
+        {
+            rsoMouseSensitivityMult.Value = 1;
+        }
         float mouseX = Input.GetAxis("Mouse X") * (mouseSensitivity * rsoMouseSensitivityMult.Value) * Time.deltaTime;
         float mouseY = Input.GetAxis("Mouse Y") * (mouseSensitivity * rsoMouseSensitivityMult.Value) * Time.deltaTime;
 

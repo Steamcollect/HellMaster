@@ -142,6 +142,7 @@ public class PlayerMovement : MonoBehaviour
 
     void HandleInput()
     {
+        print(canDoubleJump);
         float moveX = Input.GetAxis("Horizontal");
         float moveZ = Input.GetAxis("Vertical");
         moveDirection = (transform.right * moveX + transform.forward * moveZ).normalized;
