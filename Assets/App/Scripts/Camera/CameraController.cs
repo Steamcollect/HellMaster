@@ -58,7 +58,7 @@ public class CameraController : MonoBehaviour
         }
 
         // Apply shake offset to the rotation
-        ApplyShake();
+        CombineRotations();
     }
 
     void RotateCamera()
@@ -73,7 +73,6 @@ public class CameraController : MonoBehaviour
         xRotation -= mouseY;
         xRotation = Mathf.Clamp(xRotation, -90f, 90f);
 
-        transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
         playerBody.Rotate(Vector3.up * mouseX);
     }
 
@@ -98,17 +97,21 @@ public class CameraController : MonoBehaviour
         }
     }
 
-    void ApplyShake()
-    {
-        transform.localRotation = Quaternion.Euler(xRotation, 0f, shakeOffset);
-    }
-
     void TiltCameraBasedOnMovement()
     {
         float horizontalInput = Input.GetAxis("Horizontal");
         float targetTilt = -horizontalInput * maxTiltAngle;
 
         currentTilt = Mathf.Lerp(currentTilt, targetTilt, Time.deltaTime * tiltSpeed);
-        transform.localEulerAngles = new Vector3(transform.localEulerAngles.x, transform.localEulerAngles.y, currentTilt);
+    }
+
+    void CombineRotations()
+    {
+        // Combine the rotation components into a single Quaternion
+        Quaternion rotationX = Quaternion.Euler(xRotation, 0f, 0f);
+        Quaternion tilt = Quaternion.Euler(0f, 0f, currentTilt);
+        Quaternion shake = Quaternion.Euler(0f, 0f, shakeOffset);
+
+        transform.localRotation = rotationX * tilt * shake;
     }
 }

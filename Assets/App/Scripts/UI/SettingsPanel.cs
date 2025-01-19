@@ -36,6 +36,27 @@ public class SettingsPanel : MonoBehaviour
 
     [SerializeField] RSO_ContentSaved rsoContentSaved;
 
+    private void Start()
+    {
+        Invoke("LateStart", .01f);
+    }
+
+    void LateStart()
+    {
+        // Load settings into the UI
+        musicSlider.value = rsoContentSaved.Value.musicVolume;
+        UpdatePercentageText(musicSlider, musicPercentageText, musicSlider.minValue, musicSlider.maxValue);
+
+        soundSlider.value = rsoContentSaved.Value.soundVolume;
+        UpdatePercentageText(soundSlider, soundPercentageText, soundSlider.minValue, soundSlider.maxValue);
+
+        mouseSensitivitySlider.value = rsoContentSaved.Value.mouseSensitivity;
+        UpdatePercentageText(mouseSensitivitySlider, mouseSensitivityPercentageText, mouseSensitivitySlider.minValue, mouseSensitivitySlider.maxValue);
+
+        fullScreenToggle.isOn = rsoContentSaved.Value.isFullScreen;
+        camShakeToggle.isOn = rsoContentSave.Value.canShake;
+    }
+
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape) && isOpen)
