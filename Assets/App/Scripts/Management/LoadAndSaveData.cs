@@ -36,14 +36,24 @@ public class LoadAndSaveData : MonoBehaviour
         filepath = Application.persistentDataPath + "/InfoToLoad.json";
         print(filepath);
 
-        if (FileAlreadyExist()) LoadFromJson();
+        if (FileAlreadyExist())
+        {
+            LoadFromJson();
+        }
         else
         {
-            rsoContentSave.Value.mouseSensitivity = 1;
+            InitializeDefaultValues();
             SaveToJson();
         }
 
         rsoAchievmentCompleteCount.Value = 0;
+    }
+
+    void InitializeDefaultValues()
+    {
+        rsoContentSave.Value.mouseSensitivity = 1;
+        infoToSave.InitializeDefaults(achievments.Length);
+        rsoContentSave.Value = infoToSave;
     }
 
     void SaveAllGameData()
@@ -65,22 +75,35 @@ public class LoadAndSaveData : MonoBehaviour
 
     void LoadFromJson()
     {
+        if (!FileAlreadyExist())
+        {
+            Debug.LogWarning("No save file found, initializing default values.");
+            InitializeDefaultValues();
+            return;
+        }
+
         string infoData = System.IO.File.ReadAllText(filepath);
         infoToSave = JsonUtility.FromJson<InfoToSave>(infoData);
 
-        // Vérification de la taille du tableau
-        if (infoToSave.achievmentsStatus.Length != achievments.Length)
+        // Validate and correct data
+        if (infoToSave.achievmentsStatus == null || infoToSave.achievmentsStatus.Length != achievments.Length)
         {
             Debug.LogWarning("Mismatch between saved achievements and current achievements. Adjusting size.");
             bool[] correctedStatus = new bool[achievments.Length];
 
-            // Copier les valeurs existantes dans les limites du tableau
             for (int i = 0; i < Mathf.Min(infoToSave.achievmentsStatus.Length, correctedStatus.Length); i++)
             {
                 correctedStatus[i] = infoToSave.achievmentsStatus[i];
             }
 
             infoToSave.achievmentsStatus = correctedStatus;
+        }
+
+        // Correct any invalid numeric values
+        if (infoToSave.bestScore < 0 || infoToSave.bestScore > 1000000) // Set an arbitrary upper limit
+        {
+            Debug.LogWarning("Invalid bestScore detected, resetting to 0.");
+            infoToSave.bestScore = 0;
         }
 
         rsoContentSave.Value = infoToSave;
@@ -114,4 +137,20 @@ public class InfoToSave
     public float mouseSensitivity = 1;
     public bool isFullScreen = true;
     public bool canShake = true;
+
+    public void InitializeDefaults(int achievementCount)
+    {
+        achievmentsStatus = new bool[achievementCount];
+        totalDistanceTravelled = 0;
+        totalEnemysKilled = 0;
+        totalTimeAlive = 0;
+        jumpCount = 0;
+        healCount = 0;
+        bestScore = 0;
+        musicVolume = 1;
+        soundVolume = 1;
+        mouseSensitivity = 1;
+        isFullScreen = true;
+        canShake = true;
+    }
 }
