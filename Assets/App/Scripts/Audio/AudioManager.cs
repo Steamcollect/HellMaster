@@ -35,14 +35,14 @@ public class AudioManager : MonoBehaviour
     private void Start()
     {
         // Set Audio Source for Musics
-        for (int i = 0; i < playlists.Length; i++)
+        foreach (var playlist in playlists)
         {
             AudioSource audioSource = gameObject.AddComponent<AudioSource>();
-            playlists[i].audioSource = audioSource;
-            audioSource.volume = playlists[i].volumMultiplier;
+            playlist.audioSource = audioSource;
+            audioSource.volume = playlist.volumMultiplier;
             audioSource.outputAudioMixerGroup = musicMixerGroup;
 
-            StartCoroutine(SetAudioSourceClip(playlists[i], playlists[i].maxLoop));
+            StartCoroutine(SetAudioSourceClip(playlist, playlist.maxLoop));
         }
 
         // Create Audio Object
@@ -54,22 +54,17 @@ public class AudioManager : MonoBehaviour
 
     IEnumerator SetAudioSourceClip(Playlist playlist, int maxLoop)
     {
-        // Set clip
-        playlist.audioSource.clip = playlist.clips[playlist.currentClipIndex];
-        playlist.audioSource.Play();
-
-        yield return new WaitForSeconds(playlist.clips[playlist.currentClipIndex].length);
-
-        // Set clip index
-        playlist.currentClipIndex = (playlist.currentClipIndex + 1) % playlist.clips.Length;
-
-        if(maxLoop > 0) maxLoop -= 1;
-        if (maxLoop > 0 || maxLoop == -1)
+        while (maxLoop != 0)
         {
-            StartCoroutine(SetAudioSourceClip(playlist, maxLoop));
-        }
+            playlist.audioSource.clip = playlist.clips[playlist.currentClipIndex];
+            playlist.audioSource.Play();
 
-        // End the loop
+            yield return new WaitForSeconds(playlist.clips[playlist.currentClipIndex].length);
+
+            playlist.currentClipIndex = (playlist.currentClipIndex + 1) % playlist.clips.Length;
+
+            if (maxLoop > 0) maxLoop--;
+        }
     }
 
     /// <summary>
@@ -81,32 +76,38 @@ public class AudioManager : MonoBehaviour
     void PlayClipAt(AudioClip clip, Vector3 position, float volumMultiplier = 1)
     {
         AudioSource tmpAudioSource;
-        if (soundsGo.Count <= 0) tmpAudioSource = CreateSoundsGO();
-        else tmpAudioSource = soundsGo.Dequeue();
+        if (soundsGo.Count > 0)
+        {
+            tmpAudioSource = soundsGo.Dequeue();
+        }
+        else
+        {
+            tmpAudioSource = CreateSoundsGO();
+        }
 
         tmpAudioSource.transform.position = position;
 
-        // Set the volum
+        // Set the volume
         volumMultiplier = Mathf.Clamp(volumMultiplier, 0, 1);
         tmpAudioSource.volume = volumMultiplier;
 
         // Set the clip
         tmpAudioSource.clip = clip;
         tmpAudioSource.Play();
-        StartCoroutine(AddAudioSourceToQueue(tmpAudioSource));
+        StartCoroutine(ReturnAudioSourceToQueue(tmpAudioSource));
     }
-    IEnumerator AddAudioSourceToQueue(AudioSource current)
+
+    IEnumerator ReturnAudioSourceToQueue(AudioSource current)
     {
-        yield return new WaitForSeconds(current.clip.length);
+        yield return new WaitUntil(() => !current.isPlaying);
         soundsGo.Enqueue(current);
     }
 
     AudioSource CreateSoundsGO()
     {
-        AudioSource tmpAudioSource = new GameObject("Audio Go").AddComponent<AudioSource>();
+        AudioSource tmpAudioSource = new GameObject("AudioSource").AddComponent<AudioSource>();
         tmpAudioSource.transform.SetParent(transform);
         tmpAudioSource.outputAudioMixerGroup = soundMixerGroup;
-        soundsGo.Enqueue(tmpAudioSource);
 
         return tmpAudioSource;
     }
@@ -115,18 +116,13 @@ public class AudioManager : MonoBehaviour
     public class Playlist
     {
         [Range(0, 1)] public float volumMultiplier = 1;
-        [Tooltip("If value equal \"-1\" so infinite loop")] public int maxLoop = -1;
+        [Tooltip("If value equals \"-1\", infinite loop")] public int maxLoop = -1;
         [Space(10)]
         public AudioClip[] clips;
 
         [HideInInspector] public AudioSource audioSource;
         [HideInInspector] public int currentClipIndex = 0;
 
-        /// <summary>
-        /// Require Clips to play and the volum multiplier
-        /// </summary>
-        /// <param name="clips"></param>
-        /// <param name="volumMultiplier"></param>
         public Playlist(AudioClip[] clips, float volumMultiplier, int maxLoop)
         {
             this.clips = clips;
