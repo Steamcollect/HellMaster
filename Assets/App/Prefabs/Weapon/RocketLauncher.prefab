@@ -113,6 +113,9 @@ MonoBehaviour:
   reloadTime: 3
   maxBulletCount: 1
   bulletCount: 1
+  rseRecoil: {fileID: 11400000, guid: ab5fccee9b701d34db709f78716105ca, type: 2}
+  recoilRange: 30
+  recoilTime: 0.15
   missile: {fileID: -2438365300032482029, guid: 13b528e00c8b08541aaea9e146e4fab6,
     type: 3}
   bulletSpawnPoint: {fileID: 1840273523695463830}

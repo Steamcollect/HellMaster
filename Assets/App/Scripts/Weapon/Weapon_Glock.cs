@@ -32,7 +32,7 @@ public class Weapon_Glock : WeaponTemplate
 
         shootingParticleSystem.Play();
 
-        if(canShake) cameraShake.Call(shakeTime, shakeRange);
+        if (canShake) cameraShake.Call(shakeTime, shakeRange);
 
 
         animator.SetTrigger("Attack");

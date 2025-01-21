@@ -13,6 +13,7 @@ public class Weapon_DesertEagle : WeaponTemplate
     [SerializeField] RSE_CameraShake cameraShake;
     [SerializeField] float shakeRange;
     [SerializeField] float shakeTime;
+
     bool isReloading = false;
 
     [SerializeField] TrailRenderer bulletTrail;
