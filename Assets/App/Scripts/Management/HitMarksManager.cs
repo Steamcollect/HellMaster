@@ -1,13 +1,11 @@
 using UnityEngine;
-using UnityEngine.Pool;
+
 public class HitMarksManager : MonoBehaviour
 {
     //[Header("Settings")]
 
     [Header("References")]
-    [SerializeField] HitMark HitMarkPrefab;
-
-    IObjectPool<HitMark> pool;
+    [SerializeField] Animator HitMark;
 
     //[Space(10)]
     // RSO
@@ -28,20 +26,8 @@ public class HitMarksManager : MonoBehaviour
         rseOnEnemyHit.action -= Show;
     }
 
-    private void Awake()
-    {
-        pool = new ObjectPool<HitMark>(Create);
-    }
-
     void Show(Vector3 position)
     {
-        HitMark mark = pool.Get();
-        mark.pool = pool;
-        mark.transform.position = position;
-    }
-
-    HitMark Create()
-    {
-        return Instantiate(HitMarkPrefab).GetComponent<HitMark>();
+        HitMark.SetTrigger("Show");
     }
 }
