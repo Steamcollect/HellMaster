@@ -15,6 +15,11 @@ public class Weapon_Shotgun : WeaponTemplate
     [SerializeField] RSE_CameraShake cameraShake;
     [SerializeField] float shakeRange;
     [SerializeField] float shakeTime;
+
+    [SerializeField] RSE_Recoil rseRecoil;
+    [SerializeField] float recoilRange;
+    [SerializeField] float recoilTime;
+
     bool isReloading = false;
 
     [SerializeField] TrailRenderer bulletTrail;
@@ -69,6 +74,7 @@ public class Weapon_Shotgun : WeaponTemplate
                 }
             }
         }
+        rseRecoil.Call(recoilRange, recoilTime);
 
         bulletCount--;
         if(bulletCount <= 0)

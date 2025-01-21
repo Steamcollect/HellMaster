@@ -10,6 +10,11 @@ public class Weapon_RocketLauncher : WeaponTemplate
     [SerializeField] float reloadTime;
     [SerializeField] int maxBulletCount;
     [SerializeField] int bulletCount;
+
+    [SerializeField] RSE_Recoil rseRecoil;
+    [SerializeField] float recoilRange;
+    [SerializeField] float recoilTime;
+
     bool isReloading = false;
 
     [SerializeField] Weapon_Missile missile;
@@ -20,6 +25,8 @@ public class Weapon_RocketLauncher : WeaponTemplate
     public override void Attack(Vector3 attackPosition, Vector3 attackDirection)
     {
         shootingParticleSystem.Play();
+
+        rseRecoil.Call(recoilRange, recoilTime);
 
         animator.SetTrigger("Attack");
 

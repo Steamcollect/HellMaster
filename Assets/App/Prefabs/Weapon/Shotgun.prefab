@@ -98,6 +98,9 @@ MonoBehaviour:
   cameraShake: {fileID: 11400000, guid: f413fc97221675e418e1197be515569c, type: 2}
   shakeRange: 2
   shakeTime: 0.1
+  rseRecoil: {fileID: 11400000, guid: ab5fccee9b701d34db709f78716105ca, type: 2}
+  recoilRange: 7
+  recoilTime: 0.12
   bulletTrail: {fileID: 3797463065826991015, guid: 9b73f81fa0412834d877bfb3b937b869,
     type: 3}
   bulletSpawnPoint: {fileID: 3348913855670763207}
