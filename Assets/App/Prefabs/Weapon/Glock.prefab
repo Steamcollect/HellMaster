@@ -92,8 +92,9 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 10eb5c010b7f1ec44a6cf7d3aecf5fc3, type: 3}
   rsePlayClipAt: {fileID: 11400000, guid: cccf594a54ee21f43b8c6c2ebd626b5e, type: 2}
   maxShootDistance: 1000
+  canShake: 1
   cameraShake: {fileID: 11400000, guid: f413fc97221675e418e1197be515569c, type: 2}
-  shakeRange: 0.2
+  shakeRange: 0.8
   shakeTime: 0.08
   bulletTrail: {fileID: 3797463065826991015, guid: 9b73f81fa0412834d877bfb3b937b869,
     type: 3}
