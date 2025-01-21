@@ -96,6 +96,7 @@ MonoBehaviour:
   scoreGiven: 25
   rseOnPlayerDeath: {fileID: 11400000, guid: 8a4b2423a095dfb4884674599ccc4b24, type: 2}
   rseAddScore: {fileID: 11400000, guid: c907aa7ace30f02468ea63d0babac916, type: 2}
+  rseOnEnemyHit: {fileID: 11400000, guid: f061e77412dbe2b45ac4f2fbeb7dbf54, type: 2}
 --- !u!1001 &3354278185600213139
 PrefabInstance:
   m_ObjectHideFlags: 0

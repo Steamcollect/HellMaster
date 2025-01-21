@@ -18,6 +18,7 @@ public class FlyingEnemyHealth : MonoBehaviour, IHealth
 
     [Header("Output")]
     [SerializeField] RSE_AddScore rseAddScore;
+    [SerializeField] RSE_OnEnemyHit rseOnEnemyHit;
 
     void OnEnable()
     {

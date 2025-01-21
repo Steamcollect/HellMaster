@@ -24,6 +24,7 @@ public class EnemyHealth : MonoBehaviour, IHealth
 
     [Header("Output")]
     [SerializeField] RSE_AddScore rseAddScore;
+    [SerializeField] RSE_OnEnemyHit rseOnEnemyHit;
 
     void OnEnable()
     {
@@ -56,6 +57,8 @@ public class EnemyHealth : MonoBehaviour, IHealth
     }
     public void TakeDamage(float damage, Action onDeath)
     {
+        rseOnEnemyHit.Call(transform.position);
+
         currentHealth -= damage;
         if (currentHealth <= 0)
         {
