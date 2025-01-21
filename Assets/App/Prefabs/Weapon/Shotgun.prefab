@@ -92,7 +92,7 @@ MonoBehaviour:
   rsePlayClipAt: {fileID: 11400000, guid: cccf594a54ee21f43b8c6c2ebd626b5e, type: 2}
   maxShootDistance: 1000
   reloadTime: 0.55
-  bulletShotForOneShot: 8
+  bulletShotForOneShot: 16
   maxBulletCount: 2
   bulletCount: 2
   cameraShake: {fileID: 11400000, guid: f413fc97221675e418e1197be515569c, type: 2}
