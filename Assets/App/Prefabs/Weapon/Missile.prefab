@@ -54,7 +54,7 @@ MonoBehaviour:
   explosion: {fileID: 1647874664770485076, guid: d0046c29945b4ce4d8673afd299e7593,
     type: 3}
   cameraShake: {fileID: 11400000, guid: f413fc97221675e418e1197be515569c, type: 2}
-  shakeRange: 1.5
+  shakeRange: 5
   shakeTime: 0.5
   damage: 0
   damageMultiplier: 0
