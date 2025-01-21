@@ -63,7 +63,15 @@ public static class Utils
     public static void BumpVisual(this Transform t)
     {
         t.DOKill();
-        t.DOScale(1.1f, .06f).OnComplete(() =>
+        t.DOScale(1.15f, .06f).OnComplete(() =>
+        {
+            t.DOScale(1, .08f);
+        });
+    }
+    public static void BumpBigVisual(this Transform t)
+    {
+        t.DOKill();
+        t.DOScale(1.3f, .06f).OnComplete(() =>
         {
             t.DOScale(1, .08f);
         });
