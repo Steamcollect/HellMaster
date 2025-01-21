@@ -20,6 +20,7 @@ public class PlayerCombat : MonoBehaviour
 
     [Space(10)]
     [SerializeField] AudioClip[] swapWeaponSounds;
+    [SerializeField] AudioClip[] enemyKillSound;
     [SerializeField] RSE_PlayClipAt rsePlayClipAt;
 
     [Header("Achievments")]
@@ -133,6 +134,7 @@ public class PlayerCombat : MonoBehaviour
     }
     void OnEnemyKill()
     {
+        rsePlayClipAt.Call(enemyKillSound.GetRandom(), transform.position, 1);
         totalEnemysKilled++;
         foreach (var item in achievmentsKillEnemys)
         {
