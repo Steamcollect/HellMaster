@@ -40,6 +40,7 @@ public class PlayerHealth : MonoBehaviour, IHealth
     [SerializeField] RSE_CameraShake rseCameraShake;
     [SerializeField] RSE_PlayClipAt rsePlayClipAt;
     [SerializeField] RSE_OnHealth rseOnHealth;
+    [SerializeField] RSE_OnPlayerHit rseOnPlayerHit;
 
     void OnEnable()
     {
@@ -108,6 +109,7 @@ public class PlayerHealth : MonoBehaviour, IHealth
         currentHealth -= damage;
         rseCameraShake.Call(hitShakeTime, hitShakeRange);
         rsePlayClipAt.Call(takeDamageSounds.GetRandom(), transform.position, 1);
+        rseOnPlayerHit.Call();
 
         if(currentHealth < 0) currentHealth = 0;
         rseUpdateHealthBar.Call(currentHealth, maxHealth);

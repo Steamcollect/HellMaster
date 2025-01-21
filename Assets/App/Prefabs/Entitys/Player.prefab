@@ -140,7 +140,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 1522b0ee5597f614e8bba594f826608c, type: 2}
   achivmentAirTimeJump: {fileID: 11400000, guid: 95702b56b2230d944bcc39680da025fb,
     type: 2}
-  walkParticle: {fileID: 0}
   rsoPlayerPosition: {fileID: 11400000, guid: 2d8d81c0e5fe70c40b604958f0a9b082, type: 2}
   rsoContentSaved: {fileID: 11400000, guid: af883388f9f4c2b44b3dc5140f911432, type: 2}
   rseAddMoveSpeedMult: {fileID: 11400000, guid: ec7e23ce33fa50d47a0056f872eb5868,
@@ -179,14 +178,14 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 9df34200858fd454480386e1e475f23e, type: 2}
   - {fileID: 11400000, guid: ff64f70a1006a5546bbc27efa195f410, type: 2}
   - {fileID: 11400000, guid: f5c2422c8ef5a84479073919864e20fa, type: 2}
-  - {fileID: 11400000, guid: c0039d1f2aea5dd448de435000309fb8, type: 2}
+  - {fileID: 11400000, guid: 0387a5705c350194789b536f09536004, type: 2}
   achivmentHealCount:
   - {fileID: 11400000, guid: e967fe3a129f39d41a41c3792d7bc2f8, type: 2}
   - {fileID: 11400000, guid: 1dfba5d9ca550914fab795e98ea79f70, type: 2}
   - {fileID: 11400000, guid: 33ee5188c945a6744a32eabd8b708601, type: 2}
-  - {fileID: 11400000, guid: 086a7798e71a82040b6a25998d292396, type: 2}
   - {fileID: 11400000, guid: 87c1587a1c6c5ec4eaffe8d16a0eb453, type: 2}
-  - {fileID: 11400000, guid: 1cd6c38e477fac24d87c3935b888f38b, type: 2}
+  - {fileID: 11400000, guid: 086a7798e71a82040b6a25998d292396, type: 2}
+  - {fileID: 11400000, guid: 6cb9d4069a823e542b30ce78946ca464, type: 2}
   onDeathAchivment: {fileID: 11400000, guid: 3dddf71e470904546978ac085b281583, type: 2}
   rseAddMaxHealth: {fileID: 11400000, guid: f0bbe7007d5a25e4db250469aa309d3a, type: 2}
   rseOnGameStart: {fileID: 11400000, guid: 88a565a514476f74baa9c0ca7be72107, type: 2}
@@ -196,6 +195,7 @@ MonoBehaviour:
   rseCameraShake: {fileID: 11400000, guid: f413fc97221675e418e1197be515569c, type: 2}
   rsePlayClipAt: {fileID: 11400000, guid: cccf594a54ee21f43b8c6c2ebd626b5e, type: 2}
   rseOnHealth: {fileID: 11400000, guid: 162cd5cfdd878f844a8c32a6b4540b06, type: 2}
+  rseOnPlayerHit: {fileID: 11400000, guid: db0880bca3378494fbaba86e2623c735, type: 2}
 --- !u!114 &1418595597308619600
 MonoBehaviour:
   m_ObjectHideFlags: 0
