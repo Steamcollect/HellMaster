@@ -5,6 +5,7 @@ public class Weapon_Glock : WeaponTemplate
     [Header("Settings")]
     [SerializeField] float maxShootDistance = 50;
 
+    [SerializeField] bool canShake = true;
     [SerializeField] RSE_CameraShake cameraShake;
     [SerializeField] float shakeRange;
     [SerializeField] float shakeTime;
@@ -31,7 +32,8 @@ public class Weapon_Glock : WeaponTemplate
 
         shootingParticleSystem.Play();
 
-        cameraShake.Call(shakeTime, shakeRange);
+        if(canShake) cameraShake.Call(shakeTime, shakeRange);
+
 
         animator.SetTrigger("Attack");
 

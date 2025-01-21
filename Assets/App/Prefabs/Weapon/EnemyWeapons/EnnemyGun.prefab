@@ -86,7 +86,13 @@ MonoBehaviour:
   hasSpread: 1
   bulletSpreadVariance: {x: 0.3, y: 0.1, z: 0.3}
   visual: {fileID: 0}
+  attackClips: []
+  rsePlayClipAt: {fileID: 0}
   maxShootDistance: 1000
+  canShake: 0
+  cameraShake: {fileID: 11400000, guid: f413fc97221675e418e1197be515569c, type: 2}
+  shakeRange: 0
+  shakeTime: 0
   bulletTrail: {fileID: 3797463065826991015, guid: 9b73f81fa0412834d877bfb3b937b869,
     type: 3}
   bulletSpawnPoint: {fileID: 2373909696452737914}
@@ -346,7 +352,9 @@ PrefabInstance:
       propertyPath: m_Name
       value: Pistol
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -5754084199372789682, guid: 6f6c0cc8e681c3445b7fd0e7f5c5af1b, type: 3}
+    - {fileID: -7511558181221131132, guid: 6f6c0cc8e681c3445b7fd0e7f5c5af1b, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 6f6c0cc8e681c3445b7fd0e7f5c5af1b,

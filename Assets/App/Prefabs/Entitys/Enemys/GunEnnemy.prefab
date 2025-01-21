@@ -132,11 +132,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: EnnemyGun
       objectReference: {fileID: 0}
-    - target: {fileID: 6463075618262767635, guid: d74b757189ec2a349979a31e98cc37f3,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 7243431051851745790, guid: d74b757189ec2a349979a31e98cc37f3,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -187,9 +182,7 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 7301881123858353420, guid: d74b757189ec2a349979a31e98cc37f3, type: 3}
-    - {fileID: 4805773426300418502, guid: d74b757189ec2a349979a31e98cc37f3, type: 3}
+    m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []

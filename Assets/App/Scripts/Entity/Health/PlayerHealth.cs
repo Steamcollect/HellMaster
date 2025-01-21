@@ -39,6 +39,7 @@ public class PlayerHealth : MonoBehaviour, IHealth
     [SerializeField] RSE_UdateHealthBar rseUpdateHealthBar;
     [SerializeField] RSE_CameraShake rseCameraShake;
     [SerializeField] RSE_PlayClipAt rsePlayClipAt;
+    [SerializeField] RSE_OnHealth rseOnHealth;
 
     void OnEnable()
     {
@@ -91,7 +92,9 @@ public class PlayerHealth : MonoBehaviour, IHealth
     {
         currentHealth += health;
         if (currentHealth > maxHealth) currentHealth = maxHealth;
+        rseOnHealth.Call(currentHealth);
         rseUpdateHealthBar.Call(currentHealth, maxHealth);
+
         rsePlayClipAt.Call(healSounds.GetRandom(), transform.position, 1);
 
         rsoContentSaved.Value.healCount++;
