@@ -7,7 +7,7 @@ public class FlyingEnemyController : MonoBehaviour
 
     [Header("References")]
     [SerializeField] Collider enemyCollider;
-    [SerializeField] RSO_PlayerTransform rsoTarget;
+    [SerializeField] RSO_PlayerPosition rsoTarget;
     [SerializeField] WeaponTemplate weapon;
     [SerializeField] float speed;
     [SerializeField] float attackDistance;
@@ -36,10 +36,10 @@ public class FlyingEnemyController : MonoBehaviour
         {
             
             lookAtRot.position = transform.position;
-            lookAtRot.LookAt(rsoTarget.Value.position);
+            lookAtRot.LookAt(rsoTarget.Value);
             this.gameObject.transform.rotation = lookAtRot.rotation;
 
-            if (Vector3.Distance(transform.position, rsoTarget.Value.position) < attackDistance)
+            if (Vector3.Distance(transform.position, rsoTarget.Value) < attackDistance)
             {
                 animator.SetTrigger("Attack");
                 weapon.OnAttack(transform.position, lookAtRot.forward);
@@ -55,6 +55,6 @@ public class FlyingEnemyController : MonoBehaviour
 
     void Chase()
     {
-        transform.position = Vector3.MoveTowards(transform.position, rsoTarget.Value.position, speed * Time.deltaTime);
+        transform.position = Vector3.MoveTowards(transform.position, rsoTarget.Value, speed * Time.deltaTime);
     }
 }

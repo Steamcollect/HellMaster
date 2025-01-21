@@ -140,7 +140,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 1522b0ee5597f614e8bba594f826608c, type: 2}
   achivmentAirTimeJump: {fileID: 11400000, guid: 95702b56b2230d944bcc39680da025fb,
     type: 2}
-  rsoPlayerTransform: {fileID: 11400000, guid: 2d8d81c0e5fe70c40b604958f0a9b082, type: 2}
+  rsoPlayerPosition: {fileID: 11400000, guid: 2d8d81c0e5fe70c40b604958f0a9b082, type: 2}
   rsoContentSaved: {fileID: 11400000, guid: af883388f9f4c2b44b3dc5140f911432, type: 2}
   rseAddMoveSpeedMult: {fileID: 11400000, guid: ec7e23ce33fa50d47a0056f872eb5868,
     type: 2}
