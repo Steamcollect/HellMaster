@@ -5,6 +5,10 @@ public class Weapon_Glock : WeaponTemplate
     [Header("Settings")]
     [SerializeField] float maxShootDistance = 50;
 
+    [SerializeField] RSE_CameraShake cameraShake;
+    [SerializeField] float shakeRange;
+    [SerializeField] float shakeTime;
+
     [SerializeField] TrailRenderer bulletTrail;
     [SerializeField] Transform bulletSpawnPoint;
     [SerializeField] ParticleSystem shootingParticleSystem;
@@ -26,6 +30,8 @@ public class Weapon_Glock : WeaponTemplate
         RaycastHit hit;
 
         shootingParticleSystem.Play();
+
+        cameraShake.Call(shakeTime, shakeRange);
 
         animator.SetTrigger("Attack");
 

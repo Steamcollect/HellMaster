@@ -10,6 +10,9 @@ public class Weapon_DesertEagle : WeaponTemplate
     [SerializeField] float reloadTime;
     [SerializeField] int maxBulletCount;
     [SerializeField] int bulletCount;
+    [SerializeField] RSE_CameraShake cameraShake;
+    [SerializeField] float shakeRange;
+    [SerializeField] float shakeTime;
     bool isReloading = false;
 
     [SerializeField] TrailRenderer bulletTrail;
@@ -35,6 +38,8 @@ public class Weapon_DesertEagle : WeaponTemplate
         RaycastHit hit;
 
         shootingParticleSystem.Play();
+
+        cameraShake.Call(shakeTime, shakeRange);
 
         animator.SetTrigger("Attack");
 

@@ -12,6 +12,9 @@ public class Weapon_Shotgun : WeaponTemplate
     [SerializeField] int bulletShotForOneShot;
     [SerializeField] int maxBulletCount;
     [SerializeField] int bulletCount;
+    [SerializeField] RSE_CameraShake cameraShake;
+    [SerializeField] float shakeRange;
+    [SerializeField] float shakeTime;
     bool isReloading = false;
 
     [SerializeField] TrailRenderer bulletTrail;
@@ -44,6 +47,8 @@ public class Weapon_Shotgun : WeaponTemplate
             RaycastHit hit;
 
             shootingParticleSystem.Play();
+
+            cameraShake.Call(shakeTime, shakeRange);
 
             animator.SetTrigger("Attack");
 

@@ -95,6 +95,9 @@ MonoBehaviour:
   bulletShotForOneShot: 8
   maxBulletCount: 2
   bulletCount: 2
+  cameraShake: {fileID: 11400000, guid: f413fc97221675e418e1197be515569c, type: 2}
+  shakeRange: 0.7
+  shakeTime: 0.2
   bulletTrail: {fileID: 3797463065826991015, guid: 9b73f81fa0412834d877bfb3b937b869,
     type: 3}
   bulletSpawnPoint: {fileID: 3348913855670763207}
