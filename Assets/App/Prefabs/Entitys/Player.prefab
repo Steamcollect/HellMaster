@@ -103,7 +103,7 @@ MonoBehaviour:
   groundAcceleration: 30
   airAcceleration: 20
   maxSpeed: 10
-  friction: 8
+  friction: 2
   jumpForce: 5
   coyoteTime: 0.2
   jumpBufferTime: 0.1
@@ -114,8 +114,8 @@ MonoBehaviour:
   groundCheck: {fileID: 6522753992655188634}
   groundCheckRadius: 0.2
   defaultFOV: 60
-  maxFOV: 75
-  fovSpeed: 5
+  maxFOV: 70
+  fovSpeed: 2
   cam: {fileID: 1943746074359606207}
   rb: {fileID: 5895177216945678}
   jumpSounds:
@@ -194,6 +194,7 @@ MonoBehaviour:
   rseUpdateHealthBar: {fileID: 11400000, guid: 8871cfeb85b86234692995e0d261bb3f, type: 2}
   rseCameraShake: {fileID: 11400000, guid: f413fc97221675e418e1197be515569c, type: 2}
   rsePlayClipAt: {fileID: 11400000, guid: cccf594a54ee21f43b8c6c2ebd626b5e, type: 2}
+  rseOnHealth: {fileID: 11400000, guid: 162cd5cfdd878f844a8c32a6b4540b06, type: 2}
 --- !u!114 &1418595597308619600
 MonoBehaviour:
   m_ObjectHideFlags: 0

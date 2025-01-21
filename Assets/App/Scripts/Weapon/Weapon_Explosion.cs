@@ -7,6 +7,7 @@ public class Weapon_Explosion : MonoBehaviour
     public float damageMultiplier;
     public Action OnTargetKill;
 
+    [SerializeField] ParticleSystem explosionParticles;
     [SerializeField] AudioClip[] explosionsClips;
     [SerializeField] RSE_PlayClipAt rsePlayClipAt;
 
@@ -24,6 +25,13 @@ public class Weapon_Explosion : MonoBehaviour
         rsePlayClipAt.Call(explosionsClips.GetRandom(), transform.position, 1);
 
         yield return new WaitForSeconds(0.75f);
+        DetachParticles();
         Destroy(gameObject);
+    }
+
+    public void DetachParticles()
+    {
+        // This splits the particle off so it doesn't get deleted with the parent
+        explosionParticles.transform.parent = null;
     }
 }
