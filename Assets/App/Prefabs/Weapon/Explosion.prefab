@@ -70,6 +70,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 0
   damageMultiplier: 0
+  explosionParticles: {fileID: 5281576722766027570}
   explosionsClips:
   - {fileID: 8300000, guid: b9d6aabe7e310d341af9a410f40e6eea, type: 3}
   - {fileID: 8300000, guid: 7689160fe80a8fd4ba29f4ef602e399e, type: 3}
@@ -254,6 +255,12 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e1b08032bec16ba4eb1ae23cbd572664, type: 3}
+--- !u!198 &5281576722766027570 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 198917022394846920, guid: e1b08032bec16ba4eb1ae23cbd572664,
+    type: 3}
+  m_PrefabInstance: {fileID: 5442987115592766970}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &5442257415120109004 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4388947112716342, guid: e1b08032bec16ba4eb1ae23cbd572664,
