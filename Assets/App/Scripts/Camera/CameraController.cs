@@ -6,7 +6,6 @@ using UnityEngine;
 public class CameraController : MonoBehaviour
 {
     [Header("Camera Settings")]
-    [SerializeField] Transform playerBody;
     [SerializeField] float mouseSensitivity = 100f;
     [SerializeField] float maxTiltAngle = 10f;
     [SerializeField] float tiltSpeed = 5f;
@@ -16,6 +15,7 @@ public class CameraController : MonoBehaviour
     [SerializeField] RSO_MouseSensitivityMultiplier rsoMouseSensitivityMult;
 
     float xRotation = 0f;
+    float yRotation = 0f;
     float currentTilt = 0f;
     float shakeOffset = 0f; // Variable to hold the shake offset
 
@@ -67,13 +67,16 @@ public class CameraController : MonoBehaviour
         {
             rsoMouseSensitivityMult.Value = 1;
         }
+
         float mouseX = Input.GetAxis("Mouse X") * (mouseSensitivity * rsoMouseSensitivityMult.Value) * Time.deltaTime;
         float mouseY = Input.GetAxis("Mouse Y") * (mouseSensitivity * rsoMouseSensitivityMult.Value) * Time.deltaTime;
 
         xRotation -= mouseY;
         xRotation = Mathf.Clamp(xRotation, -90f, 90f);
 
-        playerBody.Rotate(Vector3.up * mouseX);
+        yRotation += mouseX;
+
+        transform.localRotation = Quaternion.Euler(xRotation, yRotation, 0f);
     }
 
     void Shake(float time, float range)
@@ -108,10 +111,10 @@ public class CameraController : MonoBehaviour
     void CombineRotations()
     {
         // Combine the rotation components into a single Quaternion
-        Quaternion rotationX = Quaternion.Euler(xRotation, 0f, 0f);
+        Quaternion rotationXY = Quaternion.Euler(xRotation, yRotation, 0f);
         Quaternion tilt = Quaternion.Euler(0f, 0f, currentTilt);
         Quaternion shake = Quaternion.Euler(0f, 0f, shakeOffset);
 
-        transform.localRotation = rotationX * tilt * shake;
+        transform.localRotation = rotationXY * tilt * shake;
     }
 }

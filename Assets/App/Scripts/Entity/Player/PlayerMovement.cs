@@ -141,11 +141,22 @@ public class PlayerMovement : MonoBehaviour
         moveSpeedMultiplier += multGiven;
     }
 
-    void HandleInput()
+    private void HandleInput()
     {
         float moveX = Input.GetAxis("Horizontal");
         float moveZ = Input.GetAxis("Vertical");
-        moveDirection = (transform.right * moveX + transform.forward * moveZ).normalized;
+
+        // Calculate movement direction relative to camera
+        Vector3 forward = cam.transform.forward;
+        Vector3 right = cam.transform.right;
+
+        // Flatten the directions to ignore vertical component
+        forward.y = 0;
+        right.y = 0;
+        forward.Normalize();
+        right.Normalize();
+
+        moveDirection = (forward * moveZ + right * moveX).normalized;
 
         if (Input.GetButtonDown("Jump"))
         {
