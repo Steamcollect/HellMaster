@@ -1,11 +1,12 @@
 using System;
+using System.Collections;
+using Unity.Burst.CompilerServices;
 using UnityEngine;
 public class Weapon_Missile : MonoBehaviour
 {
     Rigidbody _rb;
     [SerializeField] private float speed = 10f;
-    //private GameObject smokeTrail;
-    //[SerializeField]
+    [SerializeField] private ParticleSystem smokeTrail;
     [SerializeField] bool missileFired = false;
     [SerializeField] Weapon_Explosion explosion;
     [SerializeField] RSE_CameraShake cameraShake;
@@ -50,8 +51,27 @@ public class Weapon_Missile : MonoBehaviour
 
     private void OnMissileFired()
     {
-        //smokeTrail.SetActive(true);
+        ParticleSystem trail = Instantiate(smokeTrail, transform.position, Quaternion.identity);
+        StartCoroutine(SpawnTrail(trail));
+
         _rb.AddForce(forward * speed, ForceMode.Impulse);
         missileFired = true;
+    }
+
+    IEnumerator SpawnTrail(ParticleSystem trail)
+    {
+        float time = 0;
+        Vector3 startPosition = trail.transform.position;
+
+        while (time < 1)
+        {
+            trail.transform.position = Vector3.Lerp(startPosition, transform.position, time);
+            time += Time.deltaTime / trail.time;
+
+            yield return null;
+        }
+        trail.transform.position = transform.position;
+
+        Destroy(trail.gameObject, trail.time);
     }
 }
