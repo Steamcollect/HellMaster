@@ -44,7 +44,7 @@ GameObject:
   - component: {fileID: 717977010439265025}
   - component: {fileID: 6038820485830344393}
   - component: {fileID: 1868795570087603279}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: HealthPickUp
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -104,6 +104,7 @@ MonoBehaviour:
   recorveryDelay: 60
   visual: {fileID: 2892164824260322552}
   healthGiven: 40
+  collid: {fileID: 717977010439265025}
 --- !u!95 &1868795570087603279
 Animator:
   serializedVersion: 5

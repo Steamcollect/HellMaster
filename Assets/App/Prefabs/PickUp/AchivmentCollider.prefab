@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2899029429145519184}
   - component: {fileID: 2740594965685674178}
   - component: {fileID: -2286105235065741726}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: AchivmentCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}

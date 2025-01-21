@@ -36,7 +36,7 @@ public class Weapon_Missile : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (!other.CompareTag("Player"))
+        if (!other.CompareTag("Player") && !other.CompareTag("DontTouch"))
         {
             cameraShake.Call(shakeTime, shakeRange);
             Weapon_Explosion tempExplosion = Instantiate(explosion, transform.position, Quaternion.identity);

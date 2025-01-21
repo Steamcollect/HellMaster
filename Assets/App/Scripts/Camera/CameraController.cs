@@ -26,18 +26,21 @@ public class CameraController : MonoBehaviour
     [SerializeField] RSE_OnPlayerDeath rseOnPlayerDeath;
     [SerializeField] RSE_CameraShake rseCameraShake;
     [SerializeField] RSO_ContentSaved rsoContentSave;
+    [SerializeField] RSE_Recoil rseRecoil;
 
     private void OnEnable()
     {
         rseOnGameStart.action += OnGameStart;
         rseOnPlayerDeath.action += OnPlayerDeath;
         rseCameraShake.action += Shake;
+        rseRecoil.action += Recoil;
     }
     private void OnDisable()
     {
         rseOnGameStart.action -= OnGameStart;
         rseOnPlayerDeath.action -= OnPlayerDeath;
         rseCameraShake.action -= Shake;
+        rseRecoil.action -= Recoil;
     }
 
     void OnGameStart()
@@ -116,5 +119,41 @@ public class CameraController : MonoBehaviour
         Quaternion shake = Quaternion.Euler(0f, 0f, shakeOffset);
 
         transform.localRotation = rotationXY * tilt * shake;
+    }
+
+    Coroutine recoilCoroutine;
+    void Recoil(float distance, float speed)
+    {
+        if(recoilCoroutine != null) StopCoroutine(recoilCoroutine);
+        recoilCoroutine = StartCoroutine(CameraRecoil(distance, speed));
+    }
+
+    IEnumerator CameraRecoil(float distance, float speed)
+    {
+        float initialXRotation = xRotation;
+        float targetXRotation = xRotation - distance; // Push the camera upwards
+        float elapsedTime = 0f;
+
+        // Move camera up
+        while (elapsedTime < speed)
+        {
+            elapsedTime += Time.deltaTime;
+            xRotation = Mathf.Lerp(initialXRotation, targetXRotation, elapsedTime / speed);
+            CombineRotations();
+            yield return null;
+        }
+
+        elapsedTime = 0f;
+
+        float finalTarget = Mathf.Lerp(initialXRotation, targetXRotation, .5f);
+
+        // Return camera to its original position
+        while (elapsedTime < speed)
+        {
+            elapsedTime += Time.deltaTime;
+            xRotation = Mathf.Lerp(targetXRotation, finalTarget, elapsedTime / speed);
+            CombineRotations();
+            yield return null;
+        }
     }
 }

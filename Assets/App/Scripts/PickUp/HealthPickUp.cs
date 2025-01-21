@@ -7,6 +7,7 @@ public class HealthPickUp : MonoBehaviour
     [SerializeField] float recorveryDelay;
     [SerializeField] GameObject visual;
     [SerializeField] int healthGiven;
+    [SerializeField] Collider collid;
 
     bool canPick = true;
     //[Header("References")]
@@ -32,7 +33,9 @@ public class HealthPickUp : MonoBehaviour
     {
         canPick = false;
         visual.SetActive(false);
+        collid.enabled = false;
         yield return new WaitForSeconds(recorveryDelay);
+        collid.enabled = true;
         visual.SetActive(true);
         canPick = true;
     }
