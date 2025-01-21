@@ -46,7 +46,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] SSO_Achievment_AireTimeJump achivmentAirTimeJump;
 
     [Space(10)]
-    [SerializeField] RSO_PlayerTransform rsoPlayerTransform;
+    [SerializeField] RSO_PlayerPosition rsoPlayerPosition;
     [SerializeField] RSO_ContentSaved rsoContentSaved;
 
     Vector3 moveDirection;
@@ -67,7 +67,6 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnEnable()
     {
-        rsoPlayerTransform.Value = transform;
         rseAddMoveSpeedMult.action += AddMoveSpeedMultiplier;
         rseOnGameStart.action += OnGameStart;
         rseOnPlayerDeath.action += OnPlayerDeath;
@@ -108,6 +107,8 @@ public class PlayerMovement : MonoBehaviour
 
             ApplyFriction();
             HandleJump();
+
+            rsoPlayerPosition.Value = transform.position;
         }
     }
 

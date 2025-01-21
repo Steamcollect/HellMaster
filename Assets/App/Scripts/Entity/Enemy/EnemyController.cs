@@ -9,7 +9,7 @@ public class EnemyController : MonoBehaviour
     [Header("References")]
     [SerializeField] NavMeshAgent agent;
     [SerializeField] Collider enemyCollider;
-    [SerializeField] RSO_PlayerTransform rsoTarget;
+    [SerializeField] RSO_PlayerPosition rsoTarget;
     [SerializeField] WeaponTemplate weapon;
     [SerializeField] Animator animator;
     public bool isDead = false;
@@ -34,10 +34,10 @@ public class EnemyController : MonoBehaviour
     {
         if(!isDead)
         {
-            agent.destination = rsoTarget.Value.position;
+            agent.destination = rsoTarget.Value;
             animator.SetBool("isRunning", true);
 
-            if (agent.remainingDistance <= agent.stoppingDistance && Vector3.Distance(transform.position, rsoTarget.Value.position) <= agent.stoppingDistance)
+            if (agent.remainingDistance <= agent.stoppingDistance && Vector3.Distance(transform.position, rsoTarget.Value) <= agent.stoppingDistance)
             {
                 animator.SetTrigger("Attack");
                 lookAtRot.position = transform.position;
