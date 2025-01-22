@@ -19,10 +19,15 @@ public abstract class WeaponTemplate : MonoBehaviour
 
     public Action OnTargetKill;
 
+    [Space(10)]
+    [SerializeField] bool pushBackPlayer = false;
+    [SerializeField] float pushBackForce;
+
     [Header("References")]
     [SerializeField] GameObject visual;
     [SerializeField] AudioClip[] attackClips;
     public RSE_PlayClipAt rsePlayClipAt;
+    [SerializeField] RSE_PushBackPlayer rsePushBackPlayer;
 
     public Action OnHide, OnShow;
 
@@ -52,6 +57,8 @@ public abstract class WeaponTemplate : MonoBehaviour
 
             Attack(attackPosition, attackDirection);
             StartCoroutine(AttackDelay());
+
+            if (pushBackPlayer) rsePushBackPlayer.Call(pushBackForce);
         }
     }
     public abstract void Attack(Vector3 attackPosition, Vector3 attackDirection);

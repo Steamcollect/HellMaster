@@ -65,6 +65,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] RSE_ActiveDoubleJump rseActiveDoubleJump;
     [SerializeField] RSE_AddJumpForceMultiplier rseAddJumpForceMult;
     [SerializeField] RSE_PlayClipAt rsePlayClipAt;
+    [SerializeField] RSE_PushBackPlayer rsePushBackPlayer;
 
     private void OnEnable()
     {
@@ -74,6 +75,7 @@ public class PlayerMovement : MonoBehaviour
         rseSaveGameData.action += SaveGameData;
         rseActiveDoubleJump.action += ActiveDoublejump;
         rseAddJumpForceMult.action += AddJumpForceMult;
+        rsePushBackPlayer.action += PushBackPlayer;
     }
     private void OnDisable()
     {
@@ -83,10 +85,13 @@ public class PlayerMovement : MonoBehaviour
         rseSaveGameData.action -= SaveGameData;
         rseActiveDoubleJump.action -= ActiveDoublejump;
         rseAddJumpForceMult.action -= AddJumpForceMult;
+        rsePushBackPlayer.action -= PushBackPlayer;
     }
 
     void Update()
-    {        
+    {
+        //if (Input.GetKeyDown(KeyCode.P)) PushBackPlayer(10);
+
         HandleInput();
         CheckGroundStatus();
         UpdateCameraFOV();
@@ -243,6 +248,30 @@ public class PlayerMovement : MonoBehaviour
         float targetFOV = Mathf.Lerp(defaultFOV, maxFOV, currentSpeed / maxSpeed);
         cam.fieldOfView = Mathf.Lerp(cam.fieldOfView, targetFOV, Time.deltaTime * fovSpeed);
     }
+
+    void PushBackPlayer(float force)
+    {
+        // Disable player movement
+        canMove = false;
+
+        // Calculate the backward direction relative to the camera
+        Vector3 backwardDirection = -cam.transform.forward;
+        backwardDirection.Normalize();
+
+        // Apply force to the player
+        rb.velocity = Vector3.zero; // Reset current velocity
+        rb.AddForce(backwardDirection * force, ForceMode.Impulse);
+
+        // Re-enable player movement after a delay
+        StartCoroutine(ReenableMovement());
+    }
+
+    private IEnumerator ReenableMovement()
+    {
+        yield return new WaitForSeconds(0.5f); // Adjust the delay as needed
+        canMove = true;
+    }
+
 
     void OnDrawGizmosSelected()
     {
