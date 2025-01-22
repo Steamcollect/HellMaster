@@ -24,6 +24,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] float jumpImpulsionMult = 1.2f;
     bool canDoubleJump = false;
     private bool hasDoubleJumped = false;
+    [SerializeField] ParticleSystem jumpSpeedLines;
 
     [Header("Physics")]
     [SerializeField] LayerMask groundLayer;
@@ -223,12 +224,14 @@ public class PlayerMovement : MonoBehaviour
             rb.velocity = new Vector3(rb.velocity.x * jumpImpulsionMult, jumpForce * jumpForceMultiplier, rb.velocity.z * jumpImpulsionMult);
             jumpBufferCounter = 0;
             rsePlayClipAt.Call(jumpSounds.GetRandom(), transform.position, 1);
+            jumpSpeedLines.Play();
         }
         else if (canDoubleJump && !hasDoubleJumped && jumpBufferCounter > 0)
         {
             rb.velocity = new Vector3(rb.velocity.x, jumpForce * jumpForceMultiplier, rb.velocity.z);
             hasDoubleJumped = true; // Mark double jump as used
             jumpBufferCounter = 0;
+            jumpSpeedLines.Play();
         }
     }
 
