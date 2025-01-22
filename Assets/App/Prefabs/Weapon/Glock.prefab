@@ -85,28 +85,26 @@ MonoBehaviour:
   isSemiAuto: 0
   hasSpread: 0
   bulletSpreadVariance: {x: 0, y: 0, z: 0}
+  pushBackPlayer: 0
+  pushBackForce: 0
   visual: {fileID: 6463075618262767635}
   attackClips:
   - {fileID: 8300000, guid: 860fec4ddbbbf714c9bf3b324f3d388b, type: 3}
   - {fileID: 8300000, guid: fd6d70c6263253e499549b2152387f8a, type: 3}
   - {fileID: 8300000, guid: 10eb5c010b7f1ec44a6cf7d3aecf5fc3, type: 3}
   rsePlayClipAt: {fileID: 11400000, guid: cccf594a54ee21f43b8c6c2ebd626b5e, type: 2}
+  rsePushBackPlayer: {fileID: 0}
   maxShootDistance: 1000
   canShake: 1
   cameraShake: {fileID: 11400000, guid: f413fc97221675e418e1197be515569c, type: 2}
   shakeRange: 0.8
   shakeTime: 0.08
-  rseRecoil: {fileID: 11400000, guid: ab5fccee9b701d34db709f78716105ca, type: 2}
-  recoilRange: 1
-  recoilTime: 0.05
-  bulletTrail: {fileID: 3797463065826991015, guid: 9b73f81fa0412834d877bfb3b937b869,
-    type: 3}
+  bulletTrail: BulletTrail
   bulletSpawnPoint: {fileID: 2373909696452737914}
   shootingParticleSystem: {fileID: 514702645660549262}
-  impactParticleSystem: {fileID: 3743483068969131167, guid: 57f4f40178d1b18479df2ba8260116e4,
-    type: 3}
-  fleshParticleSystem: {fileID: 911969438504156231, guid: f8a7926c978d6f0488dde885fb2ec0b7,
-    type: 3}
+  impactParticleSystem: HitEffect
+  fleshParticleSystem: FleshHitEffect
+  rsoPoolManager: {fileID: 11400000, guid: 44295e9bc4e7d454e9a0fe145bd2958e, type: 2}
   animator: {fileID: 776464444234782360}
 --- !u!95 &776464444234782360
 Animator:

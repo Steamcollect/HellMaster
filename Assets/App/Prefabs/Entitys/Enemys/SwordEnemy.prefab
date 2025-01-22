@@ -115,22 +115,9 @@ MonoBehaviour:
   maxHealth: 20
   controller: {fileID: 4760199000783193703}
   animator: {fileID: 3020447815270557842}
-  EnemyDamaged:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 4740493990895748730}
-        m_TargetAssemblyTypeName: WhitingEffect, Assembly-CSharp
-        m_MethodName: Tinting
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
   scoreGiven: 5
+  poolName: SwordEnemy
+  rsoPoolManager: {fileID: 11400000, guid: 44295e9bc4e7d454e9a0fe145bd2958e, type: 2}
   rseOnPlayerDeath: {fileID: 11400000, guid: 8a4b2423a095dfb4884674599ccc4b24, type: 2}
   rseAddScore: {fileID: 11400000, guid: c907aa7ace30f02468ea63d0babac916, type: 2}
   rseOnEnemyHit: {fileID: 11400000, guid: f061e77412dbe2b45ac4f2fbeb7dbf54, type: 2}
@@ -971,17 +958,7 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 3020447815270557842}
-    - targetCorrespondingSourceObject: {fileID: 1043830259349886573, guid: 50880eea9a646d84690e8a1e481d2cac,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 4740493990895748730}
   m_SourcePrefab: {fileID: 100100000, guid: 50880eea9a646d84690e8a1e481d2cac, type: 3}
---- !u!137 &3732249924110476502 stripped
-SkinnedMeshRenderer:
-  m_CorrespondingSourceObject: {fileID: 4765379547874591242, guid: 50880eea9a646d84690e8a1e481d2cac,
-    type: 3}
-  m_PrefabInstance: {fileID: 8208262200724252380}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &8530701177733644599 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 50880eea9a646d84690e8a1e481d2cac,
@@ -1015,23 +992,3 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!1 &9193523510393565361 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1043830259349886573, guid: 50880eea9a646d84690e8a1e481d2cac,
-    type: 3}
-  m_PrefabInstance: {fileID: 8208262200724252380}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &4740493990895748730
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9193523510393565361}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b0d11dc5868f86141bcdfc2d7b533169, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  whithingTime: 0.06
-  meshRenderer: {fileID: 3732249924110476502}

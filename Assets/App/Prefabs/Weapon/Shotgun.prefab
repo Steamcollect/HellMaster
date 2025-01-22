@@ -104,18 +104,16 @@ MonoBehaviour:
   rseRecoil: {fileID: 11400000, guid: ab5fccee9b701d34db709f78716105ca, type: 2}
   recoilRange: 7
   recoilTime: 0.12
-  bulletTrail: {fileID: 3797463065826991015, guid: 9b73f81fa0412834d877bfb3b937b869,
-    type: 3}
+  bulletTrail: BulletTrail
   bulletSpawnPoint: {fileID: 3348913855670763207}
   shootingParticleSystem: {fileID: 3221966207240310665}
-  impactParticleSystem: {fileID: 3743483068969131167, guid: 57f4f40178d1b18479df2ba8260116e4,
-    type: 3}
-  fleshParticleSystem: {fileID: 911969438504156231, guid: f8a7926c978d6f0488dde885fb2ec0b7,
-    type: 3}
+  impactParticleSystem: HitEffect
+  fleshParticleSystem: FleshHitEffect
   Mask:
     serializedVersion: 2
     m_Bits: 0
   animator: {fileID: 3146580574340673453}
+  rsoPoolManager: {fileID: 11400000, guid: 44295e9bc4e7d454e9a0fe145bd2958e, type: 2}
   reloadClips:
   - {fileID: 8300000, guid: 786d2f4fd5aa35148a85b5638ce877ce, type: 3}
 --- !u!95 &3146580574340673453

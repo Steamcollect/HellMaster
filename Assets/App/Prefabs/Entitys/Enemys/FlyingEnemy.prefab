@@ -94,6 +94,8 @@ MonoBehaviour:
   controller: {fileID: 3109352339949738}
   animator: {fileID: 7462695347047233985}
   scoreGiven: 25
+  poolName: FlyingEnemy
+  rsoPoolManager: {fileID: 11400000, guid: 44295e9bc4e7d454e9a0fe145bd2958e, type: 2}
   rseOnPlayerDeath: {fileID: 11400000, guid: 8a4b2423a095dfb4884674599ccc4b24, type: 2}
   rseAddScore: {fileID: 11400000, guid: c907aa7ace30f02468ea63d0babac916, type: 2}
   rseOnEnemyHit: {fileID: 11400000, guid: f061e77412dbe2b45ac4f2fbeb7dbf54, type: 2}

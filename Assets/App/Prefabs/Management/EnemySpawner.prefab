@@ -45,28 +45,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemys:
-  - enemyPrefab: {fileID: 1654254885166785251, guid: dfc1d5eb7cab5ab45af13d72348177e2,
-      type: 3}
+  - enemyName: SwordEnemy
     enemySpawnDelay:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 3
-        time: 0
-        value: 5
-        inSlope: -0.008501417
-        outSlope: -0.008501417
+        time: 0.011642456
+        value: 1.0193481
+        inSlope: 0.16709754
+        outSlope: 0.16709754
         tangentMode: 0
         weightedMode: 0
         inWeight: 0
-        outWeight: 0.29895806
+        outWeight: 0.0874241
       - serializedVersion: 3
-        time: 60
-        value: 0.5
-        inSlope: -0.16165428
-        outSlope: -0.16165428
+        time: 0.9837036
+        value: 0.21806335
+        inSlope: 0
+        outSlope: 0
         tangentMode: 0
         weightedMode: 0
-        inWeight: 0.105797485
+        inWeight: 0
         outWeight: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
@@ -75,5 +74,9 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  rsoPoolManager: {fileID: 11400000, guid: 44295e9bc4e7d454e9a0fe145bd2958e, type: 2}
   rseOnGameStart: {fileID: 11400000, guid: 88a565a514476f74baa9c0ca7be72107, type: 2}
   rseOnPlayerDeath: {fileID: 11400000, guid: 8a4b2423a095dfb4884674599ccc4b24, type: 2}

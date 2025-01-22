@@ -10,11 +10,12 @@ public class Weapon_Glock : WeaponTemplate
     [SerializeField] float shakeRange;
     [SerializeField] float shakeTime;
 
-    [SerializeField] TrailRenderer bulletTrail;
+    [SerializeField] string bulletTrail;
     [SerializeField] Transform bulletSpawnPoint;
     [SerializeField] ParticleSystem shootingParticleSystem;
-    [SerializeField] ParticleSystem impactParticleSystem;
-    [SerializeField] ParticleSystem fleshParticleSystem;
+    [SerializeField] string impactParticleSystem;
+    [SerializeField] string fleshParticleSystem;
+    [SerializeField] RSO_PoolManager rsoPoolManager;
     [SerializeField] Animator animator;
 
     //[Header("References")]
@@ -39,18 +40,19 @@ public class Weapon_Glock : WeaponTemplate
 
         if (Physics.Raycast(attackPosition, attackDirection, out hit, maxShootDistance))
         {
-            TrailRenderer trail = Instantiate(bulletTrail, bulletSpawnPoint.position, Quaternion.identity);
+            TrailRenderer trail = 
+                rsoPoolManager.Value.GetFromPool(bulletTrail, bulletSpawnPoint.position, Quaternion.identity).GetComponent<TrailRenderer>();
 
             StartCoroutine(SpawnTrail(trail, hit));
 
             if (hit.transform.TryGetComponent(out IHealth health))
             {
-                Instantiate(fleshParticleSystem, hit.point, Quaternion.LookRotation(hit.normal));
+                rsoPoolManager.Value.GetFromPool(fleshParticleSystem, hit.point, Quaternion.LookRotation(hit.normal));
                 health.TakeDamage(damage * damageMultiplier, OnTargetKill);
             }
             else
             {
-                Instantiate(impactParticleSystem, hit.point, Quaternion.LookRotation(hit.normal));
+                rsoPoolManager.Value.GetFromPool(impactParticleSystem, hit.point, Quaternion.LookRotation(hit.normal));
             }
         }
     }

@@ -2,7 +2,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class EnemyController : MonoBehaviour
+public class EnemyController : MonoBehaviour, IResettable
 {
     //[Header("Settings")]
 
@@ -30,10 +30,16 @@ public class EnemyController : MonoBehaviour
         lookAtRot.parent = transform;
     }
 
+    private void Start()
+    {
+        ResetState();
+    }
+
     private void Update()
     {
         if(!isDead)
         {
+            agent.isStopped = false;
             agent.destination = rsoTarget.Value;
             animator.SetBool("isRunning", true);
 
@@ -46,5 +52,11 @@ public class EnemyController : MonoBehaviour
             }
         }
         else { agent.isStopped = true; enemyCollider.enabled = false; }
+    }
+
+    public void ResetState()
+    {
+        isDead = false;
+        enemyCollider.enabled = true;
     }
 }

@@ -1,7 +1,6 @@
 using UnityEngine;
-using UnityEngine.AI;
 
-public class FlyingEnemyController : MonoBehaviour
+public class FlyingEnemyController : MonoBehaviour, IResettable
 {
     //[Header("Settings")]
 
@@ -30,6 +29,11 @@ public class FlyingEnemyController : MonoBehaviour
         lookAtRot.parent = transform;
     }
 
+    private void Start()
+    {
+        ResetState();
+    }
+
     private void Update()
     {
         if(!isDead)
@@ -56,5 +60,11 @@ public class FlyingEnemyController : MonoBehaviour
     void Chase()
     {
         transform.position = Vector3.MoveTowards(transform.position, rsoTarget.Value, speed * Time.deltaTime);
+    }
+
+    public void ResetState()
+    {
+        isDead = false;
+        enemyCollider.enabled = true;
     }
 }
