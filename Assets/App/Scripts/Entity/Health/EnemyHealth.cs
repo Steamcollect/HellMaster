@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class EnemyHealth : MonoBehaviour, IHealth
 {
@@ -9,6 +10,7 @@ public class EnemyHealth : MonoBehaviour, IHealth
     float currentHealth;
     [SerializeField] EnemyController controller;
     [SerializeField] Animator animator;
+    [SerializeField] UnityEvent EnemyDamaged;
 
     [SerializeField] int scoreGiven;
 
@@ -58,6 +60,7 @@ public class EnemyHealth : MonoBehaviour, IHealth
     public void TakeDamage(float damage, Action onDeath)
     {
         rseOnEnemyHit.Call(transform.position);
+        EnemyDamaged.Invoke();
 
         currentHealth -= damage;
         if (currentHealth <= 0)

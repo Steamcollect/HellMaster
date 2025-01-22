@@ -2,10 +2,15 @@ using UnityEngine;
 
 public class HitMarksManager : MonoBehaviour
 {
-    //[Header("Settings")]
+    [Header("Settings")]
+    [SerializeField] float minScale;
+    [SerializeField] float maxScale;
+    [SerializeField] float minRot;
+    [SerializeField] float maxRot;
 
     [Header("References")]
-    [SerializeField] Animator HitMark;
+    [SerializeField] Animator HitMarkAnimator;
+    [SerializeField] GameObject HitMarkPrefab;
 
     //[Space(10)]
     // RSO
@@ -28,6 +33,13 @@ public class HitMarksManager : MonoBehaviour
 
     void Show(Vector3 position)
     {
-        HitMark.SetTrigger("Show");
+        HitMarkPrefab.transform.localScale = Vector3.one;
+        HitMarkPrefab.transform.localRotation = Quaternion.identity;
+        HitMarkAnimator.SetTrigger("Show");
+        float tempScale = Random.Range(minScale, maxScale);
+        HitMarkPrefab.transform.localScale = new Vector3(tempScale, tempScale, tempScale);
+        float tempRot = Random.Range(minRot, maxRot);
+        HitMarkPrefab.transform.localRotation = Quaternion.Euler(0, 0, tempRot);
+
     }
 }
