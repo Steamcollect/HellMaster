@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Collections;
 
-public class Weapon_DesertEagle : WeaponTemplate
+public class Weapon_AssaultRifle : WeaponTemplate
 {
     [Header("Settings")]
     [SerializeField] float maxShootDistance = 50;
@@ -108,6 +108,7 @@ public class Weapon_DesertEagle : WeaponTemplate
         }
         trail.transform.position = hit.point;
 
-        Destroy(trail.gameObject, trail.time);
+        yield return new WaitForSeconds(trail.time);
+        rsoPoolManager.Value.ReturnToPool("BulletTrail", trail.gameObject);
     }
 }

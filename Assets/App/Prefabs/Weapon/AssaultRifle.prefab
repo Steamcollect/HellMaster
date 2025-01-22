@@ -108,7 +108,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8
   animator: {fileID: 5237962818154937095}
-  rsoPoolManager: {fileID: 0}
+  rsoPoolManager: {fileID: 11400000, guid: 44295e9bc4e7d454e9a0fe145bd2958e, type: 2}
   reloadSounds:
   - {fileID: 8300000, guid: efc1819c304c15f42b6b17d84cd8b72b, type: 3}
 --- !u!95 &5237962818154937095

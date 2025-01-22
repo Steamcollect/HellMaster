@@ -81,6 +81,7 @@ public class Weapon_Glock : WeaponTemplate
         }
         trail.transform.position = hit.point;
 
-        Destroy(trail.gameObject, trail.time);
+        yield return new WaitForSeconds(trail.time);
+        rsoPoolManager.Value.ReturnToPool("BulletTrail", trail.gameObject);
     }
 }

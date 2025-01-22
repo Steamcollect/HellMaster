@@ -123,6 +123,7 @@ public class Weapon_Shotgun : WeaponTemplate
         //animator.SetBool("IsShooting", false);
         trail.transform.position = hit.point;
 
-        Destroy(trail.gameObject, trail.time);
+        yield return new WaitForSeconds(trail.time);
+        rsoPoolManager.Value.ReturnToPool("BulletTrail", trail.gameObject);
     }
 }
