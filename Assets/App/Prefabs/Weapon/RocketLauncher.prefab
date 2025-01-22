@@ -106,10 +106,13 @@ MonoBehaviour:
   isSemiAuto: 0
   hasSpread: 0
   bulletSpreadVariance: {x: 0, y: 0, z: 0}
+  pushBackPlayer: 1
+  pushBackForce: 15
   visual: {fileID: 4960756848699065875}
   attackClips:
   - {fileID: 8300000, guid: d834c08730d698b4f91a9da3467708df, type: 3}
   rsePlayClipAt: {fileID: 11400000, guid: cccf594a54ee21f43b8c6c2ebd626b5e, type: 2}
+  rsePushBackPlayer: {fileID: 11400000, guid: e094b4e6eb5f37f469bb52f7f32e2c62, type: 2}
   reloadTime: 3
   maxBulletCount: 1
   bulletCount: 1

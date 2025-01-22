@@ -13,7 +13,7 @@ public class Weapon_Explosion : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.TryGetComponent(out IHealth health))
+        if (other.TryGetComponent(out IHealth health) && !other.CompareTag("Player"))
         {
             health.TakeDamage(damage * damageMultiplier, OnTargetKill);
         }

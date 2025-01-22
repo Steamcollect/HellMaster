@@ -85,10 +85,13 @@ MonoBehaviour:
   isSemiAuto: 1
   hasSpread: 1
   bulletSpreadVariance: {x: 0.03, y: 0.03, z: 0.03}
+  pushBackPlayer: 1
+  pushBackForce: 0.8
   visual: {fileID: 1094172362136367037}
   attackClips:
   - {fileID: 8300000, guid: 94fa1cb215ccc9c4ea9d7cd71c120502, type: 3}
   rsePlayClipAt: {fileID: 11400000, guid: cccf594a54ee21f43b8c6c2ebd626b5e, type: 2}
+  rsePushBackPlayer: {fileID: 11400000, guid: e094b4e6eb5f37f469bb52f7f32e2c62, type: 2}
   maxShootDistance: 1000
   reloadTime: 0.5
   maxBulletCount: 30
@@ -96,9 +99,6 @@ MonoBehaviour:
   cameraShake: {fileID: 11400000, guid: f413fc97221675e418e1197be515569c, type: 2}
   shakeRange: 1
   shakeTime: 0.05
-  rseRecoil: {fileID: 11400000, guid: ab5fccee9b701d34db709f78716105ca, type: 2}
-  recoilRange: 0
-  recoilTime: 0
   bulletTrail: {fileID: 3797463065826991015, guid: 9b73f81fa0412834d877bfb3b937b869,
     type: 3}
   bulletSpawnPoint: {fileID: 3348913855670763207}

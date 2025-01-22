@@ -259,7 +259,6 @@ public class PlayerMovement : MonoBehaviour
         backwardDirection.Normalize();
 
         // Apply force to the player
-        rb.velocity = Vector3.zero; // Reset current velocity
         rb.AddForce(backwardDirection * force, ForceMode.Impulse);
 
         // Re-enable player movement after a delay
@@ -268,7 +267,7 @@ public class PlayerMovement : MonoBehaviour
 
     private IEnumerator ReenableMovement()
     {
-        yield return new WaitForSeconds(0.5f); // Adjust the delay as needed
+        yield return new WaitForSeconds(0.3f); // Adjust the delay as needed
         canMove = true;
     }
 

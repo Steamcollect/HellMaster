@@ -153,6 +153,7 @@ MonoBehaviour:
   rseAddJumpForceMult: {fileID: 11400000, guid: fe653bd7070fe1d4c9d778a4af9b2fb7,
     type: 2}
   rsePlayClipAt: {fileID: 11400000, guid: cccf594a54ee21f43b8c6c2ebd626b5e, type: 2}
+  rsePushBackPlayer: {fileID: 11400000, guid: e094b4e6eb5f37f469bb52f7f32e2c62, type: 2}
 --- !u!114 &2325282933072371097
 MonoBehaviour:
   m_ObjectHideFlags: 0
