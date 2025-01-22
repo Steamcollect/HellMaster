@@ -2,7 +2,7 @@ using System;
 using System.Collections;
 using UnityEngine;
 
-public class EnemyHealth : MonoBehaviour, IHealth
+public class EnemyHealth : MonoBehaviour, IHealth, IResettable
 {
     [Header("Settings")]
     [SerializeField] float maxHealth;
@@ -11,6 +11,10 @@ public class EnemyHealth : MonoBehaviour, IHealth
     [SerializeField] Animator animator;
 
     [SerializeField] int scoreGiven;
+
+    [Space(10)]
+    [SerializeField] string poolName;
+    [SerializeField] RSO_PoolManager rsoPoolManager;
 
     //[Header("References")]
 
@@ -37,7 +41,7 @@ public class EnemyHealth : MonoBehaviour, IHealth
 
     void Start()
     {
-        currentHealth = maxHealth;
+        ResetState();
     }
 
     void OnPlayerDeath()
@@ -80,6 +84,11 @@ public class EnemyHealth : MonoBehaviour, IHealth
 
         yield return new WaitForSeconds(1f);
 
-        Destroy(gameObject);
+        rsoPoolManager.Value.ReturnToPool(poolName, gameObject);
+    }
+
+    public void ResetState()
+    {
+        currentHealth = maxHealth;
     }
 }

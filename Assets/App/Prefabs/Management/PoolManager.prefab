@@ -1,0 +1,72 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &544936594032556954
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5524298877233306327}
+  - component: {fileID: 6162208504701258237}
+  m_Layer: 0
+  m_Name: PoolManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5524298877233306327
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 544936594032556954}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6162208504701258237
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 544936594032556954}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 53719e4d783e7e4488b57e8f038de135, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pools:
+  - name: SwordEnemy
+    prefab: {fileID: 1654254885166785251, guid: dfc1d5eb7cab5ab45af13d72348177e2,
+      type: 3}
+    size: 300
+  - name: GunEnemy
+    prefab: {fileID: 1654254885166785251, guid: 1c7ccb066e2f7484487a1133850607a6,
+      type: 3}
+    size: 300
+  - name: FlyingEnemy
+    prefab: {fileID: 1654254885166785251, guid: 0b330de49ccf590458e39fddfcee1281,
+      type: 3}
+    size: 300
+  - name: HitEffect
+    prefab: {fileID: 7130791987530045525, guid: 57f4f40178d1b18479df2ba8260116e4,
+      type: 3}
+    size: 30
+  - name: FleshHitEffect
+    prefab: {fileID: 6999665475881369708, guid: f8a7926c978d6f0488dde885fb2ec0b7,
+      type: 3}
+    size: 30
+  - name: BulletTrail
+    prefab: {fileID: 4662420132680827000, guid: 9b73f81fa0412834d877bfb3b937b869,
+      type: 3}
+    size: 30
+  rsoPoolManager: {fileID: 11400000, guid: 44295e9bc4e7d454e9a0fe145bd2958e, type: 2}

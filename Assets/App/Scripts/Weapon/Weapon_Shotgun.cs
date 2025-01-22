@@ -1,6 +1,5 @@
 using UnityEngine;
 using System.Collections;
-using System.Security.Cryptography;
 
 public class Weapon_Shotgun : WeaponTemplate
 {
@@ -22,13 +21,14 @@ public class Weapon_Shotgun : WeaponTemplate
 
     bool isReloading = false;
 
-    [SerializeField] TrailRenderer bulletTrail;
+    [SerializeField] string bulletTrail;
     [SerializeField] Transform bulletSpawnPoint;
     [SerializeField] ParticleSystem shootingParticleSystem;
-    [SerializeField] ParticleSystem impactParticleSystem;
-    [SerializeField] ParticleSystem fleshParticleSystem;
+    [SerializeField] string impactParticleSystem;
+    [SerializeField] string fleshParticleSystem;
     [SerializeField] LayerMask Mask;
     [SerializeField] Animator animator;
+    [SerializeField] RSO_PoolManager rsoPoolManager;
 
     [Header("References")]
     [SerializeField] AudioClip[] reloadClips;
@@ -59,18 +59,19 @@ public class Weapon_Shotgun : WeaponTemplate
 
             if (Physics.Raycast(attackPosition, attackDirection, out hit, maxShootDistance))
             {
-                TrailRenderer trail = Instantiate(bulletTrail, bulletSpawnPoint.position, Quaternion.identity);
+                TrailRenderer trail =
+                    rsoPoolManager.Value.GetFromPool(bulletTrail, bulletSpawnPoint.position, Quaternion.identity).GetComponent<TrailRenderer>();
 
                 StartCoroutine(SpawnTrail(trail, hit));
 
                 if (hit.transform.TryGetComponent(out IHealth health))
                 {
-                    Instantiate(fleshParticleSystem, hit.point, Quaternion.LookRotation(hit.normal));
+                    rsoPoolManager.Value.GetFromPool(fleshParticleSystem, hit.point, Quaternion.LookRotation(hit.normal));
                     health.TakeDamage(damage * damageMultiplier, OnTargetKill);
                 }
                 else
                 {
-                    Instantiate(impactParticleSystem, hit.point, Quaternion.LookRotation(hit.normal));
+                    rsoPoolManager.Value.GetFromPool(impactParticleSystem, hit.point, Quaternion.LookRotation(hit.normal));
                 }
             }
         }

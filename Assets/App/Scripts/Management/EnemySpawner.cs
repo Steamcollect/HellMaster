@@ -14,8 +14,9 @@ public class EnemySpawner : MonoBehaviour
     [Header("References")]
     [SerializeField] Transform[] spawnPoints;
 
-    //[Space(10)]
+    [Space(10)]
     // RSO
+    [SerializeField] RSO_PoolManager rsoPoolManager;
     // RSF
     // RSP
 
@@ -62,7 +63,8 @@ public class EnemySpawner : MonoBehaviour
         }
         else
         {
-            Instantiate(enemy.enemyPrefab, spawnPoints.GetRandom().position, Quaternion.identity);
+            rsoPoolManager.Value.GetFromPool(enemy.enemyName, spawnPoints.GetRandom().position, Quaternion.identity);
+
             StartCoroutine(EnemySpawnDelay(enemy, SpawnEnemy));
         }
     }
@@ -87,6 +89,6 @@ public class EnemySpawner : MonoBehaviour
 [System.Serializable]
 public class EnemySpawn
 {
-    public GameObject enemyPrefab;
+    public string enemyName;
     public AnimationCurve enemySpawnDelay;
 }

@@ -116,8 +116,8 @@ MonoBehaviour:
   controller: {fileID: 4760199000783193703}
   animator: {fileID: 3020447815270557842}
   scoreGiven: 5
-  hitMarkPrefab: {fileID: 3486979950273023057, guid: 46ca46e06b88a71429b50fe37e484da5,
-    type: 3}
+  poolName: SwordEnemy
+  rsoPoolManager: {fileID: 11400000, guid: 44295e9bc4e7d454e9a0fe145bd2958e, type: 2}
   rseOnPlayerDeath: {fileID: 11400000, guid: 8a4b2423a095dfb4884674599ccc4b24, type: 2}
   rseAddScore: {fileID: 11400000, guid: c907aa7ace30f02468ea63d0babac916, type: 2}
   rseOnEnemyHit: {fileID: 11400000, guid: f061e77412dbe2b45ac4f2fbeb7dbf54, type: 2}
