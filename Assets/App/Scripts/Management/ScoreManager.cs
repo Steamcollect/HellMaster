@@ -11,6 +11,7 @@ public class ScoreManager : MonoBehaviour
     [SerializeField] float giveScoreTime;
     float giveScoreTimer;
     int scoreMult = 1;
+    int currentScoreCount;
 
     [Header("References")]
     [SerializeField] Transform content;
@@ -62,6 +63,7 @@ public class ScoreManager : MonoBehaviour
                 scoreGiven = 0;
                 giveScoreTimer = 0;
                 scoreMult = 1;
+                currentScoreCount = 0;
             }
         }
     }
@@ -74,6 +76,8 @@ public class ScoreManager : MonoBehaviour
     void AddOne(Vector3 pos) => AddScore(1);
     void AddScore(int scoreGiven)
     {
+        currentScoreCount++;
+
         if (this.scoreGiven == 0)
         {
             initScore = score;
@@ -83,9 +87,9 @@ public class ScoreManager : MonoBehaviour
         }
         giveScoreTimer = 0;
 
-        if(this.scoreGiven + scoreGiven > 200)
+        if(currentScoreCount > 10)
         {
-            int newScoreMult = (this.scoreGiven + scoreGiven) / 100;
+            int newScoreMult = currentScoreCount / 10;
             if (newScoreMult > scoreMult)
             {
 
