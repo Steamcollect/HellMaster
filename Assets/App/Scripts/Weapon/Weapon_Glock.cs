@@ -15,6 +15,7 @@ public class Weapon_Glock : WeaponTemplate
     [SerializeField] string bulletTrail;
     [SerializeField] Transform bulletSpawnPoint;
     [SerializeField] ParticleSystem shootingParticleSystem;
+    [SerializeField] ParticleSystem cartridgeParticle;
     [SerializeField] string impactParticleSystem;
     [SerializeField] string fleshParticleSystem;
     [SerializeField] RSO_PoolManager rsoPoolManager;
@@ -34,6 +35,8 @@ public class Weapon_Glock : WeaponTemplate
         RaycastHit hit;
 
         shootingParticleSystem.Play();
+
+        cartridgeParticle.Play();
 
         if (canShake) cameraShake.Call(shakeTime, shakeRange);
 

@@ -26,6 +26,7 @@ public class Weapon_Shotgun : WeaponTemplate
     [SerializeField] string bulletTrail;
     [SerializeField] Transform bulletSpawnPoint;
     [SerializeField] ParticleSystem shootingParticleSystem;
+    [SerializeField] ParticleSystem cartridgeParticle;
     [SerializeField] string impactParticleSystem;
     [SerializeField] string fleshParticleSystem;
     [SerializeField] LayerMask Mask;
@@ -54,6 +55,8 @@ public class Weapon_Shotgun : WeaponTemplate
             RaycastHit hit;
 
             shootingParticleSystem.Play();
+
+            cartridgeParticle.Play();
 
             cameraShake.Call(shakeTime, shakeRange);
 
