@@ -42,6 +42,7 @@ GameObject:
   - component: {fileID: 5567690818985173005}
   - component: {fileID: -7263891599274486461}
   - component: {fileID: 3146580574340673453}
+  - component: {fileID: 6404285050131172079}
   m_Layer: 0
   m_Name: Shotgun
   m_TagString: Untagged
@@ -139,6 +140,20 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &6404285050131172079
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4059864337073731308}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b8889929890fe8429dc2aa1c581b696, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  smooth: 15
+  multiplier: 15
 --- !u!1 &4969123956048712575
 GameObject:
   m_ObjectHideFlags: 0

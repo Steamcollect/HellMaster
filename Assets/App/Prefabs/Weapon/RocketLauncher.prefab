@@ -42,6 +42,7 @@ GameObject:
   - component: {fileID: 5567690818985173005}
   - component: {fileID: 3146580574340673453}
   - component: {fileID: 3181398038631772117}
+  - component: {fileID: 960714814894634713}
   m_Layer: 0
   m_Name: RocketLauncher
   m_TagString: Untagged
@@ -125,6 +126,20 @@ MonoBehaviour:
   bulletSpawnPoint: {fileID: 1840273523695463830}
   shootingParticleSystem: {fileID: 8796836529168678096}
   animator: {fileID: 3146580574340673453}
+--- !u!114 &960714814894634713
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4059864337073731308}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b8889929890fe8429dc2aa1c581b696, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  smooth: 15
+  multiplier: 15
 --- !u!1 &6517450567781846996
 GameObject:
   m_ObjectHideFlags: 0

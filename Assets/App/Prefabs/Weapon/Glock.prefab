@@ -42,6 +42,7 @@ GameObject:
   - component: {fileID: 7243431051851745790}
   - component: {fileID: 7323119263055290921}
   - component: {fileID: 776464444234782360}
+  - component: {fileID: 5624396043156675107}
   m_Layer: 0
   m_Name: Glock
   m_TagString: Untagged
@@ -99,6 +100,7 @@ MonoBehaviour:
   cameraShake: {fileID: 11400000, guid: f413fc97221675e418e1197be515569c, type: 2}
   shakeRange: 0.8
   shakeTime: 0.08
+  isEnemy: 0
   rseOnShoot: {fileID: 11400000, guid: 87833912a9cc2194695078e32ccab5e9, type: 2}
   bulletTrail: BulletTrail
   bulletSpawnPoint: {fileID: 2373909696452737914}
@@ -129,6 +131,20 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &5624396043156675107
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2936242471471685263}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b8889929890fe8429dc2aa1c581b696, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  smooth: 15
+  multiplier: 15
 --- !u!1 &4220032087003769285
 GameObject:
   m_ObjectHideFlags: 0
