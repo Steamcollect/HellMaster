@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Collections;
 using UnityEngine;
 
 public class PoolManager : MonoBehaviour
@@ -106,12 +107,19 @@ public class PoolManager : MonoBehaviour
             }
 
             obj = Instantiate(pool.prefab);
-            var particleSystem = obj.GetComponent<ParticleSystem>();
-            if (particleSystem != null)
+        }
+
+        if(obj.TryGetComponent(out ParticleSystem particle))
+        {
+            ParticleSystemAutoReturn pAutoReturn;
+            if (!obj.TryGetComponent(out ParticleSystemAutoReturn autoReturn))
             {
-                var psAutoReturn = obj.AddComponent<ParticleSystemAutoReturn>();
-                psAutoReturn.Initialize(this, name);
+                pAutoReturn = obj.AddComponent<ParticleSystemAutoReturn>();
             }
+            else pAutoReturn = autoReturn;
+
+            pAutoReturn.Initialize(this, name);
+            StartCoroutine(pAutoReturn.Delay(particle.main.duration));
         }
 
         ResetObject(obj);
@@ -178,9 +186,9 @@ public class ParticleSystemAutoReturn : MonoBehaviour
         poolName = name;
     }
 
-    private void OnParticleSystemStopped()
+    public IEnumerator Delay(float delay)
     {
-        print("df");
+        yield return new WaitForSeconds(delay);
         poolManager.ReturnToPool(poolName, gameObject);
     }
 }
