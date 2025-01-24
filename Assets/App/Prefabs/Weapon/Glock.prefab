@@ -99,6 +99,7 @@ MonoBehaviour:
   cameraShake: {fileID: 11400000, guid: f413fc97221675e418e1197be515569c, type: 2}
   shakeRange: 0.8
   shakeTime: 0.08
+  rseOnShoot: {fileID: 11400000, guid: 87833912a9cc2194695078e32ccab5e9, type: 2}
   bulletTrail: BulletTrail
   bulletSpawnPoint: {fileID: 2373909696452737914}
   shootingParticleSystem: {fileID: 514702645660549262}

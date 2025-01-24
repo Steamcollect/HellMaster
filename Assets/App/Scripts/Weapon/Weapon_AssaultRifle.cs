@@ -14,6 +14,8 @@ public class Weapon_AssaultRifle : WeaponTemplate
     [SerializeField] float shakeRange;
     [SerializeField] float shakeTime;
 
+    [SerializeField] RSE_OnShoot rseOnShoot;
+
     bool isReloading = false;
 
     [SerializeField] string bulletTrail;
@@ -43,6 +45,8 @@ public class Weapon_AssaultRifle : WeaponTemplate
         shootingParticleSystem.Play();
 
         cameraShake.Call(shakeTime, shakeRange);
+
+        rseOnShoot.Call();
 
         animator.SetTrigger("Attack");
 

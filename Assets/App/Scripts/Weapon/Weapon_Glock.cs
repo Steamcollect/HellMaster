@@ -10,6 +10,8 @@ public class Weapon_Glock : WeaponTemplate
     [SerializeField] float shakeRange;
     [SerializeField] float shakeTime;
 
+    [SerializeField] RSE_OnShoot rseOnShoot;
+
     [SerializeField] string bulletTrail;
     [SerializeField] Transform bulletSpawnPoint;
     [SerializeField] ParticleSystem shootingParticleSystem;
@@ -35,6 +37,7 @@ public class Weapon_Glock : WeaponTemplate
 
         if (canShake) cameraShake.Call(shakeTime, shakeRange);
 
+        rseOnShoot.Call();
 
         animator.SetTrigger("Attack");
 

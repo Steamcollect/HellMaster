@@ -116,6 +116,7 @@ MonoBehaviour:
   reloadTime: 3
   maxBulletCount: 1
   bulletCount: 1
+  rseOnShoot: {fileID: 11400000, guid: 87833912a9cc2194695078e32ccab5e9, type: 2}
   rseRecoil: {fileID: 11400000, guid: ab5fccee9b701d34db709f78716105ca, type: 2}
   recoilRange: 30
   recoilTime: 0.15

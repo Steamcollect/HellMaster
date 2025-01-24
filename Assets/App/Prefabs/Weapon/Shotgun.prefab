@@ -101,6 +101,7 @@ MonoBehaviour:
   cameraShake: {fileID: 11400000, guid: f413fc97221675e418e1197be515569c, type: 2}
   shakeRange: 2
   shakeTime: 0.1
+  rseOnShoot: {fileID: 11400000, guid: 87833912a9cc2194695078e32ccab5e9, type: 2}
   rseRecoil: {fileID: 11400000, guid: ab5fccee9b701d34db709f78716105ca, type: 2}
   recoilRange: 7
   recoilTime: 0.12

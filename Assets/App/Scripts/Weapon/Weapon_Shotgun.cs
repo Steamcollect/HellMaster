@@ -15,6 +15,8 @@ public class Weapon_Shotgun : WeaponTemplate
     [SerializeField] float shakeRange;
     [SerializeField] float shakeTime;
 
+    [SerializeField] RSE_OnShoot rseOnShoot;
+
     [SerializeField] RSE_Recoil rseRecoil;
     [SerializeField] float recoilRange;
     [SerializeField] float recoilTime;
@@ -76,6 +78,8 @@ public class Weapon_Shotgun : WeaponTemplate
             }
         }
         rseRecoil.Call(recoilRange, recoilTime);
+
+        rseOnShoot.Call();
 
         bulletCount--;
         if(bulletCount <= 0)
