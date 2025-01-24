@@ -81,13 +81,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 8
   damageMultiplier: 1
-  attackDelay: 0.25
+  attackDelay: 0.3
   attackRateMultiplier: 1
   isSemiAuto: 0
   hasSpread: 0
   bulletSpreadVariance: {x: 0.06, y: 0.06, z: 0.06}
   pushBackPlayer: 1
-  pushBackForce: 6
+  pushBackForce: 5
   visual: {fileID: 1416901301475932862}
   attackClips:
   - {fileID: 8300000, guid: ec5a0337e12c6ca46a5e6c0219a45e1c, type: 3}
@@ -95,8 +95,8 @@ MonoBehaviour:
   rsePlayClipAt: {fileID: 11400000, guid: cccf594a54ee21f43b8c6c2ebd626b5e, type: 2}
   rsePushBackPlayer: {fileID: 11400000, guid: e094b4e6eb5f37f469bb52f7f32e2c62, type: 2}
   maxShootDistance: 1000
-  reloadTime: 0.55
-  bulletShotForOneShot: 16
+  reloadTime: 0.7
+  bulletShotForOneShot: 9
   maxBulletCount: 2
   bulletCount: 2
   cameraShake: {fileID: 11400000, guid: f413fc97221675e418e1197be515569c, type: 2}

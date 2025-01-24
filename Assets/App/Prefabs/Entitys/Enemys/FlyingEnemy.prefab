@@ -93,7 +93,7 @@ MonoBehaviour:
   maxHealth: 15
   controller: {fileID: 3109352339949738}
   animator: {fileID: 7462695347047233985}
-  scoreGiven: 25
+  scoreGiven: 80
   EnemyDamaged:
     m_PersistentCalls:
       m_Calls:
@@ -146,6 +146,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: EnemyMelee
+      objectReference: {fileID: 0}
+    - target: {fileID: 8508045064613433895, guid: 9ccf9009410fba447a9a02fe904a36fc,
+        type: 3}
+      propertyPath: damage
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 8633878093095823456, guid: 9ccf9009410fba447a9a02fe904a36fc,
         type: 3}

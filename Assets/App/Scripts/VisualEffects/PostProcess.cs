@@ -49,8 +49,8 @@ public class PostProcess : MonoBehaviour
 
         vignetteSequence = DOTween.Sequence(
             DOTween.To(() => vignetteIntensityValue, x => vignetteIntensityValue = x, 
-                1/*End Value*/ , 
-                1/*Time*/)
+                0.2f/*End Value*/ , 
+                0.1f/*Time*/)
                     .OnUpdate(() =>
                     {
                         vignette.intensity.value = vignetteIntensityValue;
@@ -59,8 +59,8 @@ public class PostProcess : MonoBehaviour
                     {
 
                         DOTween.To(() => vignetteIntensityValue, x => vignetteIntensityValue = x,
-                            1/*End Value*/ ,
-                            1/*Time*/)
+                            0/*End Value*/ ,
+                            0.1f/*Time*/)
                                 .OnUpdate(() =>
                                 {
                                     vignette.intensity.value = vignetteIntensityValue;

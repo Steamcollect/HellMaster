@@ -68,10 +68,10 @@ MonoBehaviour:
     m_Value: {x: 0.5, y: 0.5}
   intensity:
     m_OverrideState: 1
-    m_Value: 0.465
+    m_Value: 0.218
   smoothness:
     m_OverrideState: 1
-    m_Value: 0.238
+    m_Value: 0.367
   rounded:
     m_OverrideState: 1
     m_Value: 0
@@ -109,10 +109,10 @@ MonoBehaviour:
     m_Value: 0
   intensity:
     m_OverrideState: 1
-    m_Value: 0.879
+    m_Value: 0.529
   response:
     m_OverrideState: 1
-    m_Value: 0.8
+    m_Value: 0.964
   texture:
     m_OverrideState: 0
     m_Value: {fileID: 0}
@@ -153,13 +153,13 @@ MonoBehaviour:
     m_Value: 1
   gaussianStart:
     m_OverrideState: 1
-    m_Value: 35
+    m_Value: 60
   gaussianEnd:
     m_OverrideState: 1
-    m_Value: 100
+    m_Value: 150
   gaussianMaxRadius:
     m_OverrideState: 1
-    m_Value: 0.721
+    m_Value: 0.605
   highQualitySampling:
     m_OverrideState: 1
     m_Value: 0
@@ -263,4 +263,4 @@ MonoBehaviour:
     m_Value: {x: 1, y: 0.9868225, z: 0.96085, w: -0.050991163}
   gain:
     m_OverrideState: 1
-    m_Value: {x: 1, y: 0.9121378, z: 0.9169269, w: -0.43059486}
+    m_Value: {x: 1, y: 0.9121378, z: 0.9169269, w: -0.15063733}
