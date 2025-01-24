@@ -1,5 +1,5 @@
 ﻿using System;
-using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerHealth : MonoBehaviour, IHealth
@@ -25,9 +25,12 @@ public class PlayerHealth : MonoBehaviour, IHealth
     // RSP
 
     [Header("Achievment")]
-    [SerializeField] SSO_Achievment_SurvivMinTime[] achievmentsSurvivMinTime;
-    [SerializeField] SSO_Achivment_HealCount[] achivmentHealCount;
+    List<SSO_Achievment_SurvivMinTime> achievmentsSurvivMinTime = new();
+    List<SSO_Achivment_HealCount> achivmentHealCount = new();
     [SerializeField] SSO_Achivment_CompleteOnce onDeathAchivment;
+
+    [Space(10)]
+    [SerializeField] RSO_Achievements rsoAchievements;
 
     [Header("Input")]
     [SerializeField] RSE_AddPlayerMaxHealth rseAddMaxHealth;
@@ -64,6 +67,19 @@ public class PlayerHealth : MonoBehaviour, IHealth
 
     void OnGameStart()
     {
+        foreach (var achievement in rsoAchievements.Value)
+        {
+            if (achievement is SSO_Achievment_SurvivMinTime achievementSurviv)
+            {
+                achievmentsSurvivMinTime.Add(achievementSurviv);
+            }
+            if(achievement is SSO_Achivment_HealCount achivmentHeal)
+            {
+                achivmentHealCount.Add(achivmentHeal);
+            }
+        }
+
+
         timeAlive = rsoContentSaved.Value.totalTimeAlive;
 
         currentHealth = maxHealth;

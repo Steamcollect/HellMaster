@@ -9,7 +9,10 @@ public class LoadAndSaveData : MonoBehaviour
 
     [Space(10)]
     [SerializeField] RSO_ContentSaved rsoContentSave;
+    [SerializeField] RSO_Achievements rsoAchievements;
     [SerializeField] RSO_AchievmentCompleteCount rsoAchievmentCompleteCount;
+
+    [Space(10)]
     [SerializeField] RSE_SaveData rseSaveData;
     [SerializeField] RSE_LoadData rseLoadData;
     [SerializeField] RSE_SaveAllGameData rseSaveAllGameData;
@@ -29,6 +32,11 @@ public class LoadAndSaveData : MonoBehaviour
         rseLoadData.action -= LoadFromJson;
         rseSaveData.action -= SaveToJson;
         rseSaveAllGameData.action -= SaveAllGameData;
+    }
+
+    private void Awake()
+    {
+        rsoAchievements.Value = achievments;
     }
 
     private void Start()

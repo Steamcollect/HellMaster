@@ -42,9 +42,10 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] AudioClip[] jumpSounds;
 
     [Header("Achievment")]
-    [SerializeField] SSO_Achievment_RunDistance[] achievmentsRunDistance;
-    [SerializeField] SSO_Achievment_JumpCount[] achivmentsJumpCount;
-    [SerializeField] SSO_Achievment_AireTimeJump achivmentAirTimeJump;
+    [SerializeField] RSO_Achievements rsoAchievements;
+    List<SSO_Achievment_RunDistance> achievmentsRunDistance = new();
+    List<SSO_Achievment_JumpCount> achivmentsJumpCount = new();
+    SSO_Achievment_AireTimeJump achivmentAirTimeJump;
 
     [Space(10)]
     [SerializeField] RSO_PlayerPosition rsoPlayerPosition;
@@ -56,6 +57,7 @@ public class PlayerMovement : MonoBehaviour
     float jumpBufferCounter;
 
     bool canMove = false;
+    bool isPlaying = false;
 
     [Header("Input")]
     [SerializeField] RSE_AddMoveSpeedMultiplier rseAddMoveSpeedMult;
@@ -88,6 +90,30 @@ public class PlayerMovement : MonoBehaviour
         rsePushBackPlayer.action -= PushBackPlayer;
     }
 
+    void OnGameStart()
+    {
+        foreach (var achievement in rsoAchievements.Value)
+        {
+            if (achievement is SSO_Achievment_RunDistance achievementrunDist)
+            {
+                achievmentsRunDistance.Add(achievementrunDist);
+            }
+            if(achievement is SSO_Achievment_JumpCount achivmentsJump)
+            {
+                achivmentsJumpCount.Add(achivmentsJump);
+            }
+            if(achievement is SSO_Achievment_AireTimeJump achievementAireTime)
+            {
+                achivmentAirTimeJump = achievementAireTime;
+            }
+        }
+
+
+        distanceTravelled = rsoContentSaved.Value.totalDistanceTravelled;
+        canMove = true;
+        isPlaying = true;
+    }
+
     void Update()
     {
         //if (Input.GetKeyDown(KeyCode.P)) PushBackPlayer(10);
@@ -96,7 +122,7 @@ public class PlayerMovement : MonoBehaviour
         CheckGroundStatus();
         UpdateCameraFOV();
 
-        if (!isGrounded)
+        if (!isGrounded && isPlaying)
         {
             airTime += Time.deltaTime;
             achivmentAirTimeJump.CheckAirTime(airTime);
@@ -127,15 +153,11 @@ public class PlayerMovement : MonoBehaviour
         jumpForceMultiplier += mult;
     }
 
-    void OnGameStart()
-    {
-        distanceTravelled = rsoContentSaved.Value.totalDistanceTravelled;
-        canMove = true;
-    }
     void OnPlayerDeath()
     {
         rsoContentSaved.Value.totalDistanceTravelled = distanceTravelled;
         canMove = false;
+        isPlaying = false;
     }
     void SaveGameData()
     {

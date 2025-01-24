@@ -123,24 +123,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: d994c888015f1064493be8a97052ae64, type: 3}
   - {fileID: 8300000, guid: 6532b9afaad852249b98128225fc85cd, type: 3}
   - {fileID: 8300000, guid: bd85bbd18d0fd20499f4ec06b4f8dd26, type: 3}
-  achievmentsRunDistance:
-  - {fileID: 11400000, guid: 1c0a52a103b7967418d2d62c06695066, type: 2}
-  - {fileID: 11400000, guid: 6a47118923288b145a1e4b0f3bf475d8, type: 2}
-  - {fileID: 11400000, guid: ffc69e37a6ee0154692835f58bdbeb46, type: 2}
-  - {fileID: 11400000, guid: dab1e372104704745a18087524ad9356, type: 2}
-  - {fileID: 11400000, guid: 58ef6fb1d9df4a2429d0cc16a35697f4, type: 2}
-  - {fileID: 11400000, guid: 659da689a98bf3c4f82bd00d70b2852f, type: 2}
-  achivmentsJumpCount:
-  - {fileID: 11400000, guid: 2788a2b4603f51f4e8a55011be3f439c, type: 2}
-  - {fileID: 11400000, guid: ac81194a6b1befb42ac5c594ee31b76c, type: 2}
-  - {fileID: 11400000, guid: 00f889bed7cd33a4e86bc2dfe9c85a6d, type: 2}
-  - {fileID: 11400000, guid: e31fb065ba13fc744b2c4236efe87856, type: 2}
-  - {fileID: 11400000, guid: 486e0a5aaa0d06146be1a435b4df652b, type: 2}
-  - {fileID: 11400000, guid: 8082b4ccaedca154caf9ab2d8c0f851f, type: 2}
-  - {fileID: 11400000, guid: 262bceee5466ad04ab9ea89d97cfaa96, type: 2}
-  - {fileID: 11400000, guid: 1522b0ee5597f614e8bba594f826608c, type: 2}
-  achivmentAirTimeJump: {fileID: 11400000, guid: 95702b56b2230d944bcc39680da025fb,
-    type: 2}
+  rsoAchievements: {fileID: 11400000, guid: a4e4a4942a7cf334abe28507c0258ab8, type: 2}
   rsoPlayerPosition: {fileID: 11400000, guid: 2d8d81c0e5fe70c40b604958f0a9b082, type: 2}
   rsoContentSaved: {fileID: 11400000, guid: af883388f9f4c2b44b3dc5140f911432, type: 2}
   rseAddMoveSpeedMult: {fileID: 11400000, guid: ec7e23ce33fa50d47a0056f872eb5868,
@@ -176,19 +159,8 @@ MonoBehaviour:
   deathSounds:
   - {fileID: 8300000, guid: 6615535695acb0a4b84606a24a27e362, type: 3}
   rsoContentSaved: {fileID: 11400000, guid: af883388f9f4c2b44b3dc5140f911432, type: 2}
-  achievmentsSurvivMinTime:
-  - {fileID: 11400000, guid: 9df34200858fd454480386e1e475f23e, type: 2}
-  - {fileID: 11400000, guid: ff64f70a1006a5546bbc27efa195f410, type: 2}
-  - {fileID: 11400000, guid: f5c2422c8ef5a84479073919864e20fa, type: 2}
-  - {fileID: 11400000, guid: c0039d1f2aea5dd448de435000309fb8, type: 2}
-  achivmentHealCount:
-  - {fileID: 11400000, guid: e967fe3a129f39d41a41c3792d7bc2f8, type: 2}
-  - {fileID: 11400000, guid: 1dfba5d9ca550914fab795e98ea79f70, type: 2}
-  - {fileID: 11400000, guid: 33ee5188c945a6744a32eabd8b708601, type: 2}
-  - {fileID: 11400000, guid: 086a7798e71a82040b6a25998d292396, type: 2}
-  - {fileID: 11400000, guid: 87c1587a1c6c5ec4eaffe8d16a0eb453, type: 2}
-  - {fileID: 11400000, guid: 1cd6c38e477fac24d87c3935b888f38b, type: 2}
   onDeathAchivment: {fileID: 11400000, guid: 3dddf71e470904546978ac085b281583, type: 2}
+  rsoAchievements: {fileID: 11400000, guid: a4e4a4942a7cf334abe28507c0258ab8, type: 2}
   rseAddMaxHealth: {fileID: 11400000, guid: f0bbe7007d5a25e4db250469aa309d3a, type: 2}
   rseOnGameStart: {fileID: 11400000, guid: 88a565a514476f74baa9c0ca7be72107, type: 2}
   rseOnPlayerDeath: {fileID: 11400000, guid: 8a4b2423a095dfb4884674599ccc4b24, type: 2}
@@ -221,16 +193,9 @@ MonoBehaviour:
   - {fileID: 8300000, guid: e4f893b6646c6d144a0e1370c4f31ba4, type: 3}
   - {fileID: 8300000, guid: e879a6fe0e65e474898836ceff71ae48, type: 3}
   rsePlayClipAt: {fileID: 11400000, guid: cccf594a54ee21f43b8c6c2ebd626b5e, type: 2}
-  achievmentsKillEnemys:
-  - {fileID: 11400000, guid: 715c1ffaffe45f54ca67919a1c70e5da, type: 2}
-  - {fileID: 11400000, guid: 0342e681c7fba6f48b76c5aa4104aa6e, type: 2}
-  - {fileID: 11400000, guid: 6c5484c8e3df0e544a24fcecbcc1d7f0, type: 2}
-  - {fileID: 11400000, guid: 14a5cfd16d25c2145aadf2720fa79e6c, type: 2}
-  - {fileID: 11400000, guid: 36c7eede97070a34f981c9e53ff60be9, type: 2}
-  - {fileID: 11400000, guid: 5ee83a5002f67dc4c98dcac6f8e78273, type: 2}
-  - {fileID: 11400000, guid: 976aad104776ed24c8d69145d52138b0, type: 2}
   reloadAchivment: {fileID: 11400000, guid: 5c6ff4d2412a8ca4e90a21b72a82559d, type: 2}
   rsoContentSave: {fileID: 11400000, guid: af883388f9f4c2b44b3dc5140f911432, type: 2}
+  rsoAchievements: {fileID: 11400000, guid: a4e4a4942a7cf334abe28507c0258ab8, type: 2}
   rseAddDamageMult: {fileID: 11400000, guid: f55fe3cc3c1594a4b9d8c585c71bebfc, type: 2}
   rseAddAttackRateMult: {fileID: 11400000, guid: 2745094ae8190944997a5ff537b4f0e6,
     type: 2}

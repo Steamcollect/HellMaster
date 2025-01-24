@@ -4,7 +4,7 @@ using System.Collections.Generic;
 public class AchievmentUIManager : MonoBehaviour
 {
     [Header("References")]
-    public Achievment[] achievments;
+    [HideInInspector] public Achievment[] achievments;
 
     [Space(10)]
     [SerializeField] Transform achievmentMenuUIContent;
@@ -15,6 +15,7 @@ public class AchievmentUIManager : MonoBehaviour
     [Space(10)]
     // RSO
     [SerializeField] RSO_ContentSaved rsoContentSave;
+    [SerializeField] RSO_Achievements rsoAchievements;
     // RSF
     // RSP
 
@@ -59,6 +60,7 @@ public class AchievmentUIManager : MonoBehaviour
 
     void LateStart()
     {
+        achievments = rsoAchievements.Value;
         for (int i = 0; i < achievments.Length; i++)
         {
             achievments[i].isAchieve = rsoContentSave.Value.achievmentsStatus[i];
