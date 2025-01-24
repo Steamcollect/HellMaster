@@ -180,6 +180,7 @@ public class ParticleSystemAutoReturn : MonoBehaviour
 
     private void OnParticleSystemStopped()
     {
+        print("df");
         poolManager.ReturnToPool(poolName, gameObject);
     }
 }

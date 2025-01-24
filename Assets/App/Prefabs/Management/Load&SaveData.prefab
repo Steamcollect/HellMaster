@@ -58,6 +58,7 @@ MonoBehaviour:
     isFullScreen: 1
     canShake: 1
   rsoContentSave: {fileID: 11400000, guid: af883388f9f4c2b44b3dc5140f911432, type: 2}
+  rsoAchievements: {fileID: 11400000, guid: a4e4a4942a7cf334abe28507c0258ab8, type: 2}
   rsoAchievmentCompleteCount: {fileID: 11400000, guid: 7eb12019ffd4e0f459fa01778a830153,
     type: 2}
   rseSaveData: {fileID: 11400000, guid: 94fdca2f03a20554b85ce3b1b05aa863, type: 2}

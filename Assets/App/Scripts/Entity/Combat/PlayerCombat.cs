@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -24,11 +25,12 @@ public class PlayerCombat : MonoBehaviour
     [SerializeField] RSE_PlayClipAt rsePlayClipAt;
 
     [Header("Achievments")]
-    [SerializeField] SSO_Achievment_KillEnemys[] achievmentsKillEnemys;
+    List<SSO_Achievment_KillEnemys> achievmentsKillEnemys = new();
     [SerializeField] SSO_Achivment_CompleteOnce reloadAchivment;
 
     // RSO
     [SerializeField] RSO_ContentSaved rsoContentSave;
+    [SerializeField] RSO_Achievements rsoAchievements;
     // RSF
     // RSP
 
@@ -66,6 +68,14 @@ public class PlayerCombat : MonoBehaviour
 
     void OnGameStart()
     {
+        foreach (var achievement in rsoAchievements.Value)
+        {
+            if(achievement is SSO_Achievment_KillEnemys achievementKillEnemy)
+            {
+                achievmentsKillEnemys.Add(achievementKillEnemy);
+            }
+        }
+
         totalEnemysKilled = rsoContentSave.Value.totalEnemysKilled;
         weapons[currentWeaponIndex].damageMultiplier = damageMultiplier;
         weapons[currentWeaponIndex].attackRateMultiplier = attackRateMultiplier;        
