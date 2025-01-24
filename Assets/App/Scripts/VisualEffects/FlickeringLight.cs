@@ -1,7 +1,7 @@
 using UnityEngine;
 public class FlickeringLight : MonoBehaviour
 {
-    [SerializeField] Light light;
+    [SerializeField] Light _light;
     [SerializeField] float maxInterval = 1f;
     [SerializeField] float minIntensity;
     [SerializeField] float maxIntensity;
@@ -18,7 +18,7 @@ public class FlickeringLight : MonoBehaviour
 
     private void Start()
     {
-        origin = light.transform.position;
+        origin = _light.transform.position;
         lastPosition = origin;
     }
 
@@ -28,16 +28,16 @@ public class FlickeringLight : MonoBehaviour
 
         if (timer > interval)
         {
-            lastIntensity = light.intensity;
+            lastIntensity = _light.intensity;
             targetIntensity = Random.Range(minIntensity, maxIntensity);
             timer = 0;
             interval = Random.Range(0, maxInterval);
 
             targetPosition = origin + Random.insideUnitSphere * maxDisplacement;
-            lastPosition = light.transform.position;
+            lastPosition = _light.transform.position;
         }
 
-        light.intensity = Mathf.Lerp(lastIntensity, targetIntensity, timer / interval);
-        light.transform.position = Vector3.Lerp(lastPosition, targetPosition, timer / interval);
+        _light.intensity = Mathf.Lerp(lastIntensity, targetIntensity, timer / interval);
+        _light.transform.position = Vector3.Lerp(lastPosition, targetPosition, timer / interval);
     }
 }
