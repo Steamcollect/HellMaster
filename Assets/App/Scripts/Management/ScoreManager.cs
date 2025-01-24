@@ -10,13 +10,16 @@ public class ScoreManager : MonoBehaviour
     int initScore;
     [SerializeField] float giveScoreTime;
     float giveScoreTimer;
+    int scoreMult = 1;
 
     [Header("References")]
     [SerializeField] Transform content;
     [SerializeField] TMP_Text scoreTxt;
     [SerializeField] TMP_Text scoreGivenTxt;
+    [SerializeField] TMP_Text scoreMultTxt;
     TMP_Text currentScoreGivenTxt;
     [SerializeField] TMP_Text bestScoreTxt;
+    Color initMultColor;
 
     //[Space(10)]
     // RSO
@@ -44,6 +47,7 @@ public class ScoreManager : MonoBehaviour
 
     private void Start()
     {
+        initMultColor = scoreMultTxt.color;
         Invoke("LateStart", .15f);
     }
 
@@ -57,6 +61,7 @@ public class ScoreManager : MonoBehaviour
                 GiveScoreVisual(currentScoreGivenTxt, score, initScore);
                 scoreGiven = 0;
                 giveScoreTimer = 0;
+                scoreMult = 1;
             }
         }
     }
@@ -77,11 +82,33 @@ public class ScoreManager : MonoBehaviour
             currentScoreGivenTxt.transform.rotation = scoreGivenTxt.transform.rotation;
         }
         giveScoreTimer = 0;
+
+        if(this.scoreGiven + scoreGiven > 200)
+        {
+            int newScoreMult = (this.scoreGiven + scoreGiven) / 100;
+            if (newScoreMult > scoreMult)
+            {
+
+                scoreMultTxt.text = "x" + newScoreMult;
+                scoreMult = newScoreMult;
+
+                scoreMultTxt.DOKill();
+                scoreMultTxt.transform.DOKill();
+
+                scoreMultTxt.color = initMultColor;
+                scoreMultTxt.transform.BumpBigVisual();
+
+                scoreMultTxt.transform.SetAsLastSibling();
+            }
+        }
+
         this.scoreGiven += scoreGiven;
+
+        currentScoreGivenTxt.transform.DOKill();
         currentScoreGivenTxt.transform.BumpVisual();
         currentScoreGivenTxt.text = this.scoreGiven.ToString("#,0");
 
-        score += scoreGiven;
+        score += scoreGiven * scoreMult;
         if(rsoContentSaved.Value.bestScore < score)
         {
             bestScoreTxt.text = "Best: " + score.ToString("#,0");
@@ -89,12 +116,17 @@ public class ScoreManager : MonoBehaviour
             rseSaveData.Call();
         }
 
+        scoreTxt.transform.DOKill();
         scoreTxt.transform.BumpVisual();
     }
 
     void GiveScoreVisual(TMP_Text txt, int finalScore, int initScore)
     {
         int currentScore = initScore;
+
+        scoreMultTxt.transform.DOScale(1.3f, .5f);
+        scoreMultTxt.DOFade(0, .5f);
+
         txt.transform.DOMove(scoreTxt.transform.position, .3f).SetEase(Ease.InCubic).OnComplete(() =>
         {
             Destroy(txt.gameObject);
