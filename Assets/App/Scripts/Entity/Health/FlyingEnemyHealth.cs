@@ -90,6 +90,5 @@ public class FlyingEnemyHealth : MonoBehaviour, IHealth, IResettable
 
     public void ResetObj()
     {
-        throw new NotImplementedException();
     }
 }
