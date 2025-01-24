@@ -94,6 +94,21 @@ MonoBehaviour:
   controller: {fileID: 3109352339949738}
   animator: {fileID: 7462695347047233985}
   scoreGiven: 25
+  EnemyDamaged:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1336429580401945205}
+        m_TargetAssemblyTypeName: WhitingEffect, Assembly-CSharp
+        m_MethodName: Tinting
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   poolName: FlyingEnemy
   rsoPoolManager: {fileID: 11400000, guid: 44295e9bc4e7d454e9a0fe145bd2958e, type: 2}
   rseOnPlayerDeath: {fileID: 11400000, guid: 8a4b2423a095dfb4884674599ccc4b24, type: 2}
@@ -291,7 +306,31 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 7462695347047233985}
+    - targetCorrespondingSourceObject: {fileID: 7976820007744082955, guid: f5505eacd308c1445a5ebe84132eb793,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1336429580401945205}
   m_SourcePrefab: {fileID: 100100000, guid: f5505eacd308c1445a5ebe84132eb793, type: 3}
+--- !u!1 &2642848460020977035 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7976820007744082955, guid: f5505eacd308c1445a5ebe84132eb793,
+    type: 3}
+  m_PrefabInstance: {fileID: 5340727256407710080}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1336429580401945205
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2642848460020977035}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0d11dc5868f86141bcdfc2d7b533169, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  whithingTime: 0.06
+  meshRenderer: {fileID: 7936850086700832617}
 --- !u!1 &5106935696562627793 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: f5505eacd308c1445a5ebe84132eb793,
@@ -322,6 +361,12 @@ Animator:
 --- !u!4 &5590280340172242539 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: f5505eacd308c1445a5ebe84132eb793,
+    type: 3}
+  m_PrefabInstance: {fileID: 5340727256407710080}
+  m_PrefabAsset: {fileID: 0}
+--- !u!137 &7936850086700832617 stripped
+SkinnedMeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 2610759844230680297, guid: f5505eacd308c1445a5ebe84132eb793,
     type: 3}
   m_PrefabInstance: {fileID: 5340727256407710080}
   m_PrefabAsset: {fileID: 0}

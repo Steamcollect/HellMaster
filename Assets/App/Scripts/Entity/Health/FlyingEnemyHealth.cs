@@ -1,10 +1,11 @@
 using System;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class FlyingEnemyHealth : MonoBehaviour, IHealth, IResettable
 {
-    //Désolé si c'est dégueulasse et que ça fait du copié-collé de code, mais c'est moi le GD qui ait fait ça rapidement pour que ça marche :,)
+    //Dï¿½solï¿½ si c'est dï¿½gueulasse et que ï¿½a fait du copiï¿½-collï¿½ de code, mais c'est moi le GD qui ait fait ï¿½a rapidement pour que ï¿½a marche :,)
 
     [Header("Settings")]
     [SerializeField] float maxHealth;
@@ -12,6 +13,7 @@ public class FlyingEnemyHealth : MonoBehaviour, IHealth, IResettable
     [SerializeField] FlyingEnemyController controller;
     [SerializeField] Animator animator;
     [SerializeField] int scoreGiven;
+    [SerializeField] UnityEvent EnemyDamaged;
 
     [Space(10)]
     [SerializeField] string poolName;
@@ -61,6 +63,7 @@ public class FlyingEnemyHealth : MonoBehaviour, IHealth, IResettable
     public void TakeDamage(float damage, Action onDeath)
     {
         rseOnEnemyHit.Call(transform.position);
+        EnemyDamaged.Invoke();
         currentHealth -= damage;
         if (currentHealth <= 0)
         {

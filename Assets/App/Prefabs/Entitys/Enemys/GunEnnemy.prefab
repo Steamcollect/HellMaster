@@ -115,6 +115,21 @@ MonoBehaviour:
   maxHealth: 20
   controller: {fileID: 4760199000783193703}
   animator: {fileID: 537015907782563473}
+  EnemyDamaged:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 810183758169983682}
+        m_TargetAssemblyTypeName: WhitingEffect, Assembly-CSharp
+        m_MethodName: Tinting
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   scoreGiven: 50
   poolName: GunEnemy
   rsoPoolManager: {fileID: 11400000, guid: 44295e9bc4e7d454e9a0fe145bd2958e, type: 2}
@@ -184,11 +199,33 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7323119263055290921, guid: d74b757189ec2a349979a31e98cc37f3,
+        type: 3}
+      propertyPath: rseOnShoot
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7323119263055290921, guid: d74b757189ec2a349979a31e98cc37f3,
+        type: 3}
+      propertyPath: rsoPoolManager
+      value: 
+      objectReference: {fileID: 11400000, guid: 44295e9bc4e7d454e9a0fe145bd2958e,
+        type: 2}
+    - target: {fileID: 7323119263055290921, guid: d74b757189ec2a349979a31e98cc37f3,
+        type: 3}
+      propertyPath: cartridgeParticle
+      value: 
+      objectReference: {fileID: 290344609239741806}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d74b757189ec2a349979a31e98cc37f3, type: 3}
+--- !u!198 &290344609239741806 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 514702645660549262, guid: d74b757189ec2a349979a31e98cc37f3,
+    type: 3}
+  m_PrefabInstance: {fileID: 226048277854959072}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &7387002477823465417 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7323119263055290921, guid: d74b757189ec2a349979a31e98cc37f3,
@@ -293,6 +330,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 537015907782563473}
+    - targetCorrespondingSourceObject: {fileID: 6719557242034758668, guid: e7f0aceff8d89874ca6bab927ff0e250,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 810183758169983682}
   m_SourcePrefab: {fileID: 100100000, guid: e7f0aceff8d89874ca6bab927ff0e250, type: 3}
 --- !u!1 &191453189937160430 stripped
 GameObject:
@@ -327,3 +368,29 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1038436473778265535}
   m_PrefabAsset: {fileID: 0}
+--- !u!137 &4471489543610468139 stripped
+SkinnedMeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 3487097227973384852, guid: e7f0aceff8d89874ca6bab927ff0e250,
+    type: 3}
+  m_PrefabInstance: {fileID: 1038436473778265535}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &5992582244693080499 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6719557242034758668, guid: e7f0aceff8d89874ca6bab927ff0e250,
+    type: 3}
+  m_PrefabInstance: {fileID: 1038436473778265535}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &810183758169983682
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5992582244693080499}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0d11dc5868f86141bcdfc2d7b533169, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  whithingTime: 0.06
+  meshRenderer: {fileID: 4471489543610468139}
